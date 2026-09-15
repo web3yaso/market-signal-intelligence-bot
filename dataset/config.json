@@ -1,0 +1,68 @@
+{
+  "dataset_version": "1.0.0",
+  "input_kind": "mock_chat",
+  "scope": {
+    "provider": "openai",
+    "kind": "api_credits",
+    "aggregation_terms_id": "demo_prepaid_v1"
+  },
+  "aliases": {
+    "OpenAI": "openai",
+    "openai": "openai",
+    "OA": "openai",
+    "OAI": "openai"
+  },
+  "alias_policy": "OA/OAI 仅为本数据集配置的 OpenAI 简称；MAX、GPT-4 等不能据此推断为同一种额度。",
+  "channels": {
+    "tg_demo": {
+      "platform": "telegram",
+      "convention_id": "tg_demo_v1",
+      "quantity_unit_default": "USD_FACE",
+      "price_unit_default": "CNY_PER_USD_FACE",
+      "price_currency_default": "CNY",
+      "terms_id_for_openai_api_credits": "demo_prepaid_v1",
+      "notes": "模拟的预付 API 额度，固定条款；未知的币种和单位保持 null。"
+    },
+    "wx_units": {
+      "platform": "wechat",
+      "convention_id": "wx_units_v1",
+      "quantity_unit_default": null,
+      "price_unit_default": null,
+      "price_currency_default": null,
+      "terms_id_for_openai_api_credits": "demo_prepaid_v1",
+      "notes": "模拟的预付 API 额度，固定条款；未知的币种和单位保持 null。"
+    },
+    "wx_reply": {
+      "platform": "wechat",
+      "convention_id": "wx_reply_v1",
+      "quantity_unit_default": "USD_FACE",
+      "price_unit_default": "CNY_PER_USD_FACE",
+      "price_currency_default": "CNY",
+      "terms_id_for_openai_api_credits": "demo_prepaid_v1",
+      "notes": "模拟的预付 API 额度，固定条款；未知的币种和单位保持 null。"
+    },
+    "tg_quotes": {
+      "platform": "telegram",
+      "convention_id": "tg_quotes_v1",
+      "quantity_unit_default": "USD_FACE",
+      "price_unit_default": "CNY_PER_USD_FACE",
+      "price_currency_default": "CNY",
+      "terms_id_for_openai_api_credits": "demo_prepaid_v1",
+      "notes": "模拟的预付 API 额度，固定条款；未知的币种和单位保持 null。"
+    },
+    "wx_mixed": {
+      "platform": "wechat",
+      "convention_id": "wx_mixed_v1",
+      "quantity_unit_default": null,
+      "price_unit_default": null,
+      "price_currency_default": null,
+      "terms_id_for_openai_api_credits": null,
+      "notes": "混合讨论群；无资源、数量、价格或结算条款默认值。"
+    }
+  },
+  "context": {
+    "max_reply_ancestors": 3,
+    "previous_unlinked_messages": false,
+    "forward_policy": "明确 forwarded_origin 可用于来源绑定；普通复制文本不提供来源证明。"
+  }
+}

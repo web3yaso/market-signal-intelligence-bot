@@ -1,0 +1,1453 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Market Signal Intelligence · D1</title><style>
+*{box-sizing:border-box}body{margin:0;background:#f5f6fa;color:#242c40;font:14px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}main{max-width:1240px;margin:auto;padding:34px 36px 40px}h1,h2,p{margin:0}h1{font-size:26px;letter-spacing:-.7px;font-weight:650}h2{font-size:17px;font-weight:650;letter-spacing:-.25px}.header{display:flex;justify-content:space-between;align-items:center;gap:20px}.brand{display:flex;gap:13px;align-items:center}.brand-icon{background:#5864df;color:white;width:43px;height:43px;display:grid;place-items:center;border-radius:12px;font-size:24px}.subtitle{font-size:12px;color:#8490a6;margin-top:2px}.live{font-size:12px;color:#556178;white-space:nowrap}.live .dot{margin-right:6px}.toolbar{margin:25px 0 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}.tabs{display:flex;background:#e9ecf3;padding:4px;border-radius:9px;gap:2px}button{font:inherit;border:0;cursor:pointer}.tabs button{background:transparent;color:#6c768d;border-radius:6px;padding:5px 19px;font-size:12px;font-weight:600}.tabs button[aria-pressed=true]{background:white;color:#4652cf;box-shadow:0 1px 4px #15243a12}select{font:inherit;font-size:12px;color:#4f5b72;padding:9px 32px 9px 12px;border:1px solid #dfe4ec;border-radius:8px;background:white}.filter-label{font-size:11px;color:#8892a6;margin-right:6px}.window-note{margin-left:auto;color:#8a94a8;font-size:11px}.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;margin-bottom:20px}.kpi,.panel{background:white;border:1px solid #e3e7ef;border-radius:12px;box-shadow:0 2px 3px #24345002}.kpi{padding:20px 19px}.featured{border-top:3px solid #6570e7;padding-top:18px}.eyebrow{display:flex;gap:7px;align-items:center;font-size:12px;font-weight:600;color:#647087;white-space:nowrap}.resource-icon{width:21px;height:21px;border-radius:6px;background:#eceeff;color:#5b64d9;display:inline-grid;place-items:center;font-size:12px}.pill{background:#f1f3f8;color:#7b859b;font-size:10px;font-weight:500;padding:3px 7px;border-radius:5px;white-space:nowrap}.eyebrow .pill{margin-left:auto}.value{font-size:34px;font-weight:650;letter-spacing:-1.2px;margin:16px 0 9px;line-height:1.15;font-variant-numeric:tabular-nums}.value small{font-size:15px;font-weight:450;letter-spacing:0;color:#9aa3b4}.card-bottom{display:flex;justify-content:space-between;gap:6px;font-size:11px;color:#7b859a}.delta{color:#5965a8;font-weight:600}.hint{font-size:11px;color:#929bae;margin-top:8px}.panel{padding:23px;margin-bottom:20px}.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:20px}.section-head p{font-size:11px;color:#919bad;margin-top:3px}.light{font-weight:450;color:#8892a8}.legend{display:flex;gap:18px;font-size:11px;color:#8590a4}.legend span{display:flex;align-items:center;gap:6px}.line-key{width:16px;height:2px;background:#5965e8}.range-key{width:13px;height:9px;background:#dfe7ff;border-radius:2px}svg{width:100%;display:block;overflow:visible}svg text{font:10px -apple-system,sans-serif;fill:#8d97aa}.chart-footer{display:flex;justify-content:space-between;border-top:1px solid #f0f2f7;padding-top:13px;color:#909aac;font-size:10px}.chart-footer b{color:#65718a;font-weight:500}.split{display:grid;grid-template-columns:1fr 1fr;gap:20px}.tiny-label{font-size:9px;letter-spacing:1px;color:#a0a8b7}.dot{display:inline-block;width:7px;height:7px;border-radius:50%;flex-shrink:0}.green{background:#51b89b}.purple{background:#8580e8}.slate{background:#8495ad}.bar-row{display:flex;justify-content:space-between;margin:15px 0 7px;font-size:12px;color:#6c7890}.bar-row .dot{margin-right:7px}.bar-row b{color:#3b4660;font-weight:600}.bar-track{height:12px;background:#f2f4f8;border-radius:4px;overflow:hidden}.bar-fill{height:100%;border-radius:4px}.supply{background:linear-gradient(90deg,#64c3a9,#4fb598)}.demand{background:linear-gradient(90deg,#aaa4f4,#817be2)}.ratio{margin-top:23px;border-top:1px solid #edf0f5;padding-top:14px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#758197}.ratio strong{font-size:22px;color:#3c4764}.health-row{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #f0f2f7;padding:11px 0;font-size:12px;color:#738097}.health-row b{color:#505d7c;font-weight:600}.health-row small{font-size:10px;color:#a0a9b8;margin-left:5px}.recent{padding-bottom:6px}.scroll{overflow:auto}table{border-collapse:collapse;width:100%;text-align:left;font-size:12px}th{background:#f8f9fc;color:#98a1b1;font-size:10px;font-weight:500;padding:10px 12px;white-space:nowrap}td{padding:14px 12px;border-bottom:1px solid #f0f2f6;color:#65718a}tbody tr:last-child td{border-bottom:0}.mono{font-variant-numeric:tabular-nums;color:#8e98ad;font-size:11px}td b{font-weight:550;color:#4f5b74}.cell-sub{display:block;font-size:10px;color:#9da5b5}.tag{background:#eff1fa;color:#717baf;font-size:10px;padding:4px 7px;border-radius:5px;white-space:nowrap}.signal-text{max-width:420px;min-width:230px;color:#536079;font-size:12px}.status{font-size:10px;white-space:nowrap}.status:before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:currentColor;margin-right:5px}.good{color:#56a38d}.warn{color:#bd914e}a{color:#6873c8;text-decoration:none;white-space:nowrap}a:hover{text-decoration:underline}.data-note{display:flex;gap:10px;color:#8691a6;font-size:10px;line-height:1.9;margin-bottom:26px}.data-note b{font-weight:600;color:#68758e}.note-icon{display:inline-grid;place-items:center;border:1px solid #a9b2c2;width:15px;height:15px;border-radius:50%;flex-shrink:0;margin-top:3px}.audit{border-top:1px solid #e3e7ef;padding-top:20px}.audit h2{font-size:13px;color:#7f8aa0;margin-bottom:12px}.message-detail{scroll-margin-top:16px;background:white;border:1px solid #e5e9f0;border-radius:7px;margin:7px 0;padding:10px 13px}.message-detail:target{border-color:#7d87dd}.message-detail summary{display:flex;align-items:center;gap:13px;cursor:pointer;font-size:11px;color:#7b879e}.message-detail summary>span:nth-of-type(2){flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.message-detail em{font-style:normal;font-size:10px;color:#8b95aa}.message-detail b{font-weight:550;color:#5a6680}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:11px;color:#6d7990;max-height:480px;overflow:auto}details>summary{cursor:pointer}.raw{margin:15px 0;font-size:12px;color:#7c88a0}.footer{display:flex;justify-content:space-between;gap:12px;margin-top:26px;color:#a0a8b8;font-size:10px}.footer span{overflow-wrap:anywhere}[hidden]{display:none!important}:focus-visible{outline:2px solid #6b74e6;outline-offset:3px}@media(max-width:1000px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.window-note{width:100%;margin:0}.eyebrow .pill{margin-left:0}}@media(max-width:680px){main{padding:20px 15px}h1{font-size:21px}.header{align-items:flex-start;flex-direction:column;gap:12px}.split{grid-template-columns:1fr;gap:0}.kpis{gap:10px}.kpi{padding:15px}.featured{padding-top:13px}.value{font-size:29px}.eyebrow{font-size:10px;white-space:normal;flex-wrap:wrap}.card-bottom{flex-wrap:wrap}.panel{padding:16px}.section-head{align-items:flex-start;flex-wrap:wrap}.legend{font-size:10px}.chart-footer{gap:10px}.tiny-label{display:none}.footer{flex-direction:column}.message-detail summary>span:nth-of-type(2){max-width:40vw}}@media print{body{background:white}main{padding:0}.toolbar,.audit{display:none}.panel,.kpi{break-inside:avoid;box-shadow:none}}
+</style></head><body><main>
+<header class="header"><div class="brand"><div class="brand-icon" aria-hidden="true">≋</div><div><h1>Market Signal Intelligence</h1><p class="subtitle">AI RESOURCE MONITOR · 群聊资源信号</p></div></div></header>
+<div class="toolbar"><div class="tabs" role="group" aria-label="时间窗口"><button type="button" data-window-button="24h" aria-pressed="true">24h</button><button type="button" data-window-button="7d" aria-pressed="false">7d</button><button type="button" data-window-button="all" aria-pressed="false">全部</button></div><label><span class="filter-label">Resource</span><select aria-label="资源（当前场景只有一种）"><option>OpenAI API 额度</option></select></label><label><span class="filter-label">Source</span><select aria-label="来源（当前场景）"><option>WeChat · D1</option></select></label><span class="window-note">以样例末条时间为锚点 · 2026-09-15 14:00 UTC+0000</span></div>
+<div class="window-panel" data-window="24h"><div class="kpis">
+<section class="kpi featured"><div class="eyebrow"><span class="resource-icon">O</span> OpenAI API <span class="pill">美元面值额度</span></div><div class="value"><small>¥</small> 3.70</div><div class="card-bottom"><span>卖方报价中位数</span><span class="delta">— 0%</span></div><div class="hint">CNY / USD 面值 · 8 个独立报价</div></section>
+<section class="kpi"><div class="eyebrow"><span class="dot green"></span> Observed supply</div><div class="value">1.11M<small> USD</small></div><div class="card-bottom"><span>已观察供应量</span><span class="delta">↑ 8.8%</span></div><div class="hint">单位明确的未撤回库存</div></section>
+<section class="kpi"><div class="eyebrow"><span class="dot purple"></span> Observed demand</div><div class="value">2.1M<small> USD</small></div><div class="card-bottom"><span>已观察需求量</span><span class="delta">↑ 27.3%</span></div><div class="hint">买方意向 · 不代表成交</div></section>
+<section class="kpi"><div class="eyebrow"><span class="dot slate"></span> Active signals</div><div class="value">14<small> events</small></div><div class="card-bottom"><span>去重活跃事件</span><span class="pill">D1</span></div><div class="hint">已关联来源的转发不重复累计</div></section></div>
+<section class="panel price-panel"><div class="section-head"><div><h2>Median price <span class="light">+ range</span></h2><p>独立卖方报价中位数与最低—最高范围 · CNY / USD 面值</p></div><div class="legend"><span><i class="line-key"></i> 中位数</span><span><i class="range-key"></i> 报价范围</span></div></div><svg viewBox="0 0 1080 275" role="img" aria-label="独立卖方报价中位数与最低最高范围"><line x1="65" y1="231.0" x2="1055" y2="231.0" stroke="#e9edf3" stroke-dasharray="4 5"/><text x="51" y="235.0" text-anchor="end">3.43</text><line x1="65" y1="179.24999999999994" x2="1055" y2="179.24999999999994" stroke="#e9edf3" stroke-dasharray="4 5"/><text x="51" y="183.24999999999994" text-anchor="end">3.56</text><line x1="65" y1="127.49999999999991" x2="1055" y2="127.49999999999991" stroke="#e9edf3" stroke-dasharray="4 5"/><text x="51" y="131.49999999999991" text-anchor="end">3.70</text><line x1="65" y1="75.75000000000004" x2="1055" y2="75.75000000000004" stroke="#e9edf3" stroke-dasharray="4 5"/><text x="51" y="79.75000000000004" text-anchor="end">3.83</text><line x1="65" y1="24.0" x2="1055" y2="24.0" stroke="#e9edf3" stroke-dasharray="4 5"/><text x="51" y="28.0" text-anchor="end">3.97</text><line x1="147.5" y1="165.83333333333323" x2="147.5" y2="70.0" stroke="#a1acf7" stroke-width="2"/><circle cx="147.5" cy="127.49999999999991" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 31 · 中位价 3.7 · 范围 3.6–3.85 · 7 个报价</title></circle><path d="M147.5 70.0 H312.5 V70.0 V165.83333333333323 V165.83333333333323 H147.5 Z" fill="#dfe7ff" opacity=".8"/><path d="M147.5 127.49999999999991 H312.5 V127.49999999999991" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="312.5" y1="165.83333333333323" x2="312.5" y2="70.0" stroke="#a1acf7" stroke-width="2"/><circle cx="312.5" cy="127.49999999999991" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 32 · 中位价 3.7 · 范围 3.6–3.85 · 7 个报价</title></circle><path d="M312.5 70.0 H477.5 V70.0 V185.0 V165.83333333333323 H312.5 Z" fill="#dfe7ff" opacity=".8"/><path d="M312.5 127.49999999999991 H477.5 V127.49999999999991" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="477.5" y1="185.0" x2="477.5" y2="70.0" stroke="#a1acf7" stroke-width="2"/><circle cx="477.5" cy="127.49999999999991" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 33 · 中位价 3.7 · 范围 3.55–3.85 · 8 个报价</title></circle><path d="M477.5 70.0 H642.5 V70.0 V185.0 V185.0 H477.5 Z" fill="#dfe7ff" opacity=".8"/><path d="M477.5 127.49999999999991 H642.5 V127.49999999999991" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="642.5" y1="185.0" x2="642.5" y2="70.0" stroke="#a1acf7" stroke-width="2"/><circle cx="642.5" cy="127.49999999999991" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 34 · 中位价 3.7 · 范围 3.55–3.85 · 8 个报价</title></circle><path d="M642.5 70.0 H807.5 V70.0 V185.0 V185.0 H642.5 Z" fill="#dfe7ff" opacity=".8"/><path d="M642.5 127.49999999999991 H807.5 V127.49999999999991" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="807.5" y1="185.0" x2="807.5" y2="70.0" stroke="#a1acf7" stroke-width="2"/><circle cx="807.5" cy="127.49999999999991" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 35 · 中位价 3.7 · 范围 3.55–3.85 · 8 个报价</title></circle><path d="M807.5 70.0 H972.5 V70.0 V185.0 V185.0 H807.5 Z" fill="#dfe7ff" opacity=".8"/><path d="M807.5 127.49999999999991 H972.5 V127.49999999999991" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="972.5" y1="185.0" x2="972.5" y2="70.0" stroke="#a1acf7" stroke-width="2"/><circle cx="972.5" cy="127.49999999999991" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 36 · 中位价 3.7 · 范围 3.55–3.85 · 8 个报价</title></circle><text x="147.5" y="259" text-anchor="middle">09:00 · 31</text><text x="312.5" y="259" text-anchor="middle">10:00 · 32</text><text x="477.5" y="259" text-anchor="middle">11:00 · 33</text><text x="642.5" y="259" text-anchor="middle">12:00 · 34</text><text x="807.5" y="259" text-anchor="middle">13:00 · 35</text><text x="972.5" y="259" text-anchor="middle">14:00 · 36</text></svg><div class="chart-footer"><span>模拟消息时间（UTC）· 数字为步骤；无报价时留空</span><span>当前范围 <b>3.55–3.85</b></span></div></section>
+<div class="split"><section class="panel"><div class="section-head"><div><h2>Supply vs demand</h2><p>已观察供需 · USD 面值额度</p></div><span class="tiny-label">CURRENT SNAPSHOT</span></div><div class="bar-row"><span><i class="dot green"></i> Supply</span><b>1.11M</b></div><div class="bar-track"><div class="bar-fill supply" style="width:52.857%"></div></div><div class="bar-row"><span><i class="dot purple"></i> Demand</span><b>2.1M</b></div><div class="bar-track"><div class="bar-fill demand" style="width:100.000%"></div></div><div class="ratio"><span>Supply / Demand ratio</span><strong>0.53</strong></div><p class="hint">需求为零时比值留空。未知单位与日用量不进入数量统计。</p></section>
+<section class="panel"><div class="section-head"><div><h2>Market health</h2><p>变化相对窗口首条快照</p></div><span class="pill">描述性指标</span></div><div class="health-row"><span>供应量变化</span><b>↑ 8.8%</b></div><div class="health-row"><span>需求量变化</span><b>↑ 27.3%</b></div><div class="health-row"><span>卖价极差 <small>CNY / USD</small></span><b>0.3</b></div><div class="health-row"><span>可比报价覆盖 <small>8/8 活跃卖方</small></span><b>100%</b></div><p class="hint">覆盖率表示可比卖方报价占比，不是模型置信度。</p></section></div>
+<section class="panel recent"><div class="section-head"><div><h2>Recent signals</h2><p>最近消息、状态变更与原文证据</p></div><span class="pill">6 条消息</span></div><div class="scroll"><table><thead><tr><th>时间</th><th>来源 / 发布者</th><th>信号</th><th>内容</th><th>处理状态</th><th></th></tr></thead><tbody><tr><td class="mono">14:00</td><td><b>nina</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">忽略</span></td><td class="signal-text">今天先整理报价，晚点再聊。</td><td><span class="status good">已处理</span></td><td><a href="#msg-35" aria-label="查看 d36 的证据">证据 ↗</a></td></tr><tr><td class="mono">13:00</td><td><b>sara</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">求购</span></td><td class="signal-text">需要 450k OpenAI API 额度，预算不超过 3.65。</td><td><span class="status good">已处理</span></td><td><a href="#msg-34" aria-label="查看 d35 的证据">证据 ↗</a></td></tr><tr><td class="mono">12:00</td><td><b>leo</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">忽略</span></td><td class="signal-text">群公告已读，谢谢。</td><td><span class="status good">已处理</span></td><td><a href="#msg-33" aria-label="查看 d34 的证据">证据 ↗</a></td></tr><tr><td class="mono">11:00</td><td><b>jack</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">供给</span></td><td class="signal-text">出 90k OpenAI API 额度，报价 3.55，预付。</td><td><span class="status good">已处理</span></td><td><a href="#msg-32" aria-label="查看 d33 的证据">证据 ↗</a></td></tr><tr><td class="mono">10:00</td><td><b>mika</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">忽略</span></td><td class="signal-text">听说你这批没货了，不确定。</td><td><span class="status good">已处理</span></td><td><a href="#msg-31" aria-label="查看 d32 的证据">证据 ↗</a></td></tr><tr><td class="mono">09:00</td><td><b>henry</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">剩余量</span></td><td class="signal-text">剩余量更新到 190k。</td><td><span class="status warn">待确认</span></td><td><a href="#msg-30" aria-label="查看 d31 的证据">证据 ↗</a></td></tr></tbody></table></div></section>
+<div class="data-note"><span class="note-icon">i</span><div><b>统计口径</b>　固定条款 demo_prepaid_v1；未撤回不保证仍有货。排除项计数合计 0（可重叠），条款不可比 0。<br><span>供应单位缺失 0 · 需求单位缺失 0 · 流量 0 · 卖价不可比 0。窗口筛选时间线和最近消息，卡片保留最新时点仍活跃的供需存量。本次回放处理失败 1 条，待确认 2 条。</span></div></div></div><div class="window-panel" data-window="7d" hidden><div class="kpis">
+<section class="kpi featured"><div class="eyebrow"><span class="resource-icon">O</span> OpenAI API <span class="pill">美元面值额度</span></div><div class="value"><small>¥</small> 3.70</div><div class="card-bottom"><span>卖方报价中位数</span><span class="delta">↓ 5.1%</span></div><div class="hint">CNY / USD 面值 · 8 个独立报价</div></section>
+<section class="kpi"><div class="eyebrow"><span class="dot green"></span> Observed supply</div><div class="value">1.11M<small> USD</small></div><div class="card-bottom"><span>已观察供应量</span><span class="delta">↑ 825.0%</span></div><div class="hint">单位明确的未撤回库存</div></section>
+<section class="kpi"><div class="eyebrow"><span class="dot purple"></span> Observed demand</div><div class="value">2.1M<small> USD</small></div><div class="card-bottom"><span>已观察需求量</span><span class="delta">新增 2.1M</span></div><div class="hint">买方意向 · 不代表成交</div></section>
+<section class="kpi"><div class="eyebrow"><span class="dot slate"></span> Active signals</div><div class="value">14<small> events</small></div><div class="card-bottom"><span>去重活跃事件</span><span class="pill">D1</span></div><div class="hint">已关联来源的转发不重复累计</div></section></div>
+<section class="panel price-panel"><div class="section-head"><div><h2>Median price <span class="light">+ range</span></h2><p>独立卖方报价中位数与最低—最高范围 · CNY / USD 面值</p></div><div class="legend"><span><i class="line-key"></i> 中位数</span><span><i class="range-key"></i> 报价范围</span></div></div><svg viewBox="0 0 1080 275" role="img" aria-label="独立卖方报价中位数与最低最高范围"><line x1="65" y1="231.0" x2="1055" y2="231.0" stroke="#e9edf3" stroke-dasharray="4 5"/><text x="51" y="235.0" text-anchor="end">3.41</text><line x1="65" y1="179.24999999999997" x2="1055" y2="179.24999999999997" stroke="#e9edf3" stroke-dasharray="4 5"/><text x="51" y="183.24999999999997" text-anchor="end">3.59</text><line x1="65" y1="127.50000000000007" x2="1055" y2="127.50000000000007" stroke="#e9edf3" stroke-dasharray="4 5"/><text x="51" y="131.50000000000006" text-anchor="end">3.77</text><line x1="65" y1="75.75000000000003" x2="1055" y2="75.75000000000003" stroke="#e9edf3" stroke-dasharray="4 5"/><text x="51" y="79.75000000000003" text-anchor="end">3.95</text><line x1="65" y1="24.0" x2="1055" y2="24.0" stroke="#e9edf3" stroke-dasharray="4 5"/><text x="51" y="28.0" text-anchor="end">4.13</text><line x1="78.75" y1="91.56249999999994" x2="78.75" y2="91.56249999999994" stroke="#a1acf7" stroke-width="2"/><circle cx="78.75" cy="91.56249999999994" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 1 · 中位价 3.9 · 范围 3.9–3.9 · 1 个报价</title></circle><path d="M78.75 91.56249999999994 H106.25 V91.56249999999994 V120.31249999999997 V91.56249999999994 H78.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M78.75 91.56249999999994 H106.25 V105.9374999999999" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="106.25" y1="120.31249999999997" x2="106.25" y2="91.56249999999994" stroke="#a1acf7" stroke-width="2"/><circle cx="106.25" cy="105.9374999999999" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 2 · 中位价 3.85 · 范围 3.8–3.9 · 2 个报价</title></circle><path d="M106.25 91.56249999999994 H133.75 V91.56249999999994 V120.31249999999997 V120.31249999999997 H106.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M106.25 105.9374999999999 H133.75 V105.9374999999999" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="133.75" y1="120.31249999999997" x2="133.75" y2="91.56249999999994" stroke="#a1acf7" stroke-width="2"/><circle cx="133.75" cy="105.9374999999999" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 3 · 中位价 3.85 · 范围 3.8–3.9 · 2 个报价</title></circle><path d="M133.75 91.56249999999994 H161.25 V91.56249999999994 V120.31249999999997 V120.31249999999997 H133.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M133.75 105.9374999999999 H161.25 V105.9374999999999" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="161.25" y1="120.31249999999997" x2="161.25" y2="91.56249999999994" stroke="#a1acf7" stroke-width="2"/><circle cx="161.25" cy="105.9374999999999" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 4 · 中位价 3.85 · 范围 3.8–3.9 · 2 个报价</title></circle><path d="M161.25 91.56249999999994 H188.75 V91.56249999999994 V134.6874999999999 V120.31249999999997 H161.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M161.25 105.9374999999999 H188.75 V120.31249999999997" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="188.75" y1="134.6874999999999" x2="188.75" y2="91.56249999999994" stroke="#a1acf7" stroke-width="2"/><circle cx="188.75" cy="120.31249999999997" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 5 · 中位价 3.8 · 范围 3.75–3.9 · 3 个报价</title></circle><path d="M188.75 91.56249999999994 H216.25 V91.56249999999994 V134.6874999999999 V134.6874999999999 H188.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M188.75 120.31249999999997 H216.25 V120.31249999999997" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="216.25" y1="134.6874999999999" x2="216.25" y2="91.56249999999994" stroke="#a1acf7" stroke-width="2"/><circle cx="216.25" cy="120.31249999999997" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 6 · 中位价 3.8 · 范围 3.75–3.9 · 3 个报价</title></circle><path d="M216.25 91.56249999999994 H243.75 V62.81249999999993 V134.6874999999999 V134.6874999999999 H216.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M216.25 120.31249999999997 H243.75 V105.9374999999999" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="243.75" y1="134.6874999999999" x2="243.75" y2="62.81249999999993" stroke="#a1acf7" stroke-width="2"/><circle cx="243.75" cy="105.9374999999999" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 7 · 中位价 3.85 · 范围 3.75–4 · 4 个报价</title></circle><path d="M243.75 62.81249999999993 H271.25 V62.81249999999993 V134.6874999999999 V134.6874999999999 H243.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M243.75 105.9374999999999 H271.25 V105.9374999999999" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="271.25" y1="134.6874999999999" x2="271.25" y2="62.81249999999993" stroke="#a1acf7" stroke-width="2"/><circle cx="271.25" cy="105.9374999999999" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 8 · 中位价 3.85 · 范围 3.75–4 · 4 个报价</title></circle><path d="M271.25 62.81249999999993 H298.75 V62.81249999999993 V134.6874999999999 V134.6874999999999 H271.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M271.25 105.9374999999999 H298.75 V105.9374999999999" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="298.75" y1="134.6874999999999" x2="298.75" y2="62.81249999999993" stroke="#a1acf7" stroke-width="2"/><circle cx="298.75" cy="105.9374999999999" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 9 · 中位价 3.85 · 范围 3.75–4 · 4 个报价</title></circle><path d="M298.75 62.81249999999993 H326.25 V62.81249999999993 V134.6874999999999 V134.6874999999999 H298.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M298.75 105.9374999999999 H326.25 V105.9374999999999" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="326.25" y1="134.6874999999999" x2="326.25" y2="62.81249999999993" stroke="#a1acf7" stroke-width="2"/><circle cx="326.25" cy="105.9374999999999" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 10 · 中位价 3.85 · 范围 3.75–4 · 4 个报价</title></circle><path d="M326.25 62.81249999999993 H353.75 V62.81249999999993 V163.43749999999991 V134.6874999999999 H326.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M326.25 105.9374999999999 H353.75 V120.31249999999997" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="353.75" y1="163.43749999999991" x2="353.75" y2="62.81249999999993" stroke="#a1acf7" stroke-width="2"/><circle cx="353.75" cy="120.31249999999997" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 11 · 中位价 3.8 · 范围 3.65–4 · 5 个报价</title></circle><path d="M353.75 62.81249999999993 H381.25 V62.81249999999993 V163.43749999999991 V163.43749999999991 H353.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M353.75 120.31249999999997 H381.25 V120.31249999999997" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="381.25" y1="163.43749999999991" x2="381.25" y2="62.81249999999993" stroke="#a1acf7" stroke-width="2"/><circle cx="381.25" cy="120.31249999999997" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 12 · 中位价 3.8 · 范围 3.65–4 · 5 个报价</title></circle><path d="M381.25 62.81249999999993 H408.75 V62.81249999999993 V163.43749999999991 V163.43749999999991 H381.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M381.25 120.31249999999997 H408.75 V120.31249999999997" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="408.75" y1="163.43749999999991" x2="408.75" y2="62.81249999999993" stroke="#a1acf7" stroke-width="2"/><circle cx="408.75" cy="120.31249999999997" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 13 · 中位价 3.8 · 范围 3.65–4 · 5 个报价</title></circle><path d="M408.75 62.81249999999993 H436.25 V62.81249999999993 V163.43749999999991 V163.43749999999991 H408.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M408.75 120.31249999999997 H436.25 V105.9374999999999" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="436.25" y1="163.43749999999991" x2="436.25" y2="62.81249999999993" stroke="#a1acf7" stroke-width="2"/><circle cx="436.25" cy="105.9374999999999" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 14 · 中位价 3.85 · 范围 3.65–4 · 6 个报价</title></circle><path d="M436.25 62.81249999999993 H463.75 V62.81249999999993 V163.43749999999991 V163.43749999999991 H436.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M436.25 105.9374999999999 H463.75 V105.9374999999999" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="463.75" y1="163.43749999999991" x2="463.75" y2="62.81249999999993" stroke="#a1acf7" stroke-width="2"/><circle cx="463.75" cy="105.9374999999999" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 15 · 中位价 3.85 · 范围 3.65–4 · 6 个报价</title></circle><path d="M463.75 62.81249999999993 H491.25 V62.81249999999993 V163.43749999999991 V163.43749999999991 H463.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M463.75 105.9374999999999 H491.25 V127.49999999999993" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="491.25" y1="163.43749999999991" x2="491.25" y2="62.81249999999993" stroke="#a1acf7" stroke-width="2"/><circle cx="491.25" cy="127.49999999999993" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 16 · 中位价 3.775 · 范围 3.65–4 · 6 个报价</title></circle><path d="M491.25 62.81249999999993 H518.75 V62.81249999999993 V163.43749999999991 V163.43749999999991 H491.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M491.25 127.49999999999993 H518.75 V127.49999999999993" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="518.75" y1="163.43749999999991" x2="518.75" y2="62.81249999999993" stroke="#a1acf7" stroke-width="2"/><circle cx="518.75" cy="127.49999999999993" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 17 · 中位价 3.775 · 范围 3.65–4 · 6 个报价</title></circle><path d="M518.75 62.81249999999993 H546.25 V62.81249999999993 V163.43749999999991 V163.43749999999991 H518.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M518.75 127.49999999999993 H546.25 V134.6874999999999" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="546.25" y1="163.43749999999991" x2="546.25" y2="62.81249999999993" stroke="#a1acf7" stroke-width="2"/><circle cx="546.25" cy="134.6874999999999" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 18 · 中位价 3.75 · 范围 3.65–4 · 7 个报价</title></circle><path d="M546.25 62.81249999999993 H573.75 V77.18749999999987 V163.43749999999991 V163.43749999999991 H546.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M546.25 134.6874999999999 H573.75 V141.8749999999999" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="573.75" y1="163.43749999999991" x2="573.75" y2="77.18749999999987" stroke="#a1acf7" stroke-width="2"/><circle cx="573.75" cy="141.8749999999999" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 19 · 中位价 3.725 · 范围 3.65–3.95 · 6 个报价</title></circle><path d="M573.75 77.18749999999987 H601.25 V77.18749999999987 V163.43749999999991 V163.43749999999991 H573.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M573.75 141.8749999999999 H601.25 V141.8749999999999" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="601.25" y1="163.43749999999991" x2="601.25" y2="77.18749999999987" stroke="#a1acf7" stroke-width="2"/><circle cx="601.25" cy="141.8749999999999" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 20 · 中位价 3.725 · 范围 3.65–3.95 · 6 个报价</title></circle><path d="M601.25 77.18749999999987 H628.75 V77.18749999999987 V163.43749999999991 V163.43749999999991 H601.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M601.25 141.8749999999999 H628.75 V141.8749999999999" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="628.75" y1="163.43749999999991" x2="628.75" y2="77.18749999999987" stroke="#a1acf7" stroke-width="2"/><circle cx="628.75" cy="141.8749999999999" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 21 · 中位价 3.725 · 范围 3.65–3.95 · 6 个报价</title></circle><path d="M628.75 77.18749999999987 H656.25 V77.18749999999987 V163.43749999999991 V163.43749999999991 H628.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M628.75 141.8749999999999 H656.25 V141.8749999999999" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="656.25" y1="163.43749999999991" x2="656.25" y2="77.18749999999987" stroke="#a1acf7" stroke-width="2"/><circle cx="656.25" cy="141.8749999999999" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 22 · 中位价 3.725 · 范围 3.65–3.95 · 6 个报价</title></circle><path d="M656.25 77.18749999999987 H683.75 V77.18749999999987 V177.81249999999986 V163.43749999999991 H656.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M656.25 141.8749999999999 H683.75 V149.06249999999983" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="683.75" y1="177.81249999999986" x2="683.75" y2="77.18749999999987" stroke="#a1acf7" stroke-width="2"/><circle cx="683.75" cy="149.06249999999983" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 23 · 中位价 3.7 · 范围 3.6–3.95 · 6 个报价</title></circle><path d="M683.75 77.18749999999987 H711.25 V77.18749999999987 V177.81249999999986 V177.81249999999986 H683.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M683.75 149.06249999999983 H711.25 V149.06249999999983" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="711.25" y1="177.81249999999986" x2="711.25" y2="77.18749999999987" stroke="#a1acf7" stroke-width="2"/><circle cx="711.25" cy="149.06249999999983" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 24 · 中位价 3.7 · 范围 3.6–3.95 · 6 个报价</title></circle><path d="M711.25 77.18749999999987 H738.75 V77.18749999999987 V177.81249999999986 V177.81249999999986 H711.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M711.25 149.06249999999983 H738.75 V149.06249999999983" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="738.75" y1="177.81249999999986" x2="738.75" y2="77.18749999999987" stroke="#a1acf7" stroke-width="2"/><circle cx="738.75" cy="149.06249999999983" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 25 · 中位价 3.7 · 范围 3.6–3.95 · 6 个报价</title></circle><path d="M738.75 77.18749999999987 H766.25 V77.18749999999987 V177.81249999999986 V177.81249999999986 H738.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M738.75 149.06249999999983 H766.25 V149.06249999999983" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="766.25" y1="177.81249999999986" x2="766.25" y2="77.18749999999987" stroke="#a1acf7" stroke-width="2"/><circle cx="766.25" cy="149.06249999999983" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 26 · 中位价 3.7 · 范围 3.6–3.95 · 6 个报价</title></circle><path d="M766.25 77.18749999999987 H793.75 V77.18749999999987 V177.81249999999986 V177.81249999999986 H766.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M766.25 149.06249999999983 H793.75 V149.06249999999983" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="793.75" y1="177.81249999999986" x2="793.75" y2="77.18749999999987" stroke="#a1acf7" stroke-width="2"/><circle cx="793.75" cy="149.06249999999983" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 27 · 中位价 3.7 · 范围 3.6–3.95 · 7 个报价</title></circle><path d="M793.75 77.18749999999987 H821.25 V105.9374999999999 V177.81249999999986 V177.81249999999986 H793.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M793.75 149.06249999999983 H821.25 V149.06249999999983" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="821.25" y1="177.81249999999986" x2="821.25" y2="105.9374999999999" stroke="#a1acf7" stroke-width="2"/><circle cx="821.25" cy="149.06249999999983" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 28 · 中位价 3.7 · 范围 3.6–3.85 · 7 个报价</title></circle><path d="M821.25 105.9374999999999 H848.75 V105.9374999999999 V177.81249999999986 V177.81249999999986 H821.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M821.25 149.06249999999983 H848.75 V149.06249999999983" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="848.75" y1="177.81249999999986" x2="848.75" y2="105.9374999999999" stroke="#a1acf7" stroke-width="2"/><circle cx="848.75" cy="149.06249999999983" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 29 · 中位价 3.7 · 范围 3.6–3.85 · 7 个报价</title></circle><path d="M848.75 105.9374999999999 H876.25 V105.9374999999999 V177.81249999999986 V177.81249999999986 H848.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M848.75 149.06249999999983 H876.25 V149.06249999999983" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="876.25" y1="177.81249999999986" x2="876.25" y2="105.9374999999999" stroke="#a1acf7" stroke-width="2"/><circle cx="876.25" cy="149.06249999999983" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 30 · 中位价 3.7 · 范围 3.6–3.85 · 7 个报价</title></circle><path d="M876.25 105.9374999999999 H903.75 V105.9374999999999 V177.81249999999986 V177.81249999999986 H876.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M876.25 149.06249999999983 H903.75 V149.06249999999983" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="903.75" y1="177.81249999999986" x2="903.75" y2="105.9374999999999" stroke="#a1acf7" stroke-width="2"/><circle cx="903.75" cy="149.06249999999983" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 31 · 中位价 3.7 · 范围 3.6–3.85 · 7 个报价</title></circle><path d="M903.75 105.9374999999999 H931.25 V105.9374999999999 V177.81249999999986 V177.81249999999986 H903.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M903.75 149.06249999999983 H931.25 V149.06249999999983" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="931.25" y1="177.81249999999986" x2="931.25" y2="105.9374999999999" stroke="#a1acf7" stroke-width="2"/><circle cx="931.25" cy="149.06249999999983" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 32 · 中位价 3.7 · 范围 3.6–3.85 · 7 个报价</title></circle><path d="M931.25 105.9374999999999 H958.75 V105.9374999999999 V192.18749999999994 V177.81249999999986 H931.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M931.25 149.06249999999983 H958.75 V149.06249999999983" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="958.75" y1="192.18749999999994" x2="958.75" y2="105.9374999999999" stroke="#a1acf7" stroke-width="2"/><circle cx="958.75" cy="149.06249999999983" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 33 · 中位价 3.7 · 范围 3.55–3.85 · 8 个报价</title></circle><path d="M958.75 105.9374999999999 H986.25 V105.9374999999999 V192.18749999999994 V192.18749999999994 H958.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M958.75 149.06249999999983 H986.25 V149.06249999999983" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="986.25" y1="192.18749999999994" x2="986.25" y2="105.9374999999999" stroke="#a1acf7" stroke-width="2"/><circle cx="986.25" cy="149.06249999999983" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 34 · 中位价 3.7 · 范围 3.55–3.85 · 8 个报价</title></circle><path d="M986.25 105.9374999999999 H1013.75 V105.9374999999999 V192.18749999999994 V192.18749999999994 H986.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M986.25 149.06249999999983 H1013.75 V149.06249999999983" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="1013.75" y1="192.18749999999994" x2="1013.75" y2="105.9374999999999" stroke="#a1acf7" stroke-width="2"/><circle cx="1013.75" cy="149.06249999999983" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 35 · 中位价 3.7 · 范围 3.55–3.85 · 8 个报价</title></circle><path d="M1013.75 105.9374999999999 H1041.25 V105.9374999999999 V192.18749999999994 V192.18749999999994 H1013.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M1013.75 149.06249999999983 H1041.25 V149.06249999999983" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="1041.25" y1="192.18749999999994" x2="1041.25" y2="105.9374999999999" stroke="#a1acf7" stroke-width="2"/><circle cx="1041.25" cy="149.06249999999983" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 36 · 中位价 3.7 · 范围 3.55–3.85 · 8 个报价</title></circle><text x="78.75" y="259" text-anchor="middle">09/09 09:00 · 1</text><text x="188.75" y="259" text-anchor="middle">09/09 13:00 · 5</text><text x="298.75" y="259" text-anchor="middle">09/10 12:00 · 9</text><text x="408.75" y="259" text-anchor="middle">09/11 11:00 · 13</text><text x="518.75" y="259" text-anchor="middle">09/12 10:00 · 17</text><text x="628.75" y="259" text-anchor="middle">09/13 09:00 · 21</text><text x="738.75" y="259" text-anchor="middle">09/13 13:00 · 25</text><text x="848.75" y="259" text-anchor="middle">09/14 12:00 · 29</text><text x="958.75" y="259" text-anchor="middle">09/15 11:00 · 33</text><text x="1041.25" y="259" text-anchor="middle">09/15 14:00 · 36</text></svg><div class="chart-footer"><span>模拟消息时间（UTC）· 数字为步骤；无报价时留空</span><span>当前范围 <b>3.55–3.85</b></span></div></section>
+<div class="split"><section class="panel"><div class="section-head"><div><h2>Supply vs demand</h2><p>已观察供需 · USD 面值额度</p></div><span class="tiny-label">CURRENT SNAPSHOT</span></div><div class="bar-row"><span><i class="dot green"></i> Supply</span><b>1.11M</b></div><div class="bar-track"><div class="bar-fill supply" style="width:52.857%"></div></div><div class="bar-row"><span><i class="dot purple"></i> Demand</span><b>2.1M</b></div><div class="bar-track"><div class="bar-fill demand" style="width:100.000%"></div></div><div class="ratio"><span>Supply / Demand ratio</span><strong>0.53</strong></div><p class="hint">需求为零时比值留空。未知单位与日用量不进入数量统计。</p></section>
+<section class="panel"><div class="section-head"><div><h2>Market health</h2><p>变化相对窗口首条快照</p></div><span class="pill">描述性指标</span></div><div class="health-row"><span>供应量变化</span><b>↑ 825.0%</b></div><div class="health-row"><span>需求量变化</span><b>新增 2.1M</b></div><div class="health-row"><span>卖价极差 <small>CNY / USD</small></span><b>0.3</b></div><div class="health-row"><span>可比报价覆盖 <small>8/8 活跃卖方</small></span><b>100%</b></div><p class="hint">覆盖率表示可比卖方报价占比，不是模型置信度。</p></section></div>
+<section class="panel recent"><div class="section-head"><div><h2>Recent signals</h2><p>最近消息、状态变更与原文证据</p></div><span class="pill">36 条消息</span></div><div class="scroll"><table><thead><tr><th>时间</th><th>来源 / 发布者</th><th>信号</th><th>内容</th><th>处理状态</th><th></th></tr></thead><tbody><tr><td class="mono">14:00</td><td><b>nina</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">忽略</span></td><td class="signal-text">今天先整理报价，晚点再聊。</td><td><span class="status good">已处理</span></td><td><a href="#msg-35" aria-label="查看 d36 的证据">证据 ↗</a></td></tr><tr><td class="mono">13:00</td><td><b>sara</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">求购</span></td><td class="signal-text">需要 450k OpenAI API 额度，预算不超过 3.65。</td><td><span class="status good">已处理</span></td><td><a href="#msg-34" aria-label="查看 d35 的证据">证据 ↗</a></td></tr><tr><td class="mono">12:00</td><td><b>leo</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">忽略</span></td><td class="signal-text">群公告已读，谢谢。</td><td><span class="status good">已处理</span></td><td><a href="#msg-33" aria-label="查看 d34 的证据">证据 ↗</a></td></tr><tr><td class="mono">11:00</td><td><b>jack</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">供给</span></td><td class="signal-text">出 90k OpenAI API 额度，报价 3.55，预付。</td><td><span class="status good">已处理</span></td><td><a href="#msg-32" aria-label="查看 d33 的证据">证据 ↗</a></td></tr><tr><td class="mono">10:00</td><td><b>mika</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">忽略</span></td><td class="signal-text">听说你这批没货了，不确定。</td><td><span class="status good">已处理</span></td><td><a href="#msg-31" aria-label="查看 d32 的证据">证据 ↗</a></td></tr><tr><td class="mono">09:00</td><td><b>henry</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">剩余量</span></td><td class="signal-text">剩余量更新到 190k。</td><td><span class="status warn">待确认</span></td><td><a href="#msg-30" aria-label="查看 d31 的证据">证据 ↗</a></td></tr><tr><td class="mono">13:00</td><td><b>rita</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">求购</span></td><td class="signal-text">求 200k OpenAI API 额度，最好低于 3.8。</td><td><span class="status good">已处理</span></td><td><a href="#msg-29" aria-label="查看 d30 的证据">证据 ↗</a></td></tr><tr><td class="mono">12:00</td><td><b>relay_03</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">转发关联</span></td><td class="signal-text">转发 Ivy：出 OpenAI API 额度 160k，3.8，预付。</td><td><span class="status good">已处理</span></td><td><a href="#msg-28" aria-label="查看 d29 的证据">证据 ↗</a></td></tr><tr><td class="mono">11:00</td><td><b>finn</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">改价</span></td><td class="signal-text">这批报价改成 3.85，按这个新价出。</td><td><span class="status good">已处理</span></td><td><a href="#msg-27" aria-label="查看 d28 的证据">证据 ↗</a></td></tr><tr><td class="mono">10:00</td><td><b>ivy</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">供给</span></td><td class="signal-text">出 OpenAI API 额度 160k，3.8，预付。</td><td><span class="status good">已处理</span></td><td><a href="#msg-26" aria-label="查看 d27 的证据">证据 ↗</a></td></tr><tr><td class="mono">09:00</td><td><b>erin</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">剩余量</span></td><td class="signal-text">这批还剩 220k。</td><td><span class="status good">已处理</span></td><td><a href="#msg-25" aria-label="查看 d26 的证据">证据 ↗</a></td></tr><tr><td class="mono">13:00</td><td><b>cara</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">待确认</span></td><td class="signal-text">明天可能 3.5，也可能 3.8，还没定，别按这两个价下单。</td><td><span class="status warn">待确认</span></td><td><a href="#msg-24" aria-label="查看 d25 的证据">证据 ↗</a></td></tr><tr><td class="mono">12:00</td><td><b>leo</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">忽略</span></td><td class="signal-text">还有吗？</td><td><span class="status good">已处理</span></td><td><a href="#msg-23" aria-label="查看 d24 的证据">证据 ↗</a></td></tr><tr><td class="mono">11:00</td><td><b>cara</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">改价</span></td><td class="signal-text">这批现在改成 3.6 出，价格确定。</td><td><span class="status good">已处理</span></td><td><a href="#msg-22" aria-label="查看 d23 的证据">证据 ↗</a></td></tr><tr><td class="mono">10:00</td><td><b>henry</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">提取失败</span></td><td class="signal-text">出 250k OpenAI API 额度，3.6，预付。</td><td><span class="status warn">失败</span></td><td><a href="#msg-21" aria-label="查看 d22 的证据">证据 ↗</a></td></tr><tr><td class="mono">09:00</td><td><b>quinn</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">求购</span></td><td class="signal-text">需要 400k OpenAI API 额度，预算上限 3.7。</td><td><span class="status good">已处理</span></td><td><a href="#msg-20" aria-label="查看 d21 的证据">证据 ↗</a></td></tr><tr><td class="mono">13:00</td><td><b>alice</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">忽略</span></td><td class="signal-text">去年另一批成交过 3.1，只是说历史，不是这批的新价。</td><td><span class="status good">已处理</span></td><td><a href="#msg-19" aria-label="查看 d20 的证据">证据 ↗</a></td></tr><tr><td class="mono">12:00</td><td><b>dylan</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">撤回</span></td><td class="signal-text">撤回这批，不出了。</td><td><span class="status good">已处理</span></td><td><a href="#msg-18" aria-label="查看 d19 的证据">证据 ↗</a></td></tr><tr><td class="mono">11:00</td><td><b>grace</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">供给</span></td><td class="signal-text">新到一批 OpenAI API 额度 180k，3.7 出，预付。</td><td><span class="status good">已处理</span></td><td><a href="#msg-17" aria-label="查看 d18 的证据">证据 ↗</a></td></tr><tr><td class="mono">10:00</td><td><b>leo</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">忽略</span></td><td class="signal-text">现在都用什么模型写代码啊？</td><td><span class="status good">已处理</span></td><td><a href="#msg-16" aria-label="查看 d17 的证据">证据 ↗</a></td></tr><tr><td class="mono">09:00</td><td><b>alice</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">改价</span></td><td class="signal-text">这批价格改为 3.7，确认按这个价出。</td><td><span class="status good">已处理</span></td><td><a href="#msg-15" aria-label="查看 d16 的证据">证据 ↗</a></td></tr><tr><td class="mono">13:00</td><td><b>paul</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">求购</span></td><td class="signal-text">求购 OpenAI API 额度 250k，希望价格低于 3.6。</td><td><span class="status good">已处理</span></td><td><a href="#msg-14" aria-label="查看 d15 的证据">证据 ↗</a></td></tr><tr><td class="mono">12:00</td><td><b>finn</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">供给</span></td><td class="signal-text">手里有 80k OpenAI API 额度，3.95 出，预付。</td><td><span class="status good">已处理</span></td><td><a href="#msg-13" aria-label="查看 d14 的证据">证据 ↗</a></td></tr><tr><td class="mono">11:00</td><td><b>relay_02</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">转发关联</span></td><td class="signal-text">转发 Erin：出 OpenAI API 额度 300k，单价 3.65，预付。</td><td><span class="status good">已处理</span></td><td><a href="#msg-12" aria-label="查看 d13 的证据">证据 ↗</a></td></tr><tr><td class="mono">10:00</td><td><b>bob</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">剩余量</span></td><td class="signal-text">更新一下，这批还剩 150k。</td><td><span class="status good">已处理</span></td><td><a href="#msg-11" aria-label="查看 d12 的证据">证据 ↗</a></td></tr><tr><td class="mono">09:00</td><td><b>erin</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">供给</span></td><td class="signal-text">出 OpenAI API 额度 300k，单价 3.65，预付。</td><td><span class="status good">已处理</span></td><td><a href="#msg-10" aria-label="查看 d11 的证据">证据 ↗</a></td></tr><tr><td class="mono">13:00</td><td><b>mika</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">忽略</span></td><td class="signal-text">中午先去吃饭，晚点再看。</td><td><span class="status good">已处理</span></td><td><a href="#msg-9" aria-label="查看 d10 的证据">证据 ↗</a></td></tr><tr><td class="mono">12:00</td><td><b>alice</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">剩余量</span></td><td class="signal-text">这批还剩 80k。</td><td><span class="status good">已处理</span></td><td><a href="#msg-8" aria-label="查看 d09 的证据">证据 ↗</a></td></tr><tr><td class="mono">11:00</td><td><b>omar</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">求购</span></td><td class="signal-text">需要 300k OAI API 额度，预算不超过 3.7，先问问。</td><td><span class="status good">已处理</span></td><td><a href="#msg-7" aria-label="查看 d08 的证据">证据 ↗</a></td></tr><tr><td class="mono">10:00</td><td><b>dylan</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">供给</span></td><td class="signal-text">有 100k OpenAI API 额度，4.0 出，预付。</td><td><span class="status good">已处理</span></td><td><a href="#msg-6" aria-label="查看 d07 的证据">证据 ↗</a></td></tr><tr><td class="mono">09:00</td><td><b>leo</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">忽略</span></td><td class="signal-text">价格都看到了，谢谢大家。</td><td><span class="status good">已处理</span></td><td><a href="#msg-5" aria-label="查看 d06 的证据">证据 ↗</a></td></tr><tr><td class="mono">13:00</td><td><b>cara</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">供给</span></td><td class="signal-text">出 150k OA API 额度，3.75，预付。</td><td><span class="status good">已处理</span></td><td><a href="#msg-4" aria-label="查看 d05 的证据">证据 ↗</a></td></tr><tr><td class="mono">12:00</td><td><b>nina</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">求购</span></td><td class="signal-text">求 500k OpenAI API 额度，最好低于 3.8。</td><td><span class="status good">已处理</span></td><td><a href="#msg-3" aria-label="查看 d04 的证据">证据 ↗</a></td></tr><tr><td class="mono">11:00</td><td><b>relay_01</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">转发关联</span></td><td class="signal-text">转发 Alice：出 OpenAI API 额度，120k，3.9 出，预付。</td><td><span class="status good">已处理</span></td><td><a href="#msg-2" aria-label="查看 d03 的证据">证据 ↗</a></td></tr><tr><td class="mono">10:00</td><td><b>bob</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">供给</span></td><td class="signal-text">我这里有 200k OpenAI API 额度，报价 3.8，预付。</td><td><span class="status good">已处理</span></td><td><a href="#msg-1" aria-label="查看 d02 的证据">证据 ↗</a></td></tr><tr><td class="mono">09:00</td><td><b>alice</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">供给</span></td><td class="signal-text">出 OpenAI API 额度，120k，3.9 出，预付。</td><td><span class="status good">已处理</span></td><td><a href="#msg-0" aria-label="查看 d01 的证据">证据 ↗</a></td></tr></tbody></table></div></section>
+<div class="data-note"><span class="note-icon">i</span><div><b>统计口径</b>　固定条款 demo_prepaid_v1；未撤回不保证仍有货。排除项计数合计 0（可重叠），条款不可比 0。<br><span>供应单位缺失 0 · 需求单位缺失 0 · 流量 0 · 卖价不可比 0。窗口筛选时间线和最近消息，卡片保留最新时点仍活跃的供需存量。本次回放处理失败 1 条，待确认 2 条。</span></div></div></div><div class="window-panel" data-window="all" hidden><div class="kpis">
+<section class="kpi featured"><div class="eyebrow"><span class="resource-icon">O</span> OpenAI API <span class="pill">美元面值额度</span></div><div class="value"><small>¥</small> 3.70</div><div class="card-bottom"><span>卖方报价中位数</span><span class="delta">↓ 5.1%</span></div><div class="hint">CNY / USD 面值 · 8 个独立报价</div></section>
+<section class="kpi"><div class="eyebrow"><span class="dot green"></span> Observed supply</div><div class="value">1.11M<small> USD</small></div><div class="card-bottom"><span>已观察供应量</span><span class="delta">↑ 825.0%</span></div><div class="hint">单位明确的未撤回库存</div></section>
+<section class="kpi"><div class="eyebrow"><span class="dot purple"></span> Observed demand</div><div class="value">2.1M<small> USD</small></div><div class="card-bottom"><span>已观察需求量</span><span class="delta">新增 2.1M</span></div><div class="hint">买方意向 · 不代表成交</div></section>
+<section class="kpi"><div class="eyebrow"><span class="dot slate"></span> Active signals</div><div class="value">14<small> events</small></div><div class="card-bottom"><span>去重活跃事件</span><span class="pill">D1</span></div><div class="hint">已关联来源的转发不重复累计</div></section></div>
+<section class="panel price-panel"><div class="section-head"><div><h2>Median price <span class="light">+ range</span></h2><p>独立卖方报价中位数与最低—最高范围 · CNY / USD 面值</p></div><div class="legend"><span><i class="line-key"></i> 中位数</span><span><i class="range-key"></i> 报价范围</span></div></div><svg viewBox="0 0 1080 275" role="img" aria-label="独立卖方报价中位数与最低最高范围"><line x1="65" y1="231.0" x2="1055" y2="231.0" stroke="#e9edf3" stroke-dasharray="4 5"/><text x="51" y="235.0" text-anchor="end">3.41</text><line x1="65" y1="179.24999999999997" x2="1055" y2="179.24999999999997" stroke="#e9edf3" stroke-dasharray="4 5"/><text x="51" y="183.24999999999997" text-anchor="end">3.59</text><line x1="65" y1="127.50000000000007" x2="1055" y2="127.50000000000007" stroke="#e9edf3" stroke-dasharray="4 5"/><text x="51" y="131.50000000000006" text-anchor="end">3.77</text><line x1="65" y1="75.75000000000003" x2="1055" y2="75.75000000000003" stroke="#e9edf3" stroke-dasharray="4 5"/><text x="51" y="79.75000000000003" text-anchor="end">3.95</text><line x1="65" y1="24.0" x2="1055" y2="24.0" stroke="#e9edf3" stroke-dasharray="4 5"/><text x="51" y="28.0" text-anchor="end">4.13</text><line x1="78.75" y1="91.56249999999994" x2="78.75" y2="91.56249999999994" stroke="#a1acf7" stroke-width="2"/><circle cx="78.75" cy="91.56249999999994" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 1 · 中位价 3.9 · 范围 3.9–3.9 · 1 个报价</title></circle><path d="M78.75 91.56249999999994 H106.25 V91.56249999999994 V120.31249999999997 V91.56249999999994 H78.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M78.75 91.56249999999994 H106.25 V105.9374999999999" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="106.25" y1="120.31249999999997" x2="106.25" y2="91.56249999999994" stroke="#a1acf7" stroke-width="2"/><circle cx="106.25" cy="105.9374999999999" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 2 · 中位价 3.85 · 范围 3.8–3.9 · 2 个报价</title></circle><path d="M106.25 91.56249999999994 H133.75 V91.56249999999994 V120.31249999999997 V120.31249999999997 H106.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M106.25 105.9374999999999 H133.75 V105.9374999999999" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="133.75" y1="120.31249999999997" x2="133.75" y2="91.56249999999994" stroke="#a1acf7" stroke-width="2"/><circle cx="133.75" cy="105.9374999999999" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 3 · 中位价 3.85 · 范围 3.8–3.9 · 2 个报价</title></circle><path d="M133.75 91.56249999999994 H161.25 V91.56249999999994 V120.31249999999997 V120.31249999999997 H133.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M133.75 105.9374999999999 H161.25 V105.9374999999999" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="161.25" y1="120.31249999999997" x2="161.25" y2="91.56249999999994" stroke="#a1acf7" stroke-width="2"/><circle cx="161.25" cy="105.9374999999999" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 4 · 中位价 3.85 · 范围 3.8–3.9 · 2 个报价</title></circle><path d="M161.25 91.56249999999994 H188.75 V91.56249999999994 V134.6874999999999 V120.31249999999997 H161.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M161.25 105.9374999999999 H188.75 V120.31249999999997" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="188.75" y1="134.6874999999999" x2="188.75" y2="91.56249999999994" stroke="#a1acf7" stroke-width="2"/><circle cx="188.75" cy="120.31249999999997" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 5 · 中位价 3.8 · 范围 3.75–3.9 · 3 个报价</title></circle><path d="M188.75 91.56249999999994 H216.25 V91.56249999999994 V134.6874999999999 V134.6874999999999 H188.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M188.75 120.31249999999997 H216.25 V120.31249999999997" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="216.25" y1="134.6874999999999" x2="216.25" y2="91.56249999999994" stroke="#a1acf7" stroke-width="2"/><circle cx="216.25" cy="120.31249999999997" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 6 · 中位价 3.8 · 范围 3.75–3.9 · 3 个报价</title></circle><path d="M216.25 91.56249999999994 H243.75 V62.81249999999993 V134.6874999999999 V134.6874999999999 H216.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M216.25 120.31249999999997 H243.75 V105.9374999999999" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="243.75" y1="134.6874999999999" x2="243.75" y2="62.81249999999993" stroke="#a1acf7" stroke-width="2"/><circle cx="243.75" cy="105.9374999999999" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 7 · 中位价 3.85 · 范围 3.75–4 · 4 个报价</title></circle><path d="M243.75 62.81249999999993 H271.25 V62.81249999999993 V134.6874999999999 V134.6874999999999 H243.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M243.75 105.9374999999999 H271.25 V105.9374999999999" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="271.25" y1="134.6874999999999" x2="271.25" y2="62.81249999999993" stroke="#a1acf7" stroke-width="2"/><circle cx="271.25" cy="105.9374999999999" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 8 · 中位价 3.85 · 范围 3.75–4 · 4 个报价</title></circle><path d="M271.25 62.81249999999993 H298.75 V62.81249999999993 V134.6874999999999 V134.6874999999999 H271.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M271.25 105.9374999999999 H298.75 V105.9374999999999" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="298.75" y1="134.6874999999999" x2="298.75" y2="62.81249999999993" stroke="#a1acf7" stroke-width="2"/><circle cx="298.75" cy="105.9374999999999" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 9 · 中位价 3.85 · 范围 3.75–4 · 4 个报价</title></circle><path d="M298.75 62.81249999999993 H326.25 V62.81249999999993 V134.6874999999999 V134.6874999999999 H298.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M298.75 105.9374999999999 H326.25 V105.9374999999999" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="326.25" y1="134.6874999999999" x2="326.25" y2="62.81249999999993" stroke="#a1acf7" stroke-width="2"/><circle cx="326.25" cy="105.9374999999999" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 10 · 中位价 3.85 · 范围 3.75–4 · 4 个报价</title></circle><path d="M326.25 62.81249999999993 H353.75 V62.81249999999993 V163.43749999999991 V134.6874999999999 H326.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M326.25 105.9374999999999 H353.75 V120.31249999999997" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="353.75" y1="163.43749999999991" x2="353.75" y2="62.81249999999993" stroke="#a1acf7" stroke-width="2"/><circle cx="353.75" cy="120.31249999999997" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 11 · 中位价 3.8 · 范围 3.65–4 · 5 个报价</title></circle><path d="M353.75 62.81249999999993 H381.25 V62.81249999999993 V163.43749999999991 V163.43749999999991 H353.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M353.75 120.31249999999997 H381.25 V120.31249999999997" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="381.25" y1="163.43749999999991" x2="381.25" y2="62.81249999999993" stroke="#a1acf7" stroke-width="2"/><circle cx="381.25" cy="120.31249999999997" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 12 · 中位价 3.8 · 范围 3.65–4 · 5 个报价</title></circle><path d="M381.25 62.81249999999993 H408.75 V62.81249999999993 V163.43749999999991 V163.43749999999991 H381.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M381.25 120.31249999999997 H408.75 V120.31249999999997" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="408.75" y1="163.43749999999991" x2="408.75" y2="62.81249999999993" stroke="#a1acf7" stroke-width="2"/><circle cx="408.75" cy="120.31249999999997" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 13 · 中位价 3.8 · 范围 3.65–4 · 5 个报价</title></circle><path d="M408.75 62.81249999999993 H436.25 V62.81249999999993 V163.43749999999991 V163.43749999999991 H408.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M408.75 120.31249999999997 H436.25 V105.9374999999999" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="436.25" y1="163.43749999999991" x2="436.25" y2="62.81249999999993" stroke="#a1acf7" stroke-width="2"/><circle cx="436.25" cy="105.9374999999999" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 14 · 中位价 3.85 · 范围 3.65–4 · 6 个报价</title></circle><path d="M436.25 62.81249999999993 H463.75 V62.81249999999993 V163.43749999999991 V163.43749999999991 H436.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M436.25 105.9374999999999 H463.75 V105.9374999999999" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="463.75" y1="163.43749999999991" x2="463.75" y2="62.81249999999993" stroke="#a1acf7" stroke-width="2"/><circle cx="463.75" cy="105.9374999999999" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 15 · 中位价 3.85 · 范围 3.65–4 · 6 个报价</title></circle><path d="M463.75 62.81249999999993 H491.25 V62.81249999999993 V163.43749999999991 V163.43749999999991 H463.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M463.75 105.9374999999999 H491.25 V127.49999999999993" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="491.25" y1="163.43749999999991" x2="491.25" y2="62.81249999999993" stroke="#a1acf7" stroke-width="2"/><circle cx="491.25" cy="127.49999999999993" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 16 · 中位价 3.775 · 范围 3.65–4 · 6 个报价</title></circle><path d="M491.25 62.81249999999993 H518.75 V62.81249999999993 V163.43749999999991 V163.43749999999991 H491.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M491.25 127.49999999999993 H518.75 V127.49999999999993" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="518.75" y1="163.43749999999991" x2="518.75" y2="62.81249999999993" stroke="#a1acf7" stroke-width="2"/><circle cx="518.75" cy="127.49999999999993" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 17 · 中位价 3.775 · 范围 3.65–4 · 6 个报价</title></circle><path d="M518.75 62.81249999999993 H546.25 V62.81249999999993 V163.43749999999991 V163.43749999999991 H518.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M518.75 127.49999999999993 H546.25 V134.6874999999999" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="546.25" y1="163.43749999999991" x2="546.25" y2="62.81249999999993" stroke="#a1acf7" stroke-width="2"/><circle cx="546.25" cy="134.6874999999999" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 18 · 中位价 3.75 · 范围 3.65–4 · 7 个报价</title></circle><path d="M546.25 62.81249999999993 H573.75 V77.18749999999987 V163.43749999999991 V163.43749999999991 H546.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M546.25 134.6874999999999 H573.75 V141.8749999999999" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="573.75" y1="163.43749999999991" x2="573.75" y2="77.18749999999987" stroke="#a1acf7" stroke-width="2"/><circle cx="573.75" cy="141.8749999999999" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 19 · 中位价 3.725 · 范围 3.65–3.95 · 6 个报价</title></circle><path d="M573.75 77.18749999999987 H601.25 V77.18749999999987 V163.43749999999991 V163.43749999999991 H573.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M573.75 141.8749999999999 H601.25 V141.8749999999999" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="601.25" y1="163.43749999999991" x2="601.25" y2="77.18749999999987" stroke="#a1acf7" stroke-width="2"/><circle cx="601.25" cy="141.8749999999999" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 20 · 中位价 3.725 · 范围 3.65–3.95 · 6 个报价</title></circle><path d="M601.25 77.18749999999987 H628.75 V77.18749999999987 V163.43749999999991 V163.43749999999991 H601.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M601.25 141.8749999999999 H628.75 V141.8749999999999" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="628.75" y1="163.43749999999991" x2="628.75" y2="77.18749999999987" stroke="#a1acf7" stroke-width="2"/><circle cx="628.75" cy="141.8749999999999" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 21 · 中位价 3.725 · 范围 3.65–3.95 · 6 个报价</title></circle><path d="M628.75 77.18749999999987 H656.25 V77.18749999999987 V163.43749999999991 V163.43749999999991 H628.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M628.75 141.8749999999999 H656.25 V141.8749999999999" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="656.25" y1="163.43749999999991" x2="656.25" y2="77.18749999999987" stroke="#a1acf7" stroke-width="2"/><circle cx="656.25" cy="141.8749999999999" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 22 · 中位价 3.725 · 范围 3.65–3.95 · 6 个报价</title></circle><path d="M656.25 77.18749999999987 H683.75 V77.18749999999987 V177.81249999999986 V163.43749999999991 H656.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M656.25 141.8749999999999 H683.75 V149.06249999999983" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="683.75" y1="177.81249999999986" x2="683.75" y2="77.18749999999987" stroke="#a1acf7" stroke-width="2"/><circle cx="683.75" cy="149.06249999999983" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 23 · 中位价 3.7 · 范围 3.6–3.95 · 6 个报价</title></circle><path d="M683.75 77.18749999999987 H711.25 V77.18749999999987 V177.81249999999986 V177.81249999999986 H683.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M683.75 149.06249999999983 H711.25 V149.06249999999983" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="711.25" y1="177.81249999999986" x2="711.25" y2="77.18749999999987" stroke="#a1acf7" stroke-width="2"/><circle cx="711.25" cy="149.06249999999983" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 24 · 中位价 3.7 · 范围 3.6–3.95 · 6 个报价</title></circle><path d="M711.25 77.18749999999987 H738.75 V77.18749999999987 V177.81249999999986 V177.81249999999986 H711.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M711.25 149.06249999999983 H738.75 V149.06249999999983" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="738.75" y1="177.81249999999986" x2="738.75" y2="77.18749999999987" stroke="#a1acf7" stroke-width="2"/><circle cx="738.75" cy="149.06249999999983" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 25 · 中位价 3.7 · 范围 3.6–3.95 · 6 个报价</title></circle><path d="M738.75 77.18749999999987 H766.25 V77.18749999999987 V177.81249999999986 V177.81249999999986 H738.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M738.75 149.06249999999983 H766.25 V149.06249999999983" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="766.25" y1="177.81249999999986" x2="766.25" y2="77.18749999999987" stroke="#a1acf7" stroke-width="2"/><circle cx="766.25" cy="149.06249999999983" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 26 · 中位价 3.7 · 范围 3.6–3.95 · 6 个报价</title></circle><path d="M766.25 77.18749999999987 H793.75 V77.18749999999987 V177.81249999999986 V177.81249999999986 H766.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M766.25 149.06249999999983 H793.75 V149.06249999999983" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="793.75" y1="177.81249999999986" x2="793.75" y2="77.18749999999987" stroke="#a1acf7" stroke-width="2"/><circle cx="793.75" cy="149.06249999999983" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 27 · 中位价 3.7 · 范围 3.6–3.95 · 7 个报价</title></circle><path d="M793.75 77.18749999999987 H821.25 V105.9374999999999 V177.81249999999986 V177.81249999999986 H793.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M793.75 149.06249999999983 H821.25 V149.06249999999983" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="821.25" y1="177.81249999999986" x2="821.25" y2="105.9374999999999" stroke="#a1acf7" stroke-width="2"/><circle cx="821.25" cy="149.06249999999983" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 28 · 中位价 3.7 · 范围 3.6–3.85 · 7 个报价</title></circle><path d="M821.25 105.9374999999999 H848.75 V105.9374999999999 V177.81249999999986 V177.81249999999986 H821.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M821.25 149.06249999999983 H848.75 V149.06249999999983" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="848.75" y1="177.81249999999986" x2="848.75" y2="105.9374999999999" stroke="#a1acf7" stroke-width="2"/><circle cx="848.75" cy="149.06249999999983" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 29 · 中位价 3.7 · 范围 3.6–3.85 · 7 个报价</title></circle><path d="M848.75 105.9374999999999 H876.25 V105.9374999999999 V177.81249999999986 V177.81249999999986 H848.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M848.75 149.06249999999983 H876.25 V149.06249999999983" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="876.25" y1="177.81249999999986" x2="876.25" y2="105.9374999999999" stroke="#a1acf7" stroke-width="2"/><circle cx="876.25" cy="149.06249999999983" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 30 · 中位价 3.7 · 范围 3.6–3.85 · 7 个报价</title></circle><path d="M876.25 105.9374999999999 H903.75 V105.9374999999999 V177.81249999999986 V177.81249999999986 H876.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M876.25 149.06249999999983 H903.75 V149.06249999999983" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="903.75" y1="177.81249999999986" x2="903.75" y2="105.9374999999999" stroke="#a1acf7" stroke-width="2"/><circle cx="903.75" cy="149.06249999999983" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 31 · 中位价 3.7 · 范围 3.6–3.85 · 7 个报价</title></circle><path d="M903.75 105.9374999999999 H931.25 V105.9374999999999 V177.81249999999986 V177.81249999999986 H903.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M903.75 149.06249999999983 H931.25 V149.06249999999983" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="931.25" y1="177.81249999999986" x2="931.25" y2="105.9374999999999" stroke="#a1acf7" stroke-width="2"/><circle cx="931.25" cy="149.06249999999983" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 32 · 中位价 3.7 · 范围 3.6–3.85 · 7 个报价</title></circle><path d="M931.25 105.9374999999999 H958.75 V105.9374999999999 V192.18749999999994 V177.81249999999986 H931.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M931.25 149.06249999999983 H958.75 V149.06249999999983" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="958.75" y1="192.18749999999994" x2="958.75" y2="105.9374999999999" stroke="#a1acf7" stroke-width="2"/><circle cx="958.75" cy="149.06249999999983" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 33 · 中位价 3.7 · 范围 3.55–3.85 · 8 个报价</title></circle><path d="M958.75 105.9374999999999 H986.25 V105.9374999999999 V192.18749999999994 V192.18749999999994 H958.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M958.75 149.06249999999983 H986.25 V149.06249999999983" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="986.25" y1="192.18749999999994" x2="986.25" y2="105.9374999999999" stroke="#a1acf7" stroke-width="2"/><circle cx="986.25" cy="149.06249999999983" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 34 · 中位价 3.7 · 范围 3.55–3.85 · 8 个报价</title></circle><path d="M986.25 105.9374999999999 H1013.75 V105.9374999999999 V192.18749999999994 V192.18749999999994 H986.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M986.25 149.06249999999983 H1013.75 V149.06249999999983" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="1013.75" y1="192.18749999999994" x2="1013.75" y2="105.9374999999999" stroke="#a1acf7" stroke-width="2"/><circle cx="1013.75" cy="149.06249999999983" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 35 · 中位价 3.7 · 范围 3.55–3.85 · 8 个报价</title></circle><path d="M1013.75 105.9374999999999 H1041.25 V105.9374999999999 V192.18749999999994 V192.18749999999994 H1013.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M1013.75 149.06249999999983 H1041.25 V149.06249999999983" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="1041.25" y1="192.18749999999994" x2="1041.25" y2="105.9374999999999" stroke="#a1acf7" stroke-width="2"/><circle cx="1041.25" cy="149.06249999999983" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 36 · 中位价 3.7 · 范围 3.55–3.85 · 8 个报价</title></circle><text x="78.75" y="259" text-anchor="middle">09/09 09:00 · 1</text><text x="188.75" y="259" text-anchor="middle">09/09 13:00 · 5</text><text x="298.75" y="259" text-anchor="middle">09/10 12:00 · 9</text><text x="408.75" y="259" text-anchor="middle">09/11 11:00 · 13</text><text x="518.75" y="259" text-anchor="middle">09/12 10:00 · 17</text><text x="628.75" y="259" text-anchor="middle">09/13 09:00 · 21</text><text x="738.75" y="259" text-anchor="middle">09/13 13:00 · 25</text><text x="848.75" y="259" text-anchor="middle">09/14 12:00 · 29</text><text x="958.75" y="259" text-anchor="middle">09/15 11:00 · 33</text><text x="1041.25" y="259" text-anchor="middle">09/15 14:00 · 36</text></svg><div class="chart-footer"><span>模拟消息时间（UTC）· 数字为步骤；无报价时留空</span><span>当前范围 <b>3.55–3.85</b></span></div></section>
+<div class="split"><section class="panel"><div class="section-head"><div><h2>Supply vs demand</h2><p>已观察供需 · USD 面值额度</p></div><span class="tiny-label">CURRENT SNAPSHOT</span></div><div class="bar-row"><span><i class="dot green"></i> Supply</span><b>1.11M</b></div><div class="bar-track"><div class="bar-fill supply" style="width:52.857%"></div></div><div class="bar-row"><span><i class="dot purple"></i> Demand</span><b>2.1M</b></div><div class="bar-track"><div class="bar-fill demand" style="width:100.000%"></div></div><div class="ratio"><span>Supply / Demand ratio</span><strong>0.53</strong></div><p class="hint">需求为零时比值留空。未知单位与日用量不进入数量统计。</p></section>
+<section class="panel"><div class="section-head"><div><h2>Market health</h2><p>变化相对窗口首条快照</p></div><span class="pill">描述性指标</span></div><div class="health-row"><span>供应量变化</span><b>↑ 825.0%</b></div><div class="health-row"><span>需求量变化</span><b>新增 2.1M</b></div><div class="health-row"><span>卖价极差 <small>CNY / USD</small></span><b>0.3</b></div><div class="health-row"><span>可比报价覆盖 <small>8/8 活跃卖方</small></span><b>100%</b></div><p class="hint">覆盖率表示可比卖方报价占比，不是模型置信度。</p></section></div>
+<section class="panel recent"><div class="section-head"><div><h2>Recent signals</h2><p>最近消息、状态变更与原文证据</p></div><span class="pill">36 条消息</span></div><div class="scroll"><table><thead><tr><th>时间</th><th>来源 / 发布者</th><th>信号</th><th>内容</th><th>处理状态</th><th></th></tr></thead><tbody><tr><td class="mono">14:00</td><td><b>nina</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">忽略</span></td><td class="signal-text">今天先整理报价，晚点再聊。</td><td><span class="status good">已处理</span></td><td><a href="#msg-35" aria-label="查看 d36 的证据">证据 ↗</a></td></tr><tr><td class="mono">13:00</td><td><b>sara</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">求购</span></td><td class="signal-text">需要 450k OpenAI API 额度，预算不超过 3.65。</td><td><span class="status good">已处理</span></td><td><a href="#msg-34" aria-label="查看 d35 的证据">证据 ↗</a></td></tr><tr><td class="mono">12:00</td><td><b>leo</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">忽略</span></td><td class="signal-text">群公告已读，谢谢。</td><td><span class="status good">已处理</span></td><td><a href="#msg-33" aria-label="查看 d34 的证据">证据 ↗</a></td></tr><tr><td class="mono">11:00</td><td><b>jack</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">供给</span></td><td class="signal-text">出 90k OpenAI API 额度，报价 3.55，预付。</td><td><span class="status good">已处理</span></td><td><a href="#msg-32" aria-label="查看 d33 的证据">证据 ↗</a></td></tr><tr><td class="mono">10:00</td><td><b>mika</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">忽略</span></td><td class="signal-text">听说你这批没货了，不确定。</td><td><span class="status good">已处理</span></td><td><a href="#msg-31" aria-label="查看 d32 的证据">证据 ↗</a></td></tr><tr><td class="mono">09:00</td><td><b>henry</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">剩余量</span></td><td class="signal-text">剩余量更新到 190k。</td><td><span class="status warn">待确认</span></td><td><a href="#msg-30" aria-label="查看 d31 的证据">证据 ↗</a></td></tr><tr><td class="mono">13:00</td><td><b>rita</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">求购</span></td><td class="signal-text">求 200k OpenAI API 额度，最好低于 3.8。</td><td><span class="status good">已处理</span></td><td><a href="#msg-29" aria-label="查看 d30 的证据">证据 ↗</a></td></tr><tr><td class="mono">12:00</td><td><b>relay_03</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">转发关联</span></td><td class="signal-text">转发 Ivy：出 OpenAI API 额度 160k，3.8，预付。</td><td><span class="status good">已处理</span></td><td><a href="#msg-28" aria-label="查看 d29 的证据">证据 ↗</a></td></tr><tr><td class="mono">11:00</td><td><b>finn</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">改价</span></td><td class="signal-text">这批报价改成 3.85，按这个新价出。</td><td><span class="status good">已处理</span></td><td><a href="#msg-27" aria-label="查看 d28 的证据">证据 ↗</a></td></tr><tr><td class="mono">10:00</td><td><b>ivy</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">供给</span></td><td class="signal-text">出 OpenAI API 额度 160k，3.8，预付。</td><td><span class="status good">已处理</span></td><td><a href="#msg-26" aria-label="查看 d27 的证据">证据 ↗</a></td></tr><tr><td class="mono">09:00</td><td><b>erin</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">剩余量</span></td><td class="signal-text">这批还剩 220k。</td><td><span class="status good">已处理</span></td><td><a href="#msg-25" aria-label="查看 d26 的证据">证据 ↗</a></td></tr><tr><td class="mono">13:00</td><td><b>cara</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">待确认</span></td><td class="signal-text">明天可能 3.5，也可能 3.8，还没定，别按这两个价下单。</td><td><span class="status warn">待确认</span></td><td><a href="#msg-24" aria-label="查看 d25 的证据">证据 ↗</a></td></tr><tr><td class="mono">12:00</td><td><b>leo</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">忽略</span></td><td class="signal-text">还有吗？</td><td><span class="status good">已处理</span></td><td><a href="#msg-23" aria-label="查看 d24 的证据">证据 ↗</a></td></tr><tr><td class="mono">11:00</td><td><b>cara</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">改价</span></td><td class="signal-text">这批现在改成 3.6 出，价格确定。</td><td><span class="status good">已处理</span></td><td><a href="#msg-22" aria-label="查看 d23 的证据">证据 ↗</a></td></tr><tr><td class="mono">10:00</td><td><b>henry</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">提取失败</span></td><td class="signal-text">出 250k OpenAI API 额度，3.6，预付。</td><td><span class="status warn">失败</span></td><td><a href="#msg-21" aria-label="查看 d22 的证据">证据 ↗</a></td></tr><tr><td class="mono">09:00</td><td><b>quinn</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">求购</span></td><td class="signal-text">需要 400k OpenAI API 额度，预算上限 3.7。</td><td><span class="status good">已处理</span></td><td><a href="#msg-20" aria-label="查看 d21 的证据">证据 ↗</a></td></tr><tr><td class="mono">13:00</td><td><b>alice</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">忽略</span></td><td class="signal-text">去年另一批成交过 3.1，只是说历史，不是这批的新价。</td><td><span class="status good">已处理</span></td><td><a href="#msg-19" aria-label="查看 d20 的证据">证据 ↗</a></td></tr><tr><td class="mono">12:00</td><td><b>dylan</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">撤回</span></td><td class="signal-text">撤回这批，不出了。</td><td><span class="status good">已处理</span></td><td><a href="#msg-18" aria-label="查看 d19 的证据">证据 ↗</a></td></tr><tr><td class="mono">11:00</td><td><b>grace</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">供给</span></td><td class="signal-text">新到一批 OpenAI API 额度 180k，3.7 出，预付。</td><td><span class="status good">已处理</span></td><td><a href="#msg-17" aria-label="查看 d18 的证据">证据 ↗</a></td></tr><tr><td class="mono">10:00</td><td><b>leo</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">忽略</span></td><td class="signal-text">现在都用什么模型写代码啊？</td><td><span class="status good">已处理</span></td><td><a href="#msg-16" aria-label="查看 d17 的证据">证据 ↗</a></td></tr><tr><td class="mono">09:00</td><td><b>alice</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">改价</span></td><td class="signal-text">这批价格改为 3.7，确认按这个价出。</td><td><span class="status good">已处理</span></td><td><a href="#msg-15" aria-label="查看 d16 的证据">证据 ↗</a></td></tr><tr><td class="mono">13:00</td><td><b>paul</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">求购</span></td><td class="signal-text">求购 OpenAI API 额度 250k，希望价格低于 3.6。</td><td><span class="status good">已处理</span></td><td><a href="#msg-14" aria-label="查看 d15 的证据">证据 ↗</a></td></tr><tr><td class="mono">12:00</td><td><b>finn</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">供给</span></td><td class="signal-text">手里有 80k OpenAI API 额度，3.95 出，预付。</td><td><span class="status good">已处理</span></td><td><a href="#msg-13" aria-label="查看 d14 的证据">证据 ↗</a></td></tr><tr><td class="mono">11:00</td><td><b>relay_02</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">转发关联</span></td><td class="signal-text">转发 Erin：出 OpenAI API 额度 300k，单价 3.65，预付。</td><td><span class="status good">已处理</span></td><td><a href="#msg-12" aria-label="查看 d13 的证据">证据 ↗</a></td></tr><tr><td class="mono">10:00</td><td><b>bob</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">剩余量</span></td><td class="signal-text">更新一下，这批还剩 150k。</td><td><span class="status good">已处理</span></td><td><a href="#msg-11" aria-label="查看 d12 的证据">证据 ↗</a></td></tr><tr><td class="mono">09:00</td><td><b>erin</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">供给</span></td><td class="signal-text">出 OpenAI API 额度 300k，单价 3.65，预付。</td><td><span class="status good">已处理</span></td><td><a href="#msg-10" aria-label="查看 d11 的证据">证据 ↗</a></td></tr><tr><td class="mono">13:00</td><td><b>mika</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">忽略</span></td><td class="signal-text">中午先去吃饭，晚点再看。</td><td><span class="status good">已处理</span></td><td><a href="#msg-9" aria-label="查看 d10 的证据">证据 ↗</a></td></tr><tr><td class="mono">12:00</td><td><b>alice</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">剩余量</span></td><td class="signal-text">这批还剩 80k。</td><td><span class="status good">已处理</span></td><td><a href="#msg-8" aria-label="查看 d09 的证据">证据 ↗</a></td></tr><tr><td class="mono">11:00</td><td><b>omar</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">求购</span></td><td class="signal-text">需要 300k OAI API 额度，预算不超过 3.7，先问问。</td><td><span class="status good">已处理</span></td><td><a href="#msg-7" aria-label="查看 d08 的证据">证据 ↗</a></td></tr><tr><td class="mono">10:00</td><td><b>dylan</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">供给</span></td><td class="signal-text">有 100k OpenAI API 额度，4.0 出，预付。</td><td><span class="status good">已处理</span></td><td><a href="#msg-6" aria-label="查看 d07 的证据">证据 ↗</a></td></tr><tr><td class="mono">09:00</td><td><b>leo</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">忽略</span></td><td class="signal-text">价格都看到了，谢谢大家。</td><td><span class="status good">已处理</span></td><td><a href="#msg-5" aria-label="查看 d06 的证据">证据 ↗</a></td></tr><tr><td class="mono">13:00</td><td><b>cara</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">供给</span></td><td class="signal-text">出 150k OA API 额度，3.75，预付。</td><td><span class="status good">已处理</span></td><td><a href="#msg-4" aria-label="查看 d05 的证据">证据 ↗</a></td></tr><tr><td class="mono">12:00</td><td><b>nina</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">求购</span></td><td class="signal-text">求 500k OpenAI API 额度，最好低于 3.8。</td><td><span class="status good">已处理</span></td><td><a href="#msg-3" aria-label="查看 d04 的证据">证据 ↗</a></td></tr><tr><td class="mono">11:00</td><td><b>relay_01</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">转发关联</span></td><td class="signal-text">转发 Alice：出 OpenAI API 额度，120k，3.9 出，预付。</td><td><span class="status good">已处理</span></td><td><a href="#msg-2" aria-label="查看 d03 的证据">证据 ↗</a></td></tr><tr><td class="mono">10:00</td><td><b>bob</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">供给</span></td><td class="signal-text">我这里有 200k OpenAI API 额度，报价 3.8，预付。</td><td><span class="status good">已处理</span></td><td><a href="#msg-1" aria-label="查看 d02 的证据">证据 ↗</a></td></tr><tr><td class="mono">09:00</td><td><b>alice</b><span class="cell-sub">wx_demo</span></td><td><span class="tag">供给</span></td><td class="signal-text">出 OpenAI API 额度，120k，3.9 出，预付。</td><td><span class="status good">已处理</span></td><td><a href="#msg-0" aria-label="查看 d01 的证据">证据 ↗</a></td></tr></tbody></table></div></section>
+<div class="data-note"><span class="note-icon">i</span><div><b>统计口径</b>　固定条款 demo_prepaid_v1；未撤回不保证仍有货。排除项计数合计 0（可重叠），条款不可比 0。<br><span>供应单位缺失 0 · 需求单位缺失 0 · 流量 0 · 卖价不可比 0。窗口筛选时间线和最近消息，卡片保留最新时点仍活跃的供需存量。本次回放处理失败 1 条，待确认 2 条。</span></div></div></div><section class="panel"><div class="section-head"><div><h2>Events &amp; evidence</h2><p>最新时点的事件状态 · 包含已撤回事件</p></div></div><div class="scroll"><table><thead><tr><th>发布者 / 事件</th><th>供需</th><th>数量</th><th>价格</th><th>状态</th><th>证据</th></tr></thead><tbody><tr><td>alice<span class="cell-sub">4bff4e1f3de29f5f</span></td><td>supply</td><td>80,000 USD_FACE · stock</td><td>eq 3.7 CNY / CNY_PER_USD_FACE</td><td>active</td><td><a href="#msg-0">d01</a> <a href="#msg-2">d03</a> <a href="#msg-8">d09</a> <a href="#msg-15">d16</a></td></tr><tr><td>bob<span class="cell-sub">32fbb09534daee77</span></td><td>supply</td><td>150,000 USD_FACE · stock</td><td>eq 3.8 CNY / CNY_PER_USD_FACE</td><td>active</td><td><a href="#msg-1">d02</a> <a href="#msg-11">d12</a></td></tr><tr><td>nina<span class="cell-sub">ef7f9efeaaa60972</span></td><td>demand</td><td>500,000 USD_FACE · stock</td><td>lt 3.8 CNY / CNY_PER_USD_FACE</td><td>active</td><td><a href="#msg-3">d04</a></td></tr><tr><td>cara<span class="cell-sub">468a955a55f00f8f</span></td><td>supply</td><td>150,000 USD_FACE · stock</td><td>eq 3.6 CNY / CNY_PER_USD_FACE</td><td>active</td><td><a href="#msg-4">d05</a> <a href="#msg-22">d23</a></td></tr><tr><td>dylan<span class="cell-sub">0ddc669b355aeb83</span></td><td>supply</td><td>100,000 USD_FACE · stock</td><td>eq 4 CNY / CNY_PER_USD_FACE</td><td>retracted</td><td><a href="#msg-6">d07</a> <a href="#msg-18">d19</a></td></tr><tr><td>omar<span class="cell-sub">b5ff954fa839c807</span></td><td>demand</td><td>300,000 USD_FACE · stock</td><td>lte 3.7 CNY / CNY_PER_USD_FACE</td><td>active</td><td><a href="#msg-7">d08</a></td></tr><tr><td>erin<span class="cell-sub">09f833899e1376a2</span></td><td>supply</td><td>220,000 USD_FACE · stock</td><td>eq 3.65 CNY / CNY_PER_USD_FACE</td><td>active</td><td><a href="#msg-10">d11</a> <a href="#msg-12">d13</a> <a href="#msg-25">d26</a></td></tr><tr><td>finn<span class="cell-sub">5fcfdbd34016fa93</span></td><td>supply</td><td>80,000 USD_FACE · stock</td><td>eq 3.85 CNY / CNY_PER_USD_FACE</td><td>active</td><td><a href="#msg-13">d14</a> <a href="#msg-27">d28</a></td></tr><tr><td>paul<span class="cell-sub">9553cbe7c6a4d07a</span></td><td>demand</td><td>250,000 USD_FACE · stock</td><td>lt 3.6 CNY / CNY_PER_USD_FACE</td><td>active</td><td><a href="#msg-14">d15</a></td></tr><tr><td>grace<span class="cell-sub">9bf35278c39cbbe1</span></td><td>supply</td><td>180,000 USD_FACE · stock</td><td>eq 3.7 CNY / CNY_PER_USD_FACE</td><td>active</td><td><a href="#msg-17">d18</a></td></tr><tr><td>quinn<span class="cell-sub">abf419dc59ba5f8d</span></td><td>demand</td><td>400,000 USD_FACE · stock</td><td>lte 3.7 CNY / CNY_PER_USD_FACE</td><td>active</td><td><a href="#msg-20">d21</a></td></tr><tr><td>ivy<span class="cell-sub">6b408fdb799af28f</span></td><td>supply</td><td>160,000 USD_FACE · stock</td><td>eq 3.8 CNY / CNY_PER_USD_FACE</td><td>active</td><td><a href="#msg-26">d27</a> <a href="#msg-28">d29</a></td></tr><tr><td>rita<span class="cell-sub">3909c009b2a091eb</span></td><td>demand</td><td>200,000 USD_FACE · stock</td><td>lt 3.8 CNY / CNY_PER_USD_FACE</td><td>active</td><td><a href="#msg-29">d30</a></td></tr><tr><td>jack<span class="cell-sub">481f80d2f6e18c68</span></td><td>supply</td><td>90,000 USD_FACE · stock</td><td>eq 3.55 CNY / CNY_PER_USD_FACE</td><td>active</td><td><a href="#msg-32">d33</a></td></tr><tr><td>sara<span class="cell-sub">cc02025d8009c3af</span></td><td>demand</td><td>450,000 USD_FACE · stock</td><td>lte 3.65 CNY / CNY_PER_USD_FACE</td><td>active</td><td><a href="#msg-34">d35</a></td></tr></tbody></table></div></section><section class="audit"><h2 id="messages">MESSAGE EVIDENCE · 输入消息与处理结果</h2><details class="message-detail" id="msg-0"><summary><span class="mono">d01</span> <b>alice</b> <span>出 OpenAI API 额度，120k，3.9 出，预付。</span><em>ok</em></summary><p class="hint">2026-09-09T09:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;supply&quot;,
+      &quot;resource&quot;: {
+        &quot;provider&quot;: &quot;openai&quot;,
+        &quot;kind&quot;: &quot;api_credits&quot;,
+        &quot;terms_id&quot;: &quot;demo_prepaid_v1&quot;
+      },
+      &quot;quantity&quot;: {
+        &quot;value&quot;: 120000.0,
+        &quot;unit&quot;: &quot;USD_FACE&quot;,
+        &quot;kind&quot;: &quot;stock&quot;,
+        &quot;period&quot;: null,
+        &quot;qualifier&quot;: &quot;exact&quot;
+      },
+      &quot;price&quot;: {
+        &quot;value&quot;: 3.9,
+        &quot;currency&quot;: &quot;CNY&quot;,
+        &quot;unit&quot;: &quot;CNY_PER_USD_FACE&quot;,
+        &quot;operator&quot;: &quot;eq&quot;,
+        &quot;is_soft&quot;: false
+      },
+      &quot;target_message&quot;: null,
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d01&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;出 OpenAI API 额度，120k，3.9 出，预付。&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: null,
+      &quot;convention_id&quot;: &quot;wx_demo_v1&quot;
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;create&quot;,
+      &quot;event_id&quot;: &quot;4bff4e1f3de29f5f&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-1"><summary><span class="mono">d02</span> <b>bob</b> <span>我这里有 200k OpenAI API 额度，报价 3.8，预付。</span><em>ok</em></summary><p class="hint">2026-09-09T10:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;supply&quot;,
+      &quot;resource&quot;: {
+        &quot;provider&quot;: &quot;openai&quot;,
+        &quot;kind&quot;: &quot;api_credits&quot;,
+        &quot;terms_id&quot;: &quot;demo_prepaid_v1&quot;
+      },
+      &quot;quantity&quot;: {
+        &quot;value&quot;: 200000.0,
+        &quot;unit&quot;: &quot;USD_FACE&quot;,
+        &quot;kind&quot;: &quot;stock&quot;,
+        &quot;period&quot;: null,
+        &quot;qualifier&quot;: &quot;exact&quot;
+      },
+      &quot;price&quot;: {
+        &quot;value&quot;: 3.8,
+        &quot;currency&quot;: &quot;CNY&quot;,
+        &quot;unit&quot;: &quot;CNY_PER_USD_FACE&quot;,
+        &quot;operator&quot;: &quot;eq&quot;,
+        &quot;is_soft&quot;: false
+      },
+      &quot;target_message&quot;: null,
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d02&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;我这里有 200k OpenAI API 额度，报价 3.8，预付。&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: null,
+      &quot;convention_id&quot;: &quot;wx_demo_v1&quot;
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;create&quot;,
+      &quot;event_id&quot;: &quot;32fbb09534daee77&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-2"><summary><span class="mono">d03</span> <b>relay_01</b> <span>转发 Alice：出 OpenAI API 额度，120k，3.9 出，预付。</span><em>ok</em></summary><p class="hint">2026-09-09T11:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;ignore&quot;,
+      &quot;resource&quot;: null,
+      &quot;quantity&quot;: null,
+      &quot;price&quot;: null,
+      &quot;target_message&quot;: {
+        &quot;channel_id&quot;: &quot;wx_demo&quot;,
+        &quot;message_id&quot;: &quot;d01&quot;
+      },
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d03&quot;
+        },
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d01&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;转发 Alice：出 OpenAI API 额度，120k，3.9 出，预付。&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: &quot;Explicit forward; do not recreate the forwarded offer.&quot;,
+      &quot;convention_id&quot;: null
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;link_evidence&quot;,
+      &quot;event_id&quot;: &quot;4bff4e1f3de29f5f&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-3"><summary><span class="mono">d04</span> <b>nina</b> <span>求 500k OpenAI API 额度，最好低于 3.8。</span><em>ok</em></summary><p class="hint">2026-09-09T12:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;demand&quot;,
+      &quot;resource&quot;: {
+        &quot;provider&quot;: &quot;openai&quot;,
+        &quot;kind&quot;: &quot;api_credits&quot;,
+        &quot;terms_id&quot;: &quot;demo_prepaid_v1&quot;
+      },
+      &quot;quantity&quot;: {
+        &quot;value&quot;: 500000.0,
+        &quot;unit&quot;: &quot;USD_FACE&quot;,
+        &quot;kind&quot;: &quot;stock&quot;,
+        &quot;period&quot;: null,
+        &quot;qualifier&quot;: &quot;exact&quot;
+      },
+      &quot;price&quot;: {
+        &quot;value&quot;: 3.8,
+        &quot;currency&quot;: &quot;CNY&quot;,
+        &quot;unit&quot;: &quot;CNY_PER_USD_FACE&quot;,
+        &quot;operator&quot;: &quot;lt&quot;,
+        &quot;is_soft&quot;: true
+      },
+      &quot;target_message&quot;: null,
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d04&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;求 500k OpenAI API 额度，最好低于 3.8。&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: &quot;Buyer intent with a preferred maximum price.&quot;,
+      &quot;convention_id&quot;: &quot;wx_demo_v1&quot;
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;create&quot;,
+      &quot;event_id&quot;: &quot;ef7f9efeaaa60972&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-4"><summary><span class="mono">d05</span> <b>cara</b> <span>出 150k OA API 额度，3.75，预付。</span><em>ok</em></summary><p class="hint">2026-09-09T13:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;supply&quot;,
+      &quot;resource&quot;: {
+        &quot;provider&quot;: &quot;openai&quot;,
+        &quot;kind&quot;: &quot;api_credits&quot;,
+        &quot;terms_id&quot;: &quot;demo_prepaid_v1&quot;
+      },
+      &quot;quantity&quot;: {
+        &quot;value&quot;: 150000.0,
+        &quot;unit&quot;: &quot;USD_FACE&quot;,
+        &quot;kind&quot;: &quot;stock&quot;,
+        &quot;period&quot;: null,
+        &quot;qualifier&quot;: &quot;exact&quot;
+      },
+      &quot;price&quot;: {
+        &quot;value&quot;: 3.75,
+        &quot;currency&quot;: &quot;CNY&quot;,
+        &quot;unit&quot;: &quot;CNY_PER_USD_FACE&quot;,
+        &quot;operator&quot;: &quot;eq&quot;,
+        &quot;is_soft&quot;: false
+      },
+      &quot;target_message&quot;: null,
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d05&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;出 150k OA API 额度，3.75，预付。&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: &quot;Direct seller offer with confirmed asking price.&quot;,
+      &quot;convention_id&quot;: &quot;wx_demo_v1&quot;
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;create&quot;,
+      &quot;event_id&quot;: &quot;468a955a55f00f8f&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-5"><summary><span class="mono">d06</span> <b>leo</b> <span>价格都看到了，谢谢大家。</span><em>ok</em></summary><p class="hint">2026-09-10T09:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;ignore&quot;,
+      &quot;resource&quot;: null,
+      &quot;quantity&quot;: null,
+      &quot;price&quot;: null,
+      &quot;target_message&quot;: null,
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d06&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;价格都看到了，谢谢大家。&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: &quot;Generic acknowledgement without a current offer, demand, update, or other market signal.&quot;,
+      &quot;convention_id&quot;: null
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;none&quot;,
+      &quot;reason&quot;: &quot;Generic acknowledgement without a current offer, demand, update, or other market signal.&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-6"><summary><span class="mono">d07</span> <b>dylan</b> <span>有 100k OpenAI API 额度，4.0 出，预付。</span><em>ok</em></summary><p class="hint">2026-09-10T10:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;supply&quot;,
+      &quot;resource&quot;: {
+        &quot;provider&quot;: &quot;openai&quot;,
+        &quot;kind&quot;: &quot;api_credits&quot;,
+        &quot;terms_id&quot;: &quot;demo_prepaid_v1&quot;
+      },
+      &quot;quantity&quot;: {
+        &quot;value&quot;: 100000.0,
+        &quot;unit&quot;: &quot;USD_FACE&quot;,
+        &quot;kind&quot;: &quot;stock&quot;,
+        &quot;period&quot;: null,
+        &quot;qualifier&quot;: &quot;exact&quot;
+      },
+      &quot;price&quot;: {
+        &quot;value&quot;: 4.0,
+        &quot;currency&quot;: &quot;CNY&quot;,
+        &quot;unit&quot;: &quot;CNY_PER_USD_FACE&quot;,
+        &quot;operator&quot;: &quot;eq&quot;,
+        &quot;is_soft&quot;: false
+      },
+      &quot;target_message&quot;: null,
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d07&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;有 100k OpenAI API 额度，4.0 出，预付。&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: null,
+      &quot;convention_id&quot;: &quot;wx_demo_v1&quot;
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;create&quot;,
+      &quot;event_id&quot;: &quot;0ddc669b355aeb83&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-7"><summary><span class="mono">d08</span> <b>omar</b> <span>需要 300k OAI API 额度，预算不超过 3.7，先问问。</span><em>ok</em></summary><p class="hint">2026-09-10T11:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;demand&quot;,
+      &quot;resource&quot;: {
+        &quot;provider&quot;: &quot;openai&quot;,
+        &quot;kind&quot;: &quot;api_credits&quot;,
+        &quot;terms_id&quot;: &quot;demo_prepaid_v1&quot;
+      },
+      &quot;quantity&quot;: {
+        &quot;value&quot;: 300000.0,
+        &quot;unit&quot;: &quot;USD_FACE&quot;,
+        &quot;kind&quot;: &quot;stock&quot;,
+        &quot;period&quot;: null,
+        &quot;qualifier&quot;: &quot;exact&quot;
+      },
+      &quot;price&quot;: {
+        &quot;value&quot;: 3.7,
+        &quot;currency&quot;: &quot;CNY&quot;,
+        &quot;unit&quot;: &quot;CNY_PER_USD_FACE&quot;,
+        &quot;operator&quot;: &quot;lte&quot;,
+        &quot;is_soft&quot;: true
+      },
+      &quot;target_message&quot;: null,
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d08&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;需要 300k OAI API 额度，预算不超过 3.7&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: &quot;Buyer intent and budget inquiry, not a transaction.&quot;,
+      &quot;convention_id&quot;: &quot;wx_demo_v1&quot;
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;create&quot;,
+      &quot;event_id&quot;: &quot;b5ff954fa839c807&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-8"><summary><span class="mono">d09</span> <b>alice</b> <span>这批还剩 80k。</span><em>ok</em></summary><p class="hint">2026-09-10T12:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;set_remaining&quot;,
+      &quot;resource&quot;: {
+        &quot;provider&quot;: &quot;openai&quot;,
+        &quot;kind&quot;: &quot;api_credits&quot;,
+        &quot;terms_id&quot;: &quot;demo_prepaid_v1&quot;
+      },
+      &quot;quantity&quot;: {
+        &quot;value&quot;: 80000.0,
+        &quot;unit&quot;: &quot;USD_FACE&quot;,
+        &quot;kind&quot;: &quot;stock&quot;,
+        &quot;period&quot;: null,
+        &quot;qualifier&quot;: &quot;exact&quot;
+      },
+      &quot;price&quot;: null,
+      &quot;target_message&quot;: {
+        &quot;channel_id&quot;: &quot;wx_demo&quot;,
+        &quot;message_id&quot;: &quot;d01&quot;
+      },
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d09&quot;
+        },
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d01&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;这批还剩 80k。&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: &quot;Owner updates the remaining amount of the referenced offer.&quot;,
+      &quot;convention_id&quot;: &quot;wx_demo_v1&quot;
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;set_remaining&quot;,
+      &quot;event_id&quot;: &quot;4bff4e1f3de29f5f&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-9"><summary><span class="mono">d10</span> <b>mika</b> <span>中午先去吃饭，晚点再看。</span><em>ok</em></summary><p class="hint">2026-09-10T13:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;ignore&quot;,
+      &quot;resource&quot;: null,
+      &quot;quantity&quot;: null,
+      &quot;price&quot;: null,
+      &quot;target_message&quot;: null,
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d10&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;中午先去吃饭，晚点再看。&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: &quot;闲聊，不包含当前资源市场信号。&quot;,
+      &quot;convention_id&quot;: null
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;none&quot;,
+      &quot;reason&quot;: &quot;闲聊，不包含当前资源市场信号。&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-10"><summary><span class="mono">d11</span> <b>erin</b> <span>出 OpenAI API 额度 300k，单价 3.65，预付。</span><em>ok</em></summary><p class="hint">2026-09-11T09:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;supply&quot;,
+      &quot;resource&quot;: {
+        &quot;provider&quot;: &quot;openai&quot;,
+        &quot;kind&quot;: &quot;api_credits&quot;,
+        &quot;terms_id&quot;: &quot;demo_prepaid_v1&quot;
+      },
+      &quot;quantity&quot;: {
+        &quot;value&quot;: 300000.0,
+        &quot;unit&quot;: &quot;USD_FACE&quot;,
+        &quot;kind&quot;: &quot;stock&quot;,
+        &quot;period&quot;: null,
+        &quot;qualifier&quot;: &quot;exact&quot;
+      },
+      &quot;price&quot;: {
+        &quot;value&quot;: 3.65,
+        &quot;currency&quot;: &quot;CNY&quot;,
+        &quot;unit&quot;: &quot;CNY_PER_USD_FACE&quot;,
+        &quot;operator&quot;: &quot;eq&quot;,
+        &quot;is_soft&quot;: false
+      },
+      &quot;target_message&quot;: null,
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d11&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;出 OpenAI API 额度 300k，单价 3.65，预付。&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: &quot;Direct seller offer for prepaid OpenAI API credits.&quot;,
+      &quot;convention_id&quot;: &quot;wx_demo_v1&quot;
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;create&quot;,
+      &quot;event_id&quot;: &quot;09f833899e1376a2&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-11"><summary><span class="mono">d12</span> <b>bob</b> <span>更新一下，这批还剩 150k。</span><em>ok</em></summary><p class="hint">2026-09-11T10:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;set_remaining&quot;,
+      &quot;resource&quot;: {
+        &quot;provider&quot;: &quot;openai&quot;,
+        &quot;kind&quot;: &quot;api_credits&quot;,
+        &quot;terms_id&quot;: &quot;demo_prepaid_v1&quot;
+      },
+      &quot;quantity&quot;: {
+        &quot;value&quot;: 150000.0,
+        &quot;unit&quot;: &quot;USD_FACE&quot;,
+        &quot;kind&quot;: &quot;stock&quot;,
+        &quot;period&quot;: null,
+        &quot;qualifier&quot;: &quot;exact&quot;
+      },
+      &quot;price&quot;: null,
+      &quot;target_message&quot;: {
+        &quot;channel_id&quot;: &quot;wx_demo&quot;,
+        &quot;message_id&quot;: &quot;d02&quot;
+      },
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d12&quot;
+        },
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d02&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;更新一下，这批还剩 150k。&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: &quot;原报价发布者通过回复更新该报价的剩余数量。&quot;,
+      &quot;convention_id&quot;: &quot;wx_demo_v1&quot;
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;set_remaining&quot;,
+      &quot;event_id&quot;: &quot;32fbb09534daee77&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-12"><summary><span class="mono">d13</span> <b>relay_02</b> <span>转发 Erin：出 OpenAI API 额度 300k，单价 3.65，预付。</span><em>ok</em></summary><p class="hint">2026-09-11T11:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;ignore&quot;,
+      &quot;resource&quot;: null,
+      &quot;quantity&quot;: null,
+      &quot;price&quot;: null,
+      &quot;target_message&quot;: {
+        &quot;channel_id&quot;: &quot;wx_demo&quot;,
+        &quot;message_id&quot;: &quot;d11&quot;
+      },
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d13&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;转发 Erin：出 OpenAI API 额度 300k，单价 3.65，预付。&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: &quot;Explicit forward; do not recreate the forwarded offer.&quot;,
+      &quot;convention_id&quot;: null
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;link_evidence&quot;,
+      &quot;event_id&quot;: &quot;09f833899e1376a2&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-13"><summary><span class="mono">d14</span> <b>finn</b> <span>手里有 80k OpenAI API 额度，3.95 出，预付。</span><em>ok</em></summary><p class="hint">2026-09-11T12:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;supply&quot;,
+      &quot;resource&quot;: {
+        &quot;provider&quot;: &quot;openai&quot;,
+        &quot;kind&quot;: &quot;api_credits&quot;,
+        &quot;terms_id&quot;: &quot;demo_prepaid_v1&quot;
+      },
+      &quot;quantity&quot;: {
+        &quot;value&quot;: 80000.0,
+        &quot;unit&quot;: &quot;USD_FACE&quot;,
+        &quot;kind&quot;: &quot;stock&quot;,
+        &quot;period&quot;: null,
+        &quot;qualifier&quot;: &quot;exact&quot;
+      },
+      &quot;price&quot;: {
+        &quot;value&quot;: 3.95,
+        &quot;currency&quot;: &quot;CNY&quot;,
+        &quot;unit&quot;: &quot;CNY_PER_USD_FACE&quot;,
+        &quot;operator&quot;: &quot;eq&quot;,
+        &quot;is_soft&quot;: false
+      },
+      &quot;target_message&quot;: null,
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d14&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;手里有 80k OpenAI API 额度，3.95 出，预付。&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: null,
+      &quot;convention_id&quot;: &quot;wx_demo_v1&quot;
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;create&quot;,
+      &quot;event_id&quot;: &quot;5fcfdbd34016fa93&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-14"><summary><span class="mono">d15</span> <b>paul</b> <span>求购 OpenAI API 额度 250k，希望价格低于 3.6。</span><em>ok</em></summary><p class="hint">2026-09-11T13:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;demand&quot;,
+      &quot;resource&quot;: {
+        &quot;provider&quot;: &quot;openai&quot;,
+        &quot;kind&quot;: &quot;api_credits&quot;,
+        &quot;terms_id&quot;: &quot;demo_prepaid_v1&quot;
+      },
+      &quot;quantity&quot;: {
+        &quot;value&quot;: 250000.0,
+        &quot;unit&quot;: &quot;USD_FACE&quot;,
+        &quot;kind&quot;: &quot;stock&quot;,
+        &quot;period&quot;: null,
+        &quot;qualifier&quot;: &quot;exact&quot;
+      },
+      &quot;price&quot;: {
+        &quot;value&quot;: 3.6,
+        &quot;currency&quot;: &quot;CNY&quot;,
+        &quot;unit&quot;: &quot;CNY_PER_USD_FACE&quot;,
+        &quot;operator&quot;: &quot;lt&quot;,
+        &quot;is_soft&quot;: true
+      },
+      &quot;target_message&quot;: null,
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d15&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;求购 OpenAI API 额度 250k，希望价格低于 3.6。&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: &quot;Buyer intent and price preference; not a transaction.&quot;,
+      &quot;convention_id&quot;: &quot;wx_demo_v1&quot;
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;create&quot;,
+      &quot;event_id&quot;: &quot;9553cbe7c6a4d07a&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-15"><summary><span class="mono">d16</span> <b>alice</b> <span>这批价格改为 3.7，确认按这个价出。</span><em>ok</em></summary><p class="hint">2026-09-12T09:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;reprice&quot;,
+      &quot;resource&quot;: {
+        &quot;provider&quot;: &quot;openai&quot;,
+        &quot;kind&quot;: &quot;api_credits&quot;,
+        &quot;terms_id&quot;: &quot;demo_prepaid_v1&quot;
+      },
+      &quot;quantity&quot;: null,
+      &quot;price&quot;: {
+        &quot;value&quot;: 3.7,
+        &quot;currency&quot;: &quot;CNY&quot;,
+        &quot;unit&quot;: &quot;CNY_PER_USD_FACE&quot;,
+        &quot;operator&quot;: &quot;eq&quot;,
+        &quot;is_soft&quot;: false
+      },
+      &quot;target_message&quot;: {
+        &quot;channel_id&quot;: &quot;wx_demo&quot;,
+        &quot;message_id&quot;: &quot;d01&quot;
+      },
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d16&quot;
+        },
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d01&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;这批价格改为 3.7，确认按这个价出。&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: &quot;卖家确认将原报价改为新的确定售价。&quot;,
+      &quot;convention_id&quot;: &quot;wx_demo_v1&quot;
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;reprice&quot;,
+      &quot;event_id&quot;: &quot;4bff4e1f3de29f5f&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-16"><summary><span class="mono">d17</span> <b>leo</b> <span>现在都用什么模型写代码啊？</span><em>ok</em></summary><p class="hint">2026-09-12T10:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;ignore&quot;,
+      &quot;resource&quot;: null,
+      &quot;quantity&quot;: null,
+      &quot;price&quot;: null,
+      &quot;target_message&quot;: null,
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d17&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;现在都用什么模型写代码啊？&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: &quot;闲聊/询问模型使用情况，不构成供需信号。&quot;,
+      &quot;convention_id&quot;: null
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;none&quot;,
+      &quot;reason&quot;: &quot;闲聊/询问模型使用情况，不构成供需信号。&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-17"><summary><span class="mono">d18</span> <b>grace</b> <span>新到一批 OpenAI API 额度 180k，3.7 出，预付。</span><em>ok</em></summary><p class="hint">2026-09-12T11:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;supply&quot;,
+      &quot;resource&quot;: {
+        &quot;provider&quot;: &quot;openai&quot;,
+        &quot;kind&quot;: &quot;api_credits&quot;,
+        &quot;terms_id&quot;: &quot;demo_prepaid_v1&quot;
+      },
+      &quot;quantity&quot;: {
+        &quot;value&quot;: 180000.0,
+        &quot;unit&quot;: &quot;USD_FACE&quot;,
+        &quot;kind&quot;: &quot;stock&quot;,
+        &quot;period&quot;: null,
+        &quot;qualifier&quot;: &quot;exact&quot;
+      },
+      &quot;price&quot;: {
+        &quot;value&quot;: 3.7,
+        &quot;currency&quot;: &quot;CNY&quot;,
+        &quot;unit&quot;: &quot;CNY_PER_USD_FACE&quot;,
+        &quot;operator&quot;: &quot;eq&quot;,
+        &quot;is_soft&quot;: false
+      },
+      &quot;target_message&quot;: null,
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d18&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;新到一批 OpenAI API 额度 180k，3.7 出，预付。&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: null,
+      &quot;convention_id&quot;: &quot;wx_demo_v1&quot;
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;create&quot;,
+      &quot;event_id&quot;: &quot;9bf35278c39cbbe1&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-18"><summary><span class="mono">d19</span> <b>dylan</b> <span>撤回这批，不出了。</span><em>ok</em></summary><p class="hint">2026-09-12T12:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;retract&quot;,
+      &quot;resource&quot;: {
+        &quot;provider&quot;: &quot;openai&quot;,
+        &quot;kind&quot;: &quot;api_credits&quot;,
+        &quot;terms_id&quot;: &quot;demo_prepaid_v1&quot;
+      },
+      &quot;quantity&quot;: null,
+      &quot;price&quot;: null,
+      &quot;target_message&quot;: {
+        &quot;channel_id&quot;: &quot;wx_demo&quot;,
+        &quot;message_id&quot;: &quot;d07&quot;
+      },
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d19&quot;
+        },
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d07&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;撤回这批，不出了。&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: &quot;卖方明确撤回原报价。&quot;,
+      &quot;convention_id&quot;: &quot;wx_demo_v1&quot;
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;retract&quot;,
+      &quot;event_id&quot;: &quot;0ddc669b355aeb83&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-19"><summary><span class="mono">d20</span> <b>alice</b> <span>去年另一批成交过 3.1，只是说历史，不是这批的新价。</span><em>ok</em></summary><p class="hint">2026-09-12T13:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;ignore&quot;,
+      &quot;resource&quot;: null,
+      &quot;quantity&quot;: null,
+      &quot;price&quot;: null,
+      &quot;target_message&quot;: null,
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d20&quot;
+        },
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d01&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;去年另一批成交过 3.1，只是说历史，不是这批的新价。&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: &quot;历史成交信息，且明确说明不是当前这批的新价。&quot;,
+      &quot;convention_id&quot;: null
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;none&quot;,
+      &quot;reason&quot;: &quot;历史成交信息，且明确说明不是当前这批的新价。&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-20"><summary><span class="mono">d21</span> <b>quinn</b> <span>需要 400k OpenAI API 额度，预算上限 3.7。</span><em>ok</em></summary><p class="hint">2026-09-13T09:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;demand&quot;,
+      &quot;resource&quot;: {
+        &quot;provider&quot;: &quot;openai&quot;,
+        &quot;kind&quot;: &quot;api_credits&quot;,
+        &quot;terms_id&quot;: &quot;demo_prepaid_v1&quot;
+      },
+      &quot;quantity&quot;: {
+        &quot;value&quot;: 400000.0,
+        &quot;unit&quot;: &quot;USD_FACE&quot;,
+        &quot;kind&quot;: &quot;stock&quot;,
+        &quot;period&quot;: null,
+        &quot;qualifier&quot;: &quot;exact&quot;
+      },
+      &quot;price&quot;: {
+        &quot;value&quot;: 3.7,
+        &quot;currency&quot;: &quot;CNY&quot;,
+        &quot;unit&quot;: &quot;CNY_PER_USD_FACE&quot;,
+        &quot;operator&quot;: &quot;lte&quot;,
+        &quot;is_soft&quot;: true
+      },
+      &quot;target_message&quot;: null,
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d21&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;需要 400k OpenAI API 额度，预算上限 3.7。&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: &quot;Buyer requests 400k of OpenAI API credits and states a maximum budget.&quot;,
+      &quot;convention_id&quot;: &quot;wx_demo_v1&quot;
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;create&quot;,
+      &quot;event_id&quot;: &quot;abf419dc59ba5f8d&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-21"><summary><span class="mono">d22</span> <b>henry</b> <span>出 250k OpenAI API 额度，3.6，预付。</span><em>failed</em></summary><p class="hint">2026-09-13T10:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [],
+  &quot;effects&quot;: [],
+  &quot;reason&quot;: &quot;timeout_or_network_error&quot;
+}</pre></details><details class="message-detail" id="msg-22"><summary><span class="mono">d23</span> <b>cara</b> <span>这批现在改成 3.6 出，价格确定。</span><em>ok</em></summary><p class="hint">2026-09-13T11:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;reprice&quot;,
+      &quot;resource&quot;: {
+        &quot;provider&quot;: &quot;openai&quot;,
+        &quot;kind&quot;: &quot;api_credits&quot;,
+        &quot;terms_id&quot;: &quot;demo_prepaid_v1&quot;
+      },
+      &quot;quantity&quot;: null,
+      &quot;price&quot;: {
+        &quot;value&quot;: 3.6,
+        &quot;currency&quot;: &quot;CNY&quot;,
+        &quot;unit&quot;: &quot;CNY_PER_USD_FACE&quot;,
+        &quot;operator&quot;: &quot;eq&quot;,
+        &quot;is_soft&quot;: false
+      },
+      &quot;target_message&quot;: {
+        &quot;channel_id&quot;: &quot;wx_demo&quot;,
+        &quot;message_id&quot;: &quot;d05&quot;
+      },
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d23&quot;
+        },
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d05&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;这批现在改成 3.6 出，价格确定。&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: null,
+      &quot;convention_id&quot;: &quot;wx_demo_v1&quot;
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;reprice&quot;,
+      &quot;event_id&quot;: &quot;468a955a55f00f8f&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-23"><summary><span class="mono">d24</span> <b>leo</b> <span>还有吗？</span><em>ok</em></summary><p class="hint">2026-09-13T12:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;ignore&quot;,
+      &quot;resource&quot;: null,
+      &quot;quantity&quot;: null,
+      &quot;price&quot;: null,
+      &quot;target_message&quot;: null,
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d24&quot;
+        },
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d22&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;还有吗？&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: &quot;Inquiry about whether the referenced offer is still available; not a new supply or demand signal.&quot;,
+      &quot;convention_id&quot;: null
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;none&quot;,
+      &quot;reason&quot;: &quot;Inquiry about whether the referenced offer is still available; not a new supply or demand signal.&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-24"><summary><span class="mono">d25</span> <b>cara</b> <span>明天可能 3.5，也可能 3.8，还没定，别按这两个价下单。</span><em>unresolved</em></summary><p class="hint">2026-09-13T13:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;unresolved&quot;,
+      &quot;resource&quot;: {
+        &quot;provider&quot;: &quot;openai&quot;,
+        &quot;kind&quot;: &quot;api_credits&quot;,
+        &quot;terms_id&quot;: &quot;demo_prepaid_v1&quot;
+      },
+      &quot;quantity&quot;: null,
+      &quot;price&quot;: null,
+      &quot;target_message&quot;: {
+        &quot;channel_id&quot;: &quot;wx_demo&quot;,
+        &quot;message_id&quot;: &quot;d05&quot;
+      },
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d25&quot;
+        },
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d05&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;明天可能 3.5，也可能 3.8，还没定，别按这两个价下单。&quot;,
+      &quot;unresolved_reason&quot;: &quot;conflicting unconfirmed new price&quot;,
+      &quot;reason&quot;: &quot;Seller mentions two possible new prices but confirms neither; do not guess which price applies.&quot;,
+      &quot;convention_id&quot;: &quot;wx_demo_v1&quot;
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;none&quot;,
+      &quot;reason&quot;: &quot;Seller mentions two possible new prices but confirms neither; do not guess which price applies.&quot;
+    }
+  ],
+  &quot;reason&quot;: &quot;conflicting unconfirmed new price&quot;
+}</pre></details><details class="message-detail" id="msg-25"><summary><span class="mono">d26</span> <b>erin</b> <span>这批还剩 220k。</span><em>ok</em></summary><p class="hint">2026-09-14T09:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;set_remaining&quot;,
+      &quot;resource&quot;: {
+        &quot;provider&quot;: &quot;openai&quot;,
+        &quot;kind&quot;: &quot;api_credits&quot;,
+        &quot;terms_id&quot;: &quot;demo_prepaid_v1&quot;
+      },
+      &quot;quantity&quot;: {
+        &quot;value&quot;: 220000.0,
+        &quot;unit&quot;: &quot;USD_FACE&quot;,
+        &quot;kind&quot;: &quot;stock&quot;,
+        &quot;period&quot;: null,
+        &quot;qualifier&quot;: &quot;exact&quot;
+      },
+      &quot;price&quot;: null,
+      &quot;target_message&quot;: {
+        &quot;channel_id&quot;: &quot;wx_demo&quot;,
+        &quot;message_id&quot;: &quot;d11&quot;
+      },
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d26&quot;
+        },
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d11&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;这批还剩 220k。&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: &quot;Owner updates the remaining quantity of the referenced offer.&quot;,
+      &quot;convention_id&quot;: &quot;wx_demo_v1&quot;
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;set_remaining&quot;,
+      &quot;event_id&quot;: &quot;09f833899e1376a2&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-26"><summary><span class="mono">d27</span> <b>ivy</b> <span>出 OpenAI API 额度 160k，3.8，预付。</span><em>ok</em></summary><p class="hint">2026-09-14T10:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;supply&quot;,
+      &quot;resource&quot;: {
+        &quot;provider&quot;: &quot;openai&quot;,
+        &quot;kind&quot;: &quot;api_credits&quot;,
+        &quot;terms_id&quot;: &quot;demo_prepaid_v1&quot;
+      },
+      &quot;quantity&quot;: {
+        &quot;value&quot;: 160000.0,
+        &quot;unit&quot;: &quot;USD_FACE&quot;,
+        &quot;kind&quot;: &quot;stock&quot;,
+        &quot;period&quot;: null,
+        &quot;qualifier&quot;: &quot;exact&quot;
+      },
+      &quot;price&quot;: {
+        &quot;value&quot;: 3.8,
+        &quot;currency&quot;: &quot;CNY&quot;,
+        &quot;unit&quot;: &quot;CNY_PER_USD_FACE&quot;,
+        &quot;operator&quot;: &quot;eq&quot;,
+        &quot;is_soft&quot;: false
+      },
+      &quot;target_message&quot;: null,
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d27&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;出 OpenAI API 额度 160k，3.8，预付。&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: null,
+      &quot;convention_id&quot;: &quot;wx_demo_v1&quot;
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;create&quot;,
+      &quot;event_id&quot;: &quot;6b408fdb799af28f&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-27"><summary><span class="mono">d28</span> <b>finn</b> <span>这批报价改成 3.85，按这个新价出。</span><em>ok</em></summary><p class="hint">2026-09-14T11:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;reprice&quot;,
+      &quot;resource&quot;: {
+        &quot;provider&quot;: &quot;openai&quot;,
+        &quot;kind&quot;: &quot;api_credits&quot;,
+        &quot;terms_id&quot;: &quot;demo_prepaid_v1&quot;
+      },
+      &quot;quantity&quot;: null,
+      &quot;price&quot;: {
+        &quot;value&quot;: 3.85,
+        &quot;currency&quot;: &quot;CNY&quot;,
+        &quot;unit&quot;: &quot;CNY_PER_USD_FACE&quot;,
+        &quot;operator&quot;: &quot;eq&quot;,
+        &quot;is_soft&quot;: false
+      },
+      &quot;target_message&quot;: {
+        &quot;channel_id&quot;: &quot;wx_demo&quot;,
+        &quot;message_id&quot;: &quot;d14&quot;
+      },
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d28&quot;
+        },
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d14&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;这批报价改成 3.85，按这个新价出。&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: null,
+      &quot;convention_id&quot;: &quot;wx_demo_v1&quot;
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;reprice&quot;,
+      &quot;event_id&quot;: &quot;5fcfdbd34016fa93&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-28"><summary><span class="mono">d29</span> <b>relay_03</b> <span>转发 Ivy：出 OpenAI API 额度 160k，3.8，预付。</span><em>ok</em></summary><p class="hint">2026-09-14T12:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;ignore&quot;,
+      &quot;resource&quot;: null,
+      &quot;quantity&quot;: null,
+      &quot;price&quot;: null,
+      &quot;target_message&quot;: {
+        &quot;channel_id&quot;: &quot;wx_demo&quot;,
+        &quot;message_id&quot;: &quot;d27&quot;
+      },
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d29&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;转发 Ivy：出 OpenAI API 额度 160k，3.8，预付。&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: &quot;Explicit forward; do not recreate the forwarded offer.&quot;,
+      &quot;convention_id&quot;: null
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;link_evidence&quot;,
+      &quot;event_id&quot;: &quot;6b408fdb799af28f&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-29"><summary><span class="mono">d30</span> <b>rita</b> <span>求 200k OpenAI API 额度，最好低于 3.8。</span><em>ok</em></summary><p class="hint">2026-09-14T13:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;demand&quot;,
+      &quot;resource&quot;: {
+        &quot;provider&quot;: &quot;openai&quot;,
+        &quot;kind&quot;: &quot;api_credits&quot;,
+        &quot;terms_id&quot;: &quot;demo_prepaid_v1&quot;
+      },
+      &quot;quantity&quot;: {
+        &quot;value&quot;: 200000.0,
+        &quot;unit&quot;: &quot;USD_FACE&quot;,
+        &quot;kind&quot;: &quot;stock&quot;,
+        &quot;period&quot;: null,
+        &quot;qualifier&quot;: &quot;exact&quot;
+      },
+      &quot;price&quot;: {
+        &quot;value&quot;: 3.8,
+        &quot;currency&quot;: &quot;CNY&quot;,
+        &quot;unit&quot;: &quot;CNY_PER_USD_FACE&quot;,
+        &quot;operator&quot;: &quot;lt&quot;,
+        &quot;is_soft&quot;: true
+      },
+      &quot;target_message&quot;: null,
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d30&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;求 200k OpenAI API 额度，最好低于 3.8。&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: &quot;Buyer is seeking 200k of OpenAI API credits and prefers a price below 3.8.&quot;,
+      &quot;convention_id&quot;: &quot;wx_demo_v1&quot;
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;create&quot;,
+      &quot;event_id&quot;: &quot;3909c009b2a091eb&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-30"><summary><span class="mono">d31</span> <b>henry</b> <span>剩余量更新到 190k。</span><em>unresolved</em></summary><p class="hint">2026-09-15T09:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;set_remaining&quot;,
+      &quot;resource&quot;: {
+        &quot;provider&quot;: &quot;openai&quot;,
+        &quot;kind&quot;: &quot;api_credits&quot;,
+        &quot;terms_id&quot;: &quot;demo_prepaid_v1&quot;
+      },
+      &quot;quantity&quot;: {
+        &quot;value&quot;: 190000.0,
+        &quot;unit&quot;: &quot;USD_FACE&quot;,
+        &quot;kind&quot;: &quot;stock&quot;,
+        &quot;period&quot;: null,
+        &quot;qualifier&quot;: &quot;exact&quot;
+      },
+      &quot;price&quot;: null,
+      &quot;target_message&quot;: {
+        &quot;channel_id&quot;: &quot;wx_demo&quot;,
+        &quot;message_id&quot;: &quot;d22&quot;
+      },
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d31&quot;
+        },
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d22&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;剩余量更新到 190k。&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: null,
+      &quot;convention_id&quot;: &quot;wx_demo_v1&quot;
+    }
+  ],
+  &quot;effects&quot;: [],
+  &quot;reason&quot;: &quot;target_not_unique_or_missing&quot;
+}</pre></details><details class="message-detail" id="msg-31"><summary><span class="mono">d32</span> <b>mika</b> <span>听说你这批没货了，不确定。</span><em>ok</em></summary><p class="hint">2026-09-15T10:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;ignore&quot;,
+      &quot;resource&quot;: {
+        &quot;provider&quot;: &quot;openai&quot;,
+        &quot;kind&quot;: &quot;api_credits&quot;,
+        &quot;terms_id&quot;: &quot;demo_prepaid_v1&quot;
+      },
+      &quot;quantity&quot;: null,
+      &quot;price&quot;: null,
+      &quot;target_message&quot;: null,
+      &quot;assertion_mode&quot;: &quot;hearsay&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d32&quot;
+        },
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d22&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;听说你这批没货了，不确定。&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: &quot;第三方不确定的听说不能撤回或变更原卖家报价。&quot;,
+      &quot;convention_id&quot;: null
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;none&quot;,
+      &quot;reason&quot;: &quot;第三方不确定的听说不能撤回或变更原卖家报价。&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-32"><summary><span class="mono">d33</span> <b>jack</b> <span>出 90k OpenAI API 额度，报价 3.55，预付。</span><em>ok</em></summary><p class="hint">2026-09-15T11:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;supply&quot;,
+      &quot;resource&quot;: {
+        &quot;provider&quot;: &quot;openai&quot;,
+        &quot;kind&quot;: &quot;api_credits&quot;,
+        &quot;terms_id&quot;: &quot;demo_prepaid_v1&quot;
+      },
+      &quot;quantity&quot;: {
+        &quot;value&quot;: 90000.0,
+        &quot;unit&quot;: &quot;USD_FACE&quot;,
+        &quot;kind&quot;: &quot;stock&quot;,
+        &quot;period&quot;: null,
+        &quot;qualifier&quot;: &quot;exact&quot;
+      },
+      &quot;price&quot;: {
+        &quot;value&quot;: 3.55,
+        &quot;currency&quot;: &quot;CNY&quot;,
+        &quot;unit&quot;: &quot;CNY_PER_USD_FACE&quot;,
+        &quot;operator&quot;: &quot;eq&quot;,
+        &quot;is_soft&quot;: false
+      },
+      &quot;target_message&quot;: null,
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d33&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;出 90k OpenAI API 额度，报价 3.55，预付。&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: null,
+      &quot;convention_id&quot;: &quot;wx_demo_v1&quot;
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;create&quot;,
+      &quot;event_id&quot;: &quot;481f80d2f6e18c68&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-33"><summary><span class="mono">d34</span> <b>leo</b> <span>群公告已读，谢谢。</span><em>ok</em></summary><p class="hint">2026-09-15T12:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;ignore&quot;,
+      &quot;resource&quot;: null,
+      &quot;quantity&quot;: null,
+      &quot;price&quot;: null,
+      &quot;target_message&quot;: null,
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d34&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;群公告已读，谢谢。&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: &quot;Acknowledgment/chatter with no market signal.&quot;,
+      &quot;convention_id&quot;: null
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;none&quot;,
+      &quot;reason&quot;: &quot;Acknowledgment/chatter with no market signal.&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-34"><summary><span class="mono">d35</span> <b>sara</b> <span>需要 450k OpenAI API 额度，预算不超过 3.65。</span><em>ok</em></summary><p class="hint">2026-09-15T13:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;demand&quot;,
+      &quot;resource&quot;: {
+        &quot;provider&quot;: &quot;openai&quot;,
+        &quot;kind&quot;: &quot;api_credits&quot;,
+        &quot;terms_id&quot;: &quot;demo_prepaid_v1&quot;
+      },
+      &quot;quantity&quot;: {
+        &quot;value&quot;: 450000.0,
+        &quot;unit&quot;: &quot;USD_FACE&quot;,
+        &quot;kind&quot;: &quot;stock&quot;,
+        &quot;period&quot;: null,
+        &quot;qualifier&quot;: &quot;exact&quot;
+      },
+      &quot;price&quot;: {
+        &quot;value&quot;: 3.65,
+        &quot;currency&quot;: &quot;CNY&quot;,
+        &quot;unit&quot;: &quot;CNY_PER_USD_FACE&quot;,
+        &quot;operator&quot;: &quot;lte&quot;,
+        &quot;is_soft&quot;: true
+      },
+      &quot;target_message&quot;: null,
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d35&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;需要 450k OpenAI API 额度，预算不超过 3.65。&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: &quot;Buyer requests OpenAI API credits and states a maximum budget.&quot;,
+      &quot;convention_id&quot;: &quot;wx_demo_v1&quot;
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;create&quot;,
+      &quot;event_id&quot;: &quot;cc02025d8009c3af&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-35"><summary><span class="mono">d36</span> <b>nina</b> <span>今天先整理报价，晚点再聊。</span><em>ok</em></summary><p class="hint">2026-09-15T14:00:00Z · wx_demo</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;ignore&quot;,
+      &quot;resource&quot;: null,
+      &quot;quantity&quot;: null,
+      &quot;price&quot;: null,
+      &quot;target_message&quot;: null,
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;wx_demo&quot;,
+          &quot;message_id&quot;: &quot;d36&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;今天先整理报价，晚点再聊。&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: &quot;闲聊，未提供当前供需或报价信号。&quot;,
+      &quot;convention_id&quot;: null
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;none&quot;,
+      &quot;reason&quot;: &quot;闲聊，未提供当前供需或报价信号。&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="raw"><summary>逐步快照 · 36 个独立状态</summary><div class="scroll"><table><thead><tr><th>步骤</th><th>模拟时间</th><th>供应</th><th>需求</th><th>中位价</th><th>报价数</th></tr></thead><tbody><tr><td>1</td><td>2026-09-09T09:00:00+00:00</td><td>120,000</td><td>0</td><td>3.9</td><td>1</td></tr><tr><td>2</td><td>2026-09-09T10:00:00+00:00</td><td>320,000</td><td>0</td><td>3.85</td><td>2</td></tr><tr><td>3</td><td>2026-09-09T11:00:00+00:00</td><td>320,000</td><td>0</td><td>3.85</td><td>2</td></tr><tr><td>4</td><td>2026-09-09T12:00:00+00:00</td><td>320,000</td><td>500,000</td><td>3.85</td><td>2</td></tr><tr><td>5</td><td>2026-09-09T13:00:00+00:00</td><td>470,000</td><td>500,000</td><td>3.8</td><td>3</td></tr><tr><td>6</td><td>2026-09-10T09:00:00+00:00</td><td>470,000</td><td>500,000</td><td>3.8</td><td>3</td></tr><tr><td>7</td><td>2026-09-10T10:00:00+00:00</td><td>570,000</td><td>500,000</td><td>3.85</td><td>4</td></tr><tr><td>8</td><td>2026-09-10T11:00:00+00:00</td><td>570,000</td><td>800,000</td><td>3.85</td><td>4</td></tr><tr><td>9</td><td>2026-09-10T12:00:00+00:00</td><td>530,000</td><td>800,000</td><td>3.85</td><td>4</td></tr><tr><td>10</td><td>2026-09-10T13:00:00+00:00</td><td>530,000</td><td>800,000</td><td>3.85</td><td>4</td></tr><tr><td>11</td><td>2026-09-11T09:00:00+00:00</td><td>830,000</td><td>800,000</td><td>3.8</td><td>5</td></tr><tr><td>12</td><td>2026-09-11T10:00:00+00:00</td><td>780,000</td><td>800,000</td><td>3.8</td><td>5</td></tr><tr><td>13</td><td>2026-09-11T11:00:00+00:00</td><td>780,000</td><td>800,000</td><td>3.8</td><td>5</td></tr><tr><td>14</td><td>2026-09-11T12:00:00+00:00</td><td>860,000</td><td>800,000</td><td>3.85</td><td>6</td></tr><tr><td>15</td><td>2026-09-11T13:00:00+00:00</td><td>860,000</td><td>1,050,000</td><td>3.85</td><td>6</td></tr><tr><td>16</td><td>2026-09-12T09:00:00+00:00</td><td>860,000</td><td>1,050,000</td><td>3.775</td><td>6</td></tr><tr><td>17</td><td>2026-09-12T10:00:00+00:00</td><td>860,000</td><td>1,050,000</td><td>3.775</td><td>6</td></tr><tr><td>18</td><td>2026-09-12T11:00:00+00:00</td><td>1,040,000</td><td>1,050,000</td><td>3.75</td><td>7</td></tr><tr><td>19</td><td>2026-09-12T12:00:00+00:00</td><td>940,000</td><td>1,050,000</td><td>3.725</td><td>6</td></tr><tr><td>20</td><td>2026-09-12T13:00:00+00:00</td><td>940,000</td><td>1,050,000</td><td>3.725</td><td>6</td></tr><tr><td>21</td><td>2026-09-13T09:00:00+00:00</td><td>940,000</td><td>1,450,000</td><td>3.725</td><td>6</td></tr><tr><td>22</td><td>2026-09-13T10:00:00+00:00</td><td>940,000</td><td>1,450,000</td><td>3.725</td><td>6</td></tr><tr><td>23</td><td>2026-09-13T11:00:00+00:00</td><td>940,000</td><td>1,450,000</td><td>3.7</td><td>6</td></tr><tr><td>24</td><td>2026-09-13T12:00:00+00:00</td><td>940,000</td><td>1,450,000</td><td>3.7</td><td>6</td></tr><tr><td>25</td><td>2026-09-13T13:00:00+00:00</td><td>940,000</td><td>1,450,000</td><td>3.7</td><td>6</td></tr><tr><td>26</td><td>2026-09-14T09:00:00+00:00</td><td>860,000</td><td>1,450,000</td><td>3.7</td><td>6</td></tr><tr><td>27</td><td>2026-09-14T10:00:00+00:00</td><td>1,020,000</td><td>1,450,000</td><td>3.7</td><td>7</td></tr><tr><td>28</td><td>2026-09-14T11:00:00+00:00</td><td>1,020,000</td><td>1,450,000</td><td>3.7</td><td>7</td></tr><tr><td>29</td><td>2026-09-14T12:00:00+00:00</td><td>1,020,000</td><td>1,450,000</td><td>3.7</td><td>7</td></tr><tr><td>30</td><td>2026-09-14T13:00:00+00:00</td><td>1,020,000</td><td>1,650,000</td><td>3.7</td><td>7</td></tr><tr><td>31</td><td>2026-09-15T09:00:00+00:00</td><td>1,020,000</td><td>1,650,000</td><td>3.7</td><td>7</td></tr><tr><td>32</td><td>2026-09-15T10:00:00+00:00</td><td>1,020,000</td><td>1,650,000</td><td>3.7</td><td>7</td></tr><tr><td>33</td><td>2026-09-15T11:00:00+00:00</td><td>1,110,000</td><td>1,650,000</td><td>3.7</td><td>8</td></tr><tr><td>34</td><td>2026-09-15T12:00:00+00:00</td><td>1,110,000</td><td>1,650,000</td><td>3.7</td><td>8</td></tr><tr><td>35</td><td>2026-09-15T13:00:00+00:00</td><td>1,110,000</td><td>2,100,000</td><td>3.7</td><td>8</td></tr><tr><td>36</td><td>2026-09-15T14:00:00+00:00</td><td>1,110,000</td><td>2,100,000</td><td>3.7</td><td>8</td></tr></tbody></table></div></details><details class="raw"><summary>运行信息与调用用量</summary><pre>{
+  &quot;scenario_id&quot;: &quot;D1&quot;,
+  &quot;mode&quot;: &quot;api&quot;,
+  &quot;status_counts&quot;: {
+    &quot;ok&quot;: 33,
+    &quot;failed&quot;: 1,
+    &quot;unresolved&quot;: 2
+  },
+  &quot;unique_messages&quot;: 36,
+  &quot;api_calls&quot;: 36,
+  &quot;calls_with_usage&quot;: 35,
+  &quot;input_tokens&quot;: 31086,
+  &quot;output_tokens&quot;: 9525,
+  &quot;elapsed_ms&quot;: 151329.35,
+  &quot;estimated_cost&quot;: null,
+  &quot;final_metrics&quot;: {
+    &quot;observed_supply_usd_face&quot;: 1110000.0,
+    &quot;observed_demand_usd_face&quot;: 2100000.0,
+    &quot;seller_ask_median_cny_per_usd_face&quot;: 3.7,
+    &quot;seller_ask_sample_count&quot;: 8,
+    &quot;active_event_count&quot;: 14,
+    &quot;excluded&quot;: {
+      &quot;supply_quantity_missing_or_unit_unknown&quot;: 0,
+      &quot;demand_quantity_missing_or_unit_unknown&quot;: 0,
+      &quot;flow_quantity&quot;: 0,
+      &quot;seller_price_missing_or_not_comparable&quot;: 0
+    },
+    &quot;noncomparable_terms_count&quot;: 0
+  },
+  &quot;config_sha256&quot;: &quot;277ccf8756b088cf2432dcb4897c19a49db473720e0584d6c156b8581db63b24&quot;
+}</pre></details></section>
+<footer class="footer"><span>模拟群聊 · 单资源原型 · 不包含模型置信度评分</span><span>gpt-5.6-luna · D1 · 36 model calls</span></footer><noscript><p class="hint">JavaScript 未启用：显示默认 24h 窗口；消息证据仍可展开。</p></noscript></main><script type="text/javascript">document.querySelectorAll('[data-window-button]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-window-button]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));document.querySelectorAll('[data-window]').forEach(panel=>{panel.hidden=panel.dataset.window!==button.dataset.windowButton;});}));function showEvidence(){const element=document.getElementById(location.hash.slice(1));if(element && element.matches('details.message-detail'))element.open=true;}window.addEventListener('hashchange',showEvidence);showEvidence();</script></body></html>

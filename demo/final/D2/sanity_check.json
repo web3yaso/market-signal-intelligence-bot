@@ -1,0 +1,43 @@
+{
+  "purpose": "Final-state demonstration regression, not held-out accuracy",
+  "scenario_id": "D2",
+  "prompt_id": "d11d66e0def27315",
+  "checks": {
+    "observed_supply_usd_face": {
+      "expected": 730000,
+      "actual": 730000.0,
+      "matches": true
+    },
+    "observed_demand_usd_face": {
+      "expected": 550000,
+      "actual": 550000.0,
+      "matches": true
+    },
+    "seller_ask_median_cny_per_usd_face": {
+      "expected": 3.65,
+      "actual": 3.65,
+      "matches": true
+    },
+    "seller_ask_sample_count": {
+      "expected": 5,
+      "actual": 5,
+      "matches": true
+    },
+    "active_event_count": {
+      "expected": 7,
+      "actual": 7,
+      "matches": true
+    }
+  },
+  "seller_range": {
+    "expected": [
+      3.55,
+      3.8
+    ],
+    "actual": [
+      3.55,
+      3.8
+    ]
+  },
+  "non_ok_messages": []
+}

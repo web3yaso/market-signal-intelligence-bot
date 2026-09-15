@@ -1,0 +1,551 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Market Signal Intelligence · D2</title><style>
+*{box-sizing:border-box}body{margin:0;background:#f5f6fa;color:#242c40;font:14px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}main{max-width:1240px;margin:auto;padding:34px 36px 40px}h1,h2,p{margin:0}h1{font-size:26px;letter-spacing:-.7px;font-weight:650}h2{font-size:17px;font-weight:650;letter-spacing:-.25px}.header{display:flex;justify-content:space-between;align-items:center;gap:20px}.brand{display:flex;gap:13px;align-items:center}.brand-icon{background:#5864df;color:white;width:43px;height:43px;display:grid;place-items:center;border-radius:12px;font-size:24px}.subtitle{font-size:12px;color:#8490a6;margin-top:2px}.live{font-size:12px;color:#556178;white-space:nowrap}.live .dot{margin-right:6px}.toolbar{margin:25px 0 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}.tabs{display:flex;background:#e9ecf3;padding:4px;border-radius:9px;gap:2px}button{font:inherit;border:0;cursor:pointer}.tabs button{background:transparent;color:#6c768d;border-radius:6px;padding:5px 19px;font-size:12px;font-weight:600}.tabs button[aria-pressed=true]{background:white;color:#4652cf;box-shadow:0 1px 4px #15243a12}select{font:inherit;font-size:12px;color:#4f5b72;padding:9px 32px 9px 12px;border:1px solid #dfe4ec;border-radius:8px;background:white}.filter-label{font-size:11px;color:#8892a6;margin-right:6px}.window-note{margin-left:auto;color:#8a94a8;font-size:11px}.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;margin-bottom:20px}.kpi,.panel{background:white;border:1px solid #e3e7ef;border-radius:12px;box-shadow:0 2px 3px #24345002}.kpi{padding:20px 19px}.featured{border-top:3px solid #6570e7;padding-top:18px}.eyebrow{display:flex;gap:7px;align-items:center;font-size:12px;font-weight:600;color:#647087;white-space:nowrap}.resource-icon{width:21px;height:21px;border-radius:6px;background:#eceeff;color:#5b64d9;display:inline-grid;place-items:center;font-size:12px}.pill{background:#f1f3f8;color:#7b859b;font-size:10px;font-weight:500;padding:3px 7px;border-radius:5px;white-space:nowrap}.eyebrow .pill{margin-left:auto}.value{font-size:34px;font-weight:650;letter-spacing:-1.2px;margin:16px 0 9px;line-height:1.15;font-variant-numeric:tabular-nums}.value small{font-size:15px;font-weight:450;letter-spacing:0;color:#9aa3b4}.card-bottom{display:flex;justify-content:space-between;gap:6px;font-size:11px;color:#7b859a}.delta{color:#5965a8;font-weight:600}.hint{font-size:11px;color:#929bae;margin-top:8px}.panel{padding:23px;margin-bottom:20px}.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:20px}.section-head p{font-size:11px;color:#919bad;margin-top:3px}.light{font-weight:450;color:#8892a8}.legend{display:flex;gap:18px;font-size:11px;color:#8590a4}.legend span{display:flex;align-items:center;gap:6px}.line-key{width:16px;height:2px;background:#5965e8}.range-key{width:13px;height:9px;background:#dfe7ff;border-radius:2px}svg{width:100%;display:block;overflow:visible}svg text{font:10px -apple-system,sans-serif;fill:#8d97aa}.chart-footer{display:flex;justify-content:space-between;border-top:1px solid #f0f2f7;padding-top:13px;color:#909aac;font-size:10px}.chart-footer b{color:#65718a;font-weight:500}.split{display:grid;grid-template-columns:1fr 1fr;gap:20px}.tiny-label{font-size:9px;letter-spacing:1px;color:#a0a8b7}.dot{display:inline-block;width:7px;height:7px;border-radius:50%;flex-shrink:0}.green{background:#51b89b}.purple{background:#8580e8}.slate{background:#8495ad}.bar-row{display:flex;justify-content:space-between;margin:15px 0 7px;font-size:12px;color:#6c7890}.bar-row .dot{margin-right:7px}.bar-row b{color:#3b4660;font-weight:600}.bar-track{height:12px;background:#f2f4f8;border-radius:4px;overflow:hidden}.bar-fill{height:100%;border-radius:4px}.supply{background:linear-gradient(90deg,#64c3a9,#4fb598)}.demand{background:linear-gradient(90deg,#aaa4f4,#817be2)}.ratio{margin-top:23px;border-top:1px solid #edf0f5;padding-top:14px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#758197}.ratio strong{font-size:22px;color:#3c4764}.health-row{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #f0f2f7;padding:11px 0;font-size:12px;color:#738097}.health-row b{color:#505d7c;font-weight:600}.health-row small{font-size:10px;color:#a0a9b8;margin-left:5px}.recent{padding-bottom:6px}.scroll{overflow:auto}table{border-collapse:collapse;width:100%;text-align:left;font-size:12px}th{background:#f8f9fc;color:#98a1b1;font-size:10px;font-weight:500;padding:10px 12px;white-space:nowrap}td{padding:14px 12px;border-bottom:1px solid #f0f2f6;color:#65718a}tbody tr:last-child td{border-bottom:0}.mono{font-variant-numeric:tabular-nums;color:#8e98ad;font-size:11px}td b{font-weight:550;color:#4f5b74}.cell-sub{display:block;font-size:10px;color:#9da5b5}.tag{background:#eff1fa;color:#717baf;font-size:10px;padding:4px 7px;border-radius:5px;white-space:nowrap}.signal-text{max-width:420px;min-width:230px;color:#536079;font-size:12px}.status{font-size:10px;white-space:nowrap}.status:before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:currentColor;margin-right:5px}.good{color:#56a38d}.warn{color:#bd914e}a{color:#6873c8;text-decoration:none;white-space:nowrap}a:hover{text-decoration:underline}.data-note{display:flex;gap:10px;color:#8691a6;font-size:10px;line-height:1.9;margin-bottom:26px}.data-note b{font-weight:600;color:#68758e}.note-icon{display:inline-grid;place-items:center;border:1px solid #a9b2c2;width:15px;height:15px;border-radius:50%;flex-shrink:0;margin-top:3px}.audit{border-top:1px solid #e3e7ef;padding-top:20px}.audit h2{font-size:13px;color:#7f8aa0;margin-bottom:12px}.message-detail{scroll-margin-top:16px;background:white;border:1px solid #e5e9f0;border-radius:7px;margin:7px 0;padding:10px 13px}.message-detail:target{border-color:#7d87dd}.message-detail summary{display:flex;align-items:center;gap:13px;cursor:pointer;font-size:11px;color:#7b879e}.message-detail summary>span:nth-of-type(2){flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.message-detail em{font-style:normal;font-size:10px;color:#8b95aa}.message-detail b{font-weight:550;color:#5a6680}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:11px;color:#6d7990;max-height:480px;overflow:auto}details>summary{cursor:pointer}.raw{margin:15px 0;font-size:12px;color:#7c88a0}.footer{display:flex;justify-content:space-between;gap:12px;margin-top:26px;color:#a0a8b8;font-size:10px}.footer span{overflow-wrap:anywhere}[hidden]{display:none!important}:focus-visible{outline:2px solid #6b74e6;outline-offset:3px}@media(max-width:1000px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.window-note{width:100%;margin:0}.eyebrow .pill{margin-left:0}}@media(max-width:680px){main{padding:20px 15px}h1{font-size:21px}.header{align-items:flex-start;flex-direction:column;gap:12px}.split{grid-template-columns:1fr;gap:0}.kpis{gap:10px}.kpi{padding:15px}.featured{padding-top:13px}.value{font-size:29px}.eyebrow{font-size:10px;white-space:normal;flex-wrap:wrap}.card-bottom{flex-wrap:wrap}.panel{padding:16px}.section-head{align-items:flex-start;flex-wrap:wrap}.legend{font-size:10px}.chart-footer{gap:10px}.tiny-label{display:none}.footer{flex-direction:column}.message-detail summary>span:nth-of-type(2){max-width:40vw}}@media print{body{background:white}main{padding:0}.toolbar,.audit{display:none}.panel,.kpi{break-inside:avoid;box-shadow:none}}
+</style></head><body><main>
+<header class="header"><div class="brand"><div class="brand-icon" aria-hidden="true">≋</div><div><h1>Market Signal Intelligence</h1><p class="subtitle">AI RESOURCE MONITOR · 群聊资源信号</p></div></div></header>
+<div class="toolbar"><div class="tabs" role="group" aria-label="时间窗口"><button type="button" data-window-button="24h" aria-pressed="true">24h</button><button type="button" data-window-button="7d" aria-pressed="false">7d</button><button type="button" data-window-button="all" aria-pressed="false">全部</button></div><label><span class="filter-label">Resource</span><select aria-label="资源（当前场景只有一种）"><option>OpenAI API 额度</option></select></label><label><span class="filter-label">Source</span><select aria-label="来源（当前场景）"><option>Telegram · D2</option></select></label><span class="window-note">以样例末条时间为锚点 · 2026-09-15 13:30 UTC+0000</span></div>
+<div class="window-panel" data-window="24h"><div class="kpis">
+<section class="kpi featured"><div class="eyebrow"><span class="resource-icon">O</span> OpenAI API <span class="pill">美元面值额度</span></div><div class="value"><small>¥</small> 3.65</div><div class="card-bottom"><span>卖方报价中位数</span><span class="delta">↑ 1.4%</span></div><div class="hint">CNY / USD 面值 · 5 个独立报价</div></section>
+<section class="kpi"><div class="eyebrow"><span class="dot green"></span> Observed supply</div><div class="value">730k<small> USD</small></div><div class="card-bottom"><span>已观察供应量</span><span class="delta">↑ 508.3%</span></div><div class="hint">单位明确的未撤回库存</div></section>
+<section class="kpi"><div class="eyebrow"><span class="dot purple"></span> Observed demand</div><div class="value">550k<small> USD</small></div><div class="card-bottom"><span>已观察需求量</span><span class="delta">新增 550k</span></div><div class="hint">买方意向 · 不代表成交</div></section>
+<section class="kpi"><div class="eyebrow"><span class="dot slate"></span> Active signals</div><div class="value">7<small> events</small></div><div class="card-bottom"><span>去重活跃事件</span><span class="pill">D2</span></div><div class="hint">已关联来源的转发不重复累计</div></section></div>
+<section class="panel price-panel"><div class="section-head"><div><h2>Median price <span class="light">+ range</span></h2><p>独立卖方报价中位数与最低—最高范围 · CNY / USD 面值</p></div><div class="legend"><span><i class="line-key"></i> 中位数</span><span><i class="range-key"></i> 报价范围</span></div></div><svg viewBox="0 0 1080 275" role="img" aria-label="独立卖方报价中位数与最低最高范围"><line x1="65" y1="231.0" x2="1055" y2="231.0" stroke="#e9edf3" stroke-dasharray="4 5"/><text x="51" y="235.0" text-anchor="end">3.43</text><line x1="65" y1="179.25" x2="1055" y2="179.25" stroke="#e9edf3" stroke-dasharray="4 5"/><text x="51" y="183.25" text-anchor="end">3.55</text><line x1="65" y1="127.5" x2="1055" y2="127.5" stroke="#e9edf3" stroke-dasharray="4 5"/><text x="51" y="131.5" text-anchor="end">3.67</text><line x1="65" y1="75.75" x2="1055" y2="75.75" stroke="#e9edf3" stroke-dasharray="4 5"/><text x="51" y="79.75" text-anchor="end">3.80</text><line x1="65" y1="24.0" x2="1055" y2="24.0" stroke="#e9edf3" stroke-dasharray="4 5"/><text x="51" y="28.0" text-anchor="end">3.92</text><line x1="106.25" y1="159.18367346938763" x2="106.25" y2="159.18367346938763" stroke="#a1acf7" stroke-width="2"/><circle cx="106.25" cy="159.18367346938763" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 1 · 中位价 3.6 · 范围 3.6–3.6 · 1 个报价</title></circle><path d="M106.25 159.18367346938763 H188.75 V116.93877551020394 V159.18367346938763 V159.18367346938763 H106.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M106.25 159.18367346938763 H188.75 V138.06122448979588" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="188.75" y1="159.18367346938763" x2="188.75" y2="116.93877551020394" stroke="#a1acf7" stroke-width="2"/><circle cx="188.75" cy="138.06122448979588" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 2 · 中位价 3.65 · 范围 3.6–3.7 · 2 个报价</title></circle><path d="M188.75 116.93877551020394 H271.25 V74.69387755102042 V159.18367346938763 V159.18367346938763 H188.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M188.75 138.06122448979588 H271.25 V116.93877551020394" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="271.25" y1="159.18367346938763" x2="271.25" y2="74.69387755102042" stroke="#a1acf7" stroke-width="2"/><circle cx="271.25" cy="116.93877551020394" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 3 · 中位价 3.7 · 范围 3.6–3.8 · 3 个报价</title></circle><path d="M271.25 74.69387755102042 H353.75 V74.69387755102042 V159.18367346938763 V159.18367346938763 H271.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M271.25 116.93877551020394 H353.75 V116.93877551020394" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="353.75" y1="159.18367346938763" x2="353.75" y2="74.69387755102042" stroke="#a1acf7" stroke-width="2"/><circle cx="353.75" cy="116.93877551020394" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 4 · 中位价 3.7 · 范围 3.6–3.8 · 3 个报价</title></circle><path d="M353.75 74.69387755102042 H436.25 V74.69387755102042 V180.30612244897955 V159.18367346938763 H353.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M353.75 116.93877551020394 H436.25 V138.06122448979588" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="436.25" y1="180.30612244897955" x2="436.25" y2="74.69387755102042" stroke="#a1acf7" stroke-width="2"/><circle cx="436.25" cy="138.06122448979588" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 5 · 中位价 3.65 · 范围 3.55–3.8 · 4 个报价</title></circle><path d="M436.25 74.69387755102042 H518.75 V74.69387755102042 V180.30612244897955 V180.30612244897955 H436.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M436.25 138.06122448979588 H518.75 V138.06122448979588" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="518.75" y1="180.30612244897955" x2="518.75" y2="74.69387755102042" stroke="#a1acf7" stroke-width="2"/><circle cx="518.75" cy="138.06122448979588" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 6 · 中位价 3.65 · 范围 3.55–3.8 · 4 个报价</title></circle><path d="M518.75 74.69387755102042 H601.25 V74.69387755102042 V180.30612244897955 V180.30612244897955 H518.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M518.75 138.06122448979588 H601.25 V138.06122448979588" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="601.25" y1="180.30612244897955" x2="601.25" y2="74.69387755102042" stroke="#a1acf7" stroke-width="2"/><circle cx="601.25" cy="138.06122448979588" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 7 · 中位价 3.65 · 范围 3.55–3.8 · 4 个报价</title></circle><path d="M601.25 74.69387755102042 H683.75 V74.69387755102042 V180.30612244897955 V180.30612244897955 H601.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M601.25 138.06122448979588 H683.75 V138.06122448979588" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="683.75" y1="180.30612244897955" x2="683.75" y2="74.69387755102042" stroke="#a1acf7" stroke-width="2"/><circle cx="683.75" cy="138.06122448979588" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 8 · 中位价 3.65 · 范围 3.55–3.8 · 4 个报价</title></circle><path d="M683.75 74.69387755102042 H766.25 V74.69387755102042 V180.30612244897955 V180.30612244897955 H683.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M683.75 138.06122448979588 H766.25 V148.62244897959175" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="766.25" y1="180.30612244897955" x2="766.25" y2="74.69387755102042" stroke="#a1acf7" stroke-width="2"/><circle cx="766.25" cy="148.62244897959175" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 9 · 中位价 3.625 · 范围 3.55–3.8 · 4 个报价</title></circle><path d="M766.25 74.69387755102042 H848.75 V74.69387755102042 V180.30612244897955 V180.30612244897955 H766.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M766.25 148.62244897959175 H848.75 V148.62244897959175" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="848.75" y1="180.30612244897955" x2="848.75" y2="74.69387755102042" stroke="#a1acf7" stroke-width="2"/><circle cx="848.75" cy="148.62244897959175" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 10 · 中位价 3.625 · 范围 3.55–3.8 · 4 个报价</title></circle><path d="M848.75 74.69387755102042 H931.25 V74.69387755102042 V180.30612244897955 V180.30612244897955 H848.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M848.75 148.62244897959175 H931.25 V138.06122448979588" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="931.25" y1="180.30612244897955" x2="931.25" y2="74.69387755102042" stroke="#a1acf7" stroke-width="2"/><circle cx="931.25" cy="138.06122448979588" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 11 · 中位价 3.65 · 范围 3.55–3.8 · 5 个报价</title></circle><path d="M931.25 74.69387755102042 H1013.75 V74.69387755102042 V180.30612244897955 V180.30612244897955 H931.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M931.25 138.06122448979588 H1013.75 V138.06122448979588" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="1013.75" y1="180.30612244897955" x2="1013.75" y2="74.69387755102042" stroke="#a1acf7" stroke-width="2"/><circle cx="1013.75" cy="138.06122448979588" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 12 · 中位价 3.65 · 范围 3.55–3.8 · 5 个报价</title></circle><text x="106.25" y="259" text-anchor="middle">08:00 · 1</text><text x="271.25" y="259" text-anchor="middle">09:00 · 3</text><text x="436.25" y="259" text-anchor="middle">10:00 · 5</text><text x="601.25" y="259" text-anchor="middle">11:00 · 7</text><text x="766.25" y="259" text-anchor="middle">12:00 · 9</text><text x="931.25" y="259" text-anchor="middle">13:00 · 11</text><text x="1013.75" y="259" text-anchor="middle">13:30 · 12</text></svg><div class="chart-footer"><span>模拟消息时间（UTC）· 数字为步骤；无报价时留空</span><span>当前范围 <b>3.55–3.8</b></span></div></section>
+<div class="split"><section class="panel"><div class="section-head"><div><h2>Supply vs demand</h2><p>已观察供需 · USD 面值额度</p></div><span class="tiny-label">CURRENT SNAPSHOT</span></div><div class="bar-row"><span><i class="dot green"></i> Supply</span><b>730k</b></div><div class="bar-track"><div class="bar-fill supply" style="width:100.000%"></div></div><div class="bar-row"><span><i class="dot purple"></i> Demand</span><b>550k</b></div><div class="bar-track"><div class="bar-fill demand" style="width:75.342%"></div></div><div class="ratio"><span>Supply / Demand ratio</span><strong>1.33</strong></div><p class="hint">需求为零时比值留空。未知单位与日用量不进入数量统计。</p></section>
+<section class="panel"><div class="section-head"><div><h2>Market health</h2><p>变化相对窗口首条快照</p></div><span class="pill">描述性指标</span></div><div class="health-row"><span>供应量变化</span><b>↑ 508.3%</b></div><div class="health-row"><span>需求量变化</span><b>新增 550k</b></div><div class="health-row"><span>卖价极差 <small>CNY / USD</small></span><b>0.25</b></div><div class="health-row"><span>可比报价覆盖 <small>5/5 活跃卖方</small></span><b>100%</b></div><p class="hint">覆盖率表示可比卖方报价占比，不是模型置信度。</p></section></div>
+<section class="panel recent"><div class="section-head"><div><h2>Recent signals</h2><p>最近消息、状态变更与原文证据</p></div><span class="pill">12 条消息</span></div><div class="scroll"><table><thead><tr><th>时间</th><th>来源 / 发布者</th><th>信号</th><th>内容</th><th>处理状态</th><th></th></tr></thead><tbody><tr><td class="mono">13:30</td><td><b>diana</b><span class="cell-sub">tg_market</span></td><td><span class="tag">忽略</span></td><td class="signal-text">Thanks everyone, I will review the offers later.</td><td><span class="status good">已处理</span></td><td><a href="#msg-11" aria-label="查看 e12 的证据">证据 ↗</a></td></tr><tr><td class="mono">13:00</td><td><b>george</b><span class="cell-sub">tg_market</span></td><td><span class="tag">供给</span></td><td class="signal-text">Selling 160k OpenAI API credits at 3.75 CNY per USD face value. Prepaid.</td><td><span class="status good">已处理</span></td><td><a href="#msg-10" aria-label="查看 e11 的证据">证据 ↗</a></td></tr><tr><td class="mono">12:30</td><td><b>sam</b><span class="cell-sub">tg_market</span></td><td><span class="tag">忽略</span></td><td class="signal-text">Still available?</td><td><span class="status good">已处理</span></td><td><a href="#msg-9" aria-label="查看 e10 的证据">证据 ↗</a></td></tr><tr><td class="mono">12:00</td><td><b>bella</b><span class="cell-sub">tg_market</span></td><td><span class="tag">改价</span></td><td class="signal-text">Confirmed new asking price: 3.65 CNY per USD face value.</td><td><span class="status good">已处理</span></td><td><a href="#msg-8" aria-label="查看 e09 的证据">证据 ↗</a></td></tr><tr><td class="mono">11:30</td><td><b>alex</b><span class="cell-sub">tg_market</span></td><td><span class="tag">剩余量</span></td><td class="signal-text">90k left in this batch.</td><td><span class="status good">已处理</span></td><td><a href="#msg-7" aria-label="查看 e08 的证据">证据 ↗</a></td></tr><tr><td class="mono">11:00</td><td><b>relay</b><span class="cell-sub">tg_market</span></td><td><span class="tag">转发关联</span></td><td class="signal-text">Forwarded from Bella: 180k OpenAI API credits available, asking 3.7 CNY per USD face value. Prepaid.</td><td><span class="status good">已处理</span></td><td><a href="#msg-6" aria-label="查看 e07 的证据">证据 ↗</a></td></tr><tr><td class="mono">10:30</td><td><b>faye</b><span class="cell-sub">tg_market</span></td><td><span class="tag">求购</span></td><td class="signal-text">Need 300k OpenAI API credits, ideally below 3.7 CNY per USD face value.</td><td><span class="status good">已处理</span></td><td><a href="#msg-5" aria-label="查看 e06 的证据">证据 ↗</a></td></tr><tr><td class="mono">10:00</td><td><b>evan</b><span class="cell-sub">tg_market</span></td><td><span class="tag">供给</span></td><td class="signal-text">Selling 100k OpenAI API credits at 3.55 CNY per USD face value. Prepaid.</td><td><span class="status good">已处理</span></td><td><a href="#msg-4" aria-label="查看 e05 的证据">证据 ↗</a></td></tr><tr><td class="mono">09:30</td><td><b>diana</b><span class="cell-sub">tg_market</span></td><td><span class="tag">求购</span></td><td class="signal-text">Looking for 250k OpenAI API credits. Preferably below 3.65 CNY per USD face value.</td><td><span class="status good">已处理</span></td><td><a href="#msg-3" aria-label="查看 e04 的证据">证据 ↗</a></td></tr><tr><td class="mono">09:00</td><td><b>charlie</b><span class="cell-sub">tg_market</span></td><td><span class="tag">供给</span></td><td class="signal-text">Selling 200k OAI API credits at 3.8 CNY per USD face value. Prepaid.</td><td><span class="status good">已处理</span></td><td><a href="#msg-2" aria-label="查看 e03 的证据">证据 ↗</a></td></tr><tr><td class="mono">08:30</td><td><b>bella</b><span class="cell-sub">tg_market</span></td><td><span class="tag">供给</span></td><td class="signal-text">180k OpenAI API credits available, asking 3.7 CNY per USD face value. Prepaid.</td><td><span class="status good">已处理</span></td><td><a href="#msg-1" aria-label="查看 e02 的证据">证据 ↗</a></td></tr><tr><td class="mono">08:00</td><td><b>alex</b><span class="cell-sub">tg_market</span></td><td><span class="tag">供给</span></td><td class="signal-text">Selling 120k OpenAI API credits at 3.6 CNY per USD face value. Prepaid.</td><td><span class="status good">已处理</span></td><td><a href="#msg-0" aria-label="查看 e01 的证据">证据 ↗</a></td></tr></tbody></table></div></section>
+<div class="data-note"><span class="note-icon">i</span><div><b>统计口径</b>　固定条款 demo_prepaid_v1；未撤回不保证仍有货。排除项计数合计 0（可重叠），条款不可比 0。<br><span>供应单位缺失 0 · 需求单位缺失 0 · 流量 0 · 卖价不可比 0。窗口筛选时间线和最近消息，卡片保留最新时点仍活跃的供需存量。本次回放处理失败 0 条，待确认 0 条。</span></div></div></div><div class="window-panel" data-window="7d" hidden><div class="kpis">
+<section class="kpi featured"><div class="eyebrow"><span class="resource-icon">O</span> OpenAI API <span class="pill">美元面值额度</span></div><div class="value"><small>¥</small> 3.65</div><div class="card-bottom"><span>卖方报价中位数</span><span class="delta">↑ 1.4%</span></div><div class="hint">CNY / USD 面值 · 5 个独立报价</div></section>
+<section class="kpi"><div class="eyebrow"><span class="dot green"></span> Observed supply</div><div class="value">730k<small> USD</small></div><div class="card-bottom"><span>已观察供应量</span><span class="delta">↑ 508.3%</span></div><div class="hint">单位明确的未撤回库存</div></section>
+<section class="kpi"><div class="eyebrow"><span class="dot purple"></span> Observed demand</div><div class="value">550k<small> USD</small></div><div class="card-bottom"><span>已观察需求量</span><span class="delta">新增 550k</span></div><div class="hint">买方意向 · 不代表成交</div></section>
+<section class="kpi"><div class="eyebrow"><span class="dot slate"></span> Active signals</div><div class="value">7<small> events</small></div><div class="card-bottom"><span>去重活跃事件</span><span class="pill">D2</span></div><div class="hint">已关联来源的转发不重复累计</div></section></div>
+<section class="panel price-panel"><div class="section-head"><div><h2>Median price <span class="light">+ range</span></h2><p>独立卖方报价中位数与最低—最高范围 · CNY / USD 面值</p></div><div class="legend"><span><i class="line-key"></i> 中位数</span><span><i class="range-key"></i> 报价范围</span></div></div><svg viewBox="0 0 1080 275" role="img" aria-label="独立卖方报价中位数与最低最高范围"><line x1="65" y1="231.0" x2="1055" y2="231.0" stroke="#e9edf3" stroke-dasharray="4 5"/><text x="51" y="235.0" text-anchor="end">3.43</text><line x1="65" y1="179.25" x2="1055" y2="179.25" stroke="#e9edf3" stroke-dasharray="4 5"/><text x="51" y="183.25" text-anchor="end">3.55</text><line x1="65" y1="127.5" x2="1055" y2="127.5" stroke="#e9edf3" stroke-dasharray="4 5"/><text x="51" y="131.5" text-anchor="end">3.67</text><line x1="65" y1="75.75" x2="1055" y2="75.75" stroke="#e9edf3" stroke-dasharray="4 5"/><text x="51" y="79.75" text-anchor="end">3.80</text><line x1="65" y1="24.0" x2="1055" y2="24.0" stroke="#e9edf3" stroke-dasharray="4 5"/><text x="51" y="28.0" text-anchor="end">3.92</text><line x1="106.25" y1="159.18367346938763" x2="106.25" y2="159.18367346938763" stroke="#a1acf7" stroke-width="2"/><circle cx="106.25" cy="159.18367346938763" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 1 · 中位价 3.6 · 范围 3.6–3.6 · 1 个报价</title></circle><path d="M106.25 159.18367346938763 H188.75 V116.93877551020394 V159.18367346938763 V159.18367346938763 H106.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M106.25 159.18367346938763 H188.75 V138.06122448979588" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="188.75" y1="159.18367346938763" x2="188.75" y2="116.93877551020394" stroke="#a1acf7" stroke-width="2"/><circle cx="188.75" cy="138.06122448979588" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 2 · 中位价 3.65 · 范围 3.6–3.7 · 2 个报价</title></circle><path d="M188.75 116.93877551020394 H271.25 V74.69387755102042 V159.18367346938763 V159.18367346938763 H188.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M188.75 138.06122448979588 H271.25 V116.93877551020394" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="271.25" y1="159.18367346938763" x2="271.25" y2="74.69387755102042" stroke="#a1acf7" stroke-width="2"/><circle cx="271.25" cy="116.93877551020394" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 3 · 中位价 3.7 · 范围 3.6–3.8 · 3 个报价</title></circle><path d="M271.25 74.69387755102042 H353.75 V74.69387755102042 V159.18367346938763 V159.18367346938763 H271.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M271.25 116.93877551020394 H353.75 V116.93877551020394" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="353.75" y1="159.18367346938763" x2="353.75" y2="74.69387755102042" stroke="#a1acf7" stroke-width="2"/><circle cx="353.75" cy="116.93877551020394" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 4 · 中位价 3.7 · 范围 3.6–3.8 · 3 个报价</title></circle><path d="M353.75 74.69387755102042 H436.25 V74.69387755102042 V180.30612244897955 V159.18367346938763 H353.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M353.75 116.93877551020394 H436.25 V138.06122448979588" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="436.25" y1="180.30612244897955" x2="436.25" y2="74.69387755102042" stroke="#a1acf7" stroke-width="2"/><circle cx="436.25" cy="138.06122448979588" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 5 · 中位价 3.65 · 范围 3.55–3.8 · 4 个报价</title></circle><path d="M436.25 74.69387755102042 H518.75 V74.69387755102042 V180.30612244897955 V180.30612244897955 H436.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M436.25 138.06122448979588 H518.75 V138.06122448979588" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="518.75" y1="180.30612244897955" x2="518.75" y2="74.69387755102042" stroke="#a1acf7" stroke-width="2"/><circle cx="518.75" cy="138.06122448979588" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 6 · 中位价 3.65 · 范围 3.55–3.8 · 4 个报价</title></circle><path d="M518.75 74.69387755102042 H601.25 V74.69387755102042 V180.30612244897955 V180.30612244897955 H518.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M518.75 138.06122448979588 H601.25 V138.06122448979588" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="601.25" y1="180.30612244897955" x2="601.25" y2="74.69387755102042" stroke="#a1acf7" stroke-width="2"/><circle cx="601.25" cy="138.06122448979588" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 7 · 中位价 3.65 · 范围 3.55–3.8 · 4 个报价</title></circle><path d="M601.25 74.69387755102042 H683.75 V74.69387755102042 V180.30612244897955 V180.30612244897955 H601.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M601.25 138.06122448979588 H683.75 V138.06122448979588" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="683.75" y1="180.30612244897955" x2="683.75" y2="74.69387755102042" stroke="#a1acf7" stroke-width="2"/><circle cx="683.75" cy="138.06122448979588" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 8 · 中位价 3.65 · 范围 3.55–3.8 · 4 个报价</title></circle><path d="M683.75 74.69387755102042 H766.25 V74.69387755102042 V180.30612244897955 V180.30612244897955 H683.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M683.75 138.06122448979588 H766.25 V148.62244897959175" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="766.25" y1="180.30612244897955" x2="766.25" y2="74.69387755102042" stroke="#a1acf7" stroke-width="2"/><circle cx="766.25" cy="148.62244897959175" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 9 · 中位价 3.625 · 范围 3.55–3.8 · 4 个报价</title></circle><path d="M766.25 74.69387755102042 H848.75 V74.69387755102042 V180.30612244897955 V180.30612244897955 H766.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M766.25 148.62244897959175 H848.75 V148.62244897959175" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="848.75" y1="180.30612244897955" x2="848.75" y2="74.69387755102042" stroke="#a1acf7" stroke-width="2"/><circle cx="848.75" cy="148.62244897959175" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 10 · 中位价 3.625 · 范围 3.55–3.8 · 4 个报价</title></circle><path d="M848.75 74.69387755102042 H931.25 V74.69387755102042 V180.30612244897955 V180.30612244897955 H848.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M848.75 148.62244897959175 H931.25 V138.06122448979588" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="931.25" y1="180.30612244897955" x2="931.25" y2="74.69387755102042" stroke="#a1acf7" stroke-width="2"/><circle cx="931.25" cy="138.06122448979588" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 11 · 中位价 3.65 · 范围 3.55–3.8 · 5 个报价</title></circle><path d="M931.25 74.69387755102042 H1013.75 V74.69387755102042 V180.30612244897955 V180.30612244897955 H931.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M931.25 138.06122448979588 H1013.75 V138.06122448979588" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="1013.75" y1="180.30612244897955" x2="1013.75" y2="74.69387755102042" stroke="#a1acf7" stroke-width="2"/><circle cx="1013.75" cy="138.06122448979588" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 12 · 中位价 3.65 · 范围 3.55–3.8 · 5 个报价</title></circle><text x="106.25" y="259" text-anchor="middle">08:00 · 1</text><text x="271.25" y="259" text-anchor="middle">09:00 · 3</text><text x="436.25" y="259" text-anchor="middle">10:00 · 5</text><text x="601.25" y="259" text-anchor="middle">11:00 · 7</text><text x="766.25" y="259" text-anchor="middle">12:00 · 9</text><text x="931.25" y="259" text-anchor="middle">13:00 · 11</text><text x="1013.75" y="259" text-anchor="middle">13:30 · 12</text></svg><div class="chart-footer"><span>模拟消息时间（UTC）· 数字为步骤；无报价时留空</span><span>当前范围 <b>3.55–3.8</b></span></div></section>
+<div class="split"><section class="panel"><div class="section-head"><div><h2>Supply vs demand</h2><p>已观察供需 · USD 面值额度</p></div><span class="tiny-label">CURRENT SNAPSHOT</span></div><div class="bar-row"><span><i class="dot green"></i> Supply</span><b>730k</b></div><div class="bar-track"><div class="bar-fill supply" style="width:100.000%"></div></div><div class="bar-row"><span><i class="dot purple"></i> Demand</span><b>550k</b></div><div class="bar-track"><div class="bar-fill demand" style="width:75.342%"></div></div><div class="ratio"><span>Supply / Demand ratio</span><strong>1.33</strong></div><p class="hint">需求为零时比值留空。未知单位与日用量不进入数量统计。</p></section>
+<section class="panel"><div class="section-head"><div><h2>Market health</h2><p>变化相对窗口首条快照</p></div><span class="pill">描述性指标</span></div><div class="health-row"><span>供应量变化</span><b>↑ 508.3%</b></div><div class="health-row"><span>需求量变化</span><b>新增 550k</b></div><div class="health-row"><span>卖价极差 <small>CNY / USD</small></span><b>0.25</b></div><div class="health-row"><span>可比报价覆盖 <small>5/5 活跃卖方</small></span><b>100%</b></div><p class="hint">覆盖率表示可比卖方报价占比，不是模型置信度。</p></section></div>
+<section class="panel recent"><div class="section-head"><div><h2>Recent signals</h2><p>最近消息、状态变更与原文证据</p></div><span class="pill">12 条消息</span></div><div class="scroll"><table><thead><tr><th>时间</th><th>来源 / 发布者</th><th>信号</th><th>内容</th><th>处理状态</th><th></th></tr></thead><tbody><tr><td class="mono">13:30</td><td><b>diana</b><span class="cell-sub">tg_market</span></td><td><span class="tag">忽略</span></td><td class="signal-text">Thanks everyone, I will review the offers later.</td><td><span class="status good">已处理</span></td><td><a href="#msg-11" aria-label="查看 e12 的证据">证据 ↗</a></td></tr><tr><td class="mono">13:00</td><td><b>george</b><span class="cell-sub">tg_market</span></td><td><span class="tag">供给</span></td><td class="signal-text">Selling 160k OpenAI API credits at 3.75 CNY per USD face value. Prepaid.</td><td><span class="status good">已处理</span></td><td><a href="#msg-10" aria-label="查看 e11 的证据">证据 ↗</a></td></tr><tr><td class="mono">12:30</td><td><b>sam</b><span class="cell-sub">tg_market</span></td><td><span class="tag">忽略</span></td><td class="signal-text">Still available?</td><td><span class="status good">已处理</span></td><td><a href="#msg-9" aria-label="查看 e10 的证据">证据 ↗</a></td></tr><tr><td class="mono">12:00</td><td><b>bella</b><span class="cell-sub">tg_market</span></td><td><span class="tag">改价</span></td><td class="signal-text">Confirmed new asking price: 3.65 CNY per USD face value.</td><td><span class="status good">已处理</span></td><td><a href="#msg-8" aria-label="查看 e09 的证据">证据 ↗</a></td></tr><tr><td class="mono">11:30</td><td><b>alex</b><span class="cell-sub">tg_market</span></td><td><span class="tag">剩余量</span></td><td class="signal-text">90k left in this batch.</td><td><span class="status good">已处理</span></td><td><a href="#msg-7" aria-label="查看 e08 的证据">证据 ↗</a></td></tr><tr><td class="mono">11:00</td><td><b>relay</b><span class="cell-sub">tg_market</span></td><td><span class="tag">转发关联</span></td><td class="signal-text">Forwarded from Bella: 180k OpenAI API credits available, asking 3.7 CNY per USD face value. Prepaid.</td><td><span class="status good">已处理</span></td><td><a href="#msg-6" aria-label="查看 e07 的证据">证据 ↗</a></td></tr><tr><td class="mono">10:30</td><td><b>faye</b><span class="cell-sub">tg_market</span></td><td><span class="tag">求购</span></td><td class="signal-text">Need 300k OpenAI API credits, ideally below 3.7 CNY per USD face value.</td><td><span class="status good">已处理</span></td><td><a href="#msg-5" aria-label="查看 e06 的证据">证据 ↗</a></td></tr><tr><td class="mono">10:00</td><td><b>evan</b><span class="cell-sub">tg_market</span></td><td><span class="tag">供给</span></td><td class="signal-text">Selling 100k OpenAI API credits at 3.55 CNY per USD face value. Prepaid.</td><td><span class="status good">已处理</span></td><td><a href="#msg-4" aria-label="查看 e05 的证据">证据 ↗</a></td></tr><tr><td class="mono">09:30</td><td><b>diana</b><span class="cell-sub">tg_market</span></td><td><span class="tag">求购</span></td><td class="signal-text">Looking for 250k OpenAI API credits. Preferably below 3.65 CNY per USD face value.</td><td><span class="status good">已处理</span></td><td><a href="#msg-3" aria-label="查看 e04 的证据">证据 ↗</a></td></tr><tr><td class="mono">09:00</td><td><b>charlie</b><span class="cell-sub">tg_market</span></td><td><span class="tag">供给</span></td><td class="signal-text">Selling 200k OAI API credits at 3.8 CNY per USD face value. Prepaid.</td><td><span class="status good">已处理</span></td><td><a href="#msg-2" aria-label="查看 e03 的证据">证据 ↗</a></td></tr><tr><td class="mono">08:30</td><td><b>bella</b><span class="cell-sub">tg_market</span></td><td><span class="tag">供给</span></td><td class="signal-text">180k OpenAI API credits available, asking 3.7 CNY per USD face value. Prepaid.</td><td><span class="status good">已处理</span></td><td><a href="#msg-1" aria-label="查看 e02 的证据">证据 ↗</a></td></tr><tr><td class="mono">08:00</td><td><b>alex</b><span class="cell-sub">tg_market</span></td><td><span class="tag">供给</span></td><td class="signal-text">Selling 120k OpenAI API credits at 3.6 CNY per USD face value. Prepaid.</td><td><span class="status good">已处理</span></td><td><a href="#msg-0" aria-label="查看 e01 的证据">证据 ↗</a></td></tr></tbody></table></div></section>
+<div class="data-note"><span class="note-icon">i</span><div><b>统计口径</b>　固定条款 demo_prepaid_v1；未撤回不保证仍有货。排除项计数合计 0（可重叠），条款不可比 0。<br><span>供应单位缺失 0 · 需求单位缺失 0 · 流量 0 · 卖价不可比 0。窗口筛选时间线和最近消息，卡片保留最新时点仍活跃的供需存量。本次回放处理失败 0 条，待确认 0 条。</span></div></div></div><div class="window-panel" data-window="all" hidden><div class="kpis">
+<section class="kpi featured"><div class="eyebrow"><span class="resource-icon">O</span> OpenAI API <span class="pill">美元面值额度</span></div><div class="value"><small>¥</small> 3.65</div><div class="card-bottom"><span>卖方报价中位数</span><span class="delta">↑ 1.4%</span></div><div class="hint">CNY / USD 面值 · 5 个独立报价</div></section>
+<section class="kpi"><div class="eyebrow"><span class="dot green"></span> Observed supply</div><div class="value">730k<small> USD</small></div><div class="card-bottom"><span>已观察供应量</span><span class="delta">↑ 508.3%</span></div><div class="hint">单位明确的未撤回库存</div></section>
+<section class="kpi"><div class="eyebrow"><span class="dot purple"></span> Observed demand</div><div class="value">550k<small> USD</small></div><div class="card-bottom"><span>已观察需求量</span><span class="delta">新增 550k</span></div><div class="hint">买方意向 · 不代表成交</div></section>
+<section class="kpi"><div class="eyebrow"><span class="dot slate"></span> Active signals</div><div class="value">7<small> events</small></div><div class="card-bottom"><span>去重活跃事件</span><span class="pill">D2</span></div><div class="hint">已关联来源的转发不重复累计</div></section></div>
+<section class="panel price-panel"><div class="section-head"><div><h2>Median price <span class="light">+ range</span></h2><p>独立卖方报价中位数与最低—最高范围 · CNY / USD 面值</p></div><div class="legend"><span><i class="line-key"></i> 中位数</span><span><i class="range-key"></i> 报价范围</span></div></div><svg viewBox="0 0 1080 275" role="img" aria-label="独立卖方报价中位数与最低最高范围"><line x1="65" y1="231.0" x2="1055" y2="231.0" stroke="#e9edf3" stroke-dasharray="4 5"/><text x="51" y="235.0" text-anchor="end">3.43</text><line x1="65" y1="179.25" x2="1055" y2="179.25" stroke="#e9edf3" stroke-dasharray="4 5"/><text x="51" y="183.25" text-anchor="end">3.55</text><line x1="65" y1="127.5" x2="1055" y2="127.5" stroke="#e9edf3" stroke-dasharray="4 5"/><text x="51" y="131.5" text-anchor="end">3.67</text><line x1="65" y1="75.75" x2="1055" y2="75.75" stroke="#e9edf3" stroke-dasharray="4 5"/><text x="51" y="79.75" text-anchor="end">3.80</text><line x1="65" y1="24.0" x2="1055" y2="24.0" stroke="#e9edf3" stroke-dasharray="4 5"/><text x="51" y="28.0" text-anchor="end">3.92</text><line x1="106.25" y1="159.18367346938763" x2="106.25" y2="159.18367346938763" stroke="#a1acf7" stroke-width="2"/><circle cx="106.25" cy="159.18367346938763" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 1 · 中位价 3.6 · 范围 3.6–3.6 · 1 个报价</title></circle><path d="M106.25 159.18367346938763 H188.75 V116.93877551020394 V159.18367346938763 V159.18367346938763 H106.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M106.25 159.18367346938763 H188.75 V138.06122448979588" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="188.75" y1="159.18367346938763" x2="188.75" y2="116.93877551020394" stroke="#a1acf7" stroke-width="2"/><circle cx="188.75" cy="138.06122448979588" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 2 · 中位价 3.65 · 范围 3.6–3.7 · 2 个报价</title></circle><path d="M188.75 116.93877551020394 H271.25 V74.69387755102042 V159.18367346938763 V159.18367346938763 H188.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M188.75 138.06122448979588 H271.25 V116.93877551020394" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="271.25" y1="159.18367346938763" x2="271.25" y2="74.69387755102042" stroke="#a1acf7" stroke-width="2"/><circle cx="271.25" cy="116.93877551020394" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 3 · 中位价 3.7 · 范围 3.6–3.8 · 3 个报价</title></circle><path d="M271.25 74.69387755102042 H353.75 V74.69387755102042 V159.18367346938763 V159.18367346938763 H271.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M271.25 116.93877551020394 H353.75 V116.93877551020394" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="353.75" y1="159.18367346938763" x2="353.75" y2="74.69387755102042" stroke="#a1acf7" stroke-width="2"/><circle cx="353.75" cy="116.93877551020394" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 4 · 中位价 3.7 · 范围 3.6–3.8 · 3 个报价</title></circle><path d="M353.75 74.69387755102042 H436.25 V74.69387755102042 V180.30612244897955 V159.18367346938763 H353.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M353.75 116.93877551020394 H436.25 V138.06122448979588" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="436.25" y1="180.30612244897955" x2="436.25" y2="74.69387755102042" stroke="#a1acf7" stroke-width="2"/><circle cx="436.25" cy="138.06122448979588" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 5 · 中位价 3.65 · 范围 3.55–3.8 · 4 个报价</title></circle><path d="M436.25 74.69387755102042 H518.75 V74.69387755102042 V180.30612244897955 V180.30612244897955 H436.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M436.25 138.06122448979588 H518.75 V138.06122448979588" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="518.75" y1="180.30612244897955" x2="518.75" y2="74.69387755102042" stroke="#a1acf7" stroke-width="2"/><circle cx="518.75" cy="138.06122448979588" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 6 · 中位价 3.65 · 范围 3.55–3.8 · 4 个报价</title></circle><path d="M518.75 74.69387755102042 H601.25 V74.69387755102042 V180.30612244897955 V180.30612244897955 H518.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M518.75 138.06122448979588 H601.25 V138.06122448979588" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="601.25" y1="180.30612244897955" x2="601.25" y2="74.69387755102042" stroke="#a1acf7" stroke-width="2"/><circle cx="601.25" cy="138.06122448979588" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 7 · 中位价 3.65 · 范围 3.55–3.8 · 4 个报价</title></circle><path d="M601.25 74.69387755102042 H683.75 V74.69387755102042 V180.30612244897955 V180.30612244897955 H601.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M601.25 138.06122448979588 H683.75 V138.06122448979588" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="683.75" y1="180.30612244897955" x2="683.75" y2="74.69387755102042" stroke="#a1acf7" stroke-width="2"/><circle cx="683.75" cy="138.06122448979588" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 8 · 中位价 3.65 · 范围 3.55–3.8 · 4 个报价</title></circle><path d="M683.75 74.69387755102042 H766.25 V74.69387755102042 V180.30612244897955 V180.30612244897955 H683.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M683.75 138.06122448979588 H766.25 V148.62244897959175" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="766.25" y1="180.30612244897955" x2="766.25" y2="74.69387755102042" stroke="#a1acf7" stroke-width="2"/><circle cx="766.25" cy="148.62244897959175" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 9 · 中位价 3.625 · 范围 3.55–3.8 · 4 个报价</title></circle><path d="M766.25 74.69387755102042 H848.75 V74.69387755102042 V180.30612244897955 V180.30612244897955 H766.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M766.25 148.62244897959175 H848.75 V148.62244897959175" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="848.75" y1="180.30612244897955" x2="848.75" y2="74.69387755102042" stroke="#a1acf7" stroke-width="2"/><circle cx="848.75" cy="148.62244897959175" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 10 · 中位价 3.625 · 范围 3.55–3.8 · 4 个报价</title></circle><path d="M848.75 74.69387755102042 H931.25 V74.69387755102042 V180.30612244897955 V180.30612244897955 H848.75 Z" fill="#dfe7ff" opacity=".8"/><path d="M848.75 148.62244897959175 H931.25 V138.06122448979588" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="931.25" y1="180.30612244897955" x2="931.25" y2="74.69387755102042" stroke="#a1acf7" stroke-width="2"/><circle cx="931.25" cy="138.06122448979588" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 11 · 中位价 3.65 · 范围 3.55–3.8 · 5 个报价</title></circle><path d="M931.25 74.69387755102042 H1013.75 V74.69387755102042 V180.30612244897955 V180.30612244897955 H931.25 Z" fill="#dfe7ff" opacity=".8"/><path d="M931.25 138.06122448979588 H1013.75 V138.06122448979588" fill="none" stroke="#5965e8" stroke-width="2.5"/><line x1="1013.75" y1="180.30612244897955" x2="1013.75" y2="74.69387755102042" stroke="#a1acf7" stroke-width="2"/><circle cx="1013.75" cy="138.06122448979588" r="4.5" fill="#5965e8" stroke="white" stroke-width="2"><title>步骤 12 · 中位价 3.65 · 范围 3.55–3.8 · 5 个报价</title></circle><text x="106.25" y="259" text-anchor="middle">08:00 · 1</text><text x="271.25" y="259" text-anchor="middle">09:00 · 3</text><text x="436.25" y="259" text-anchor="middle">10:00 · 5</text><text x="601.25" y="259" text-anchor="middle">11:00 · 7</text><text x="766.25" y="259" text-anchor="middle">12:00 · 9</text><text x="931.25" y="259" text-anchor="middle">13:00 · 11</text><text x="1013.75" y="259" text-anchor="middle">13:30 · 12</text></svg><div class="chart-footer"><span>模拟消息时间（UTC）· 数字为步骤；无报价时留空</span><span>当前范围 <b>3.55–3.8</b></span></div></section>
+<div class="split"><section class="panel"><div class="section-head"><div><h2>Supply vs demand</h2><p>已观察供需 · USD 面值额度</p></div><span class="tiny-label">CURRENT SNAPSHOT</span></div><div class="bar-row"><span><i class="dot green"></i> Supply</span><b>730k</b></div><div class="bar-track"><div class="bar-fill supply" style="width:100.000%"></div></div><div class="bar-row"><span><i class="dot purple"></i> Demand</span><b>550k</b></div><div class="bar-track"><div class="bar-fill demand" style="width:75.342%"></div></div><div class="ratio"><span>Supply / Demand ratio</span><strong>1.33</strong></div><p class="hint">需求为零时比值留空。未知单位与日用量不进入数量统计。</p></section>
+<section class="panel"><div class="section-head"><div><h2>Market health</h2><p>变化相对窗口首条快照</p></div><span class="pill">描述性指标</span></div><div class="health-row"><span>供应量变化</span><b>↑ 508.3%</b></div><div class="health-row"><span>需求量变化</span><b>新增 550k</b></div><div class="health-row"><span>卖价极差 <small>CNY / USD</small></span><b>0.25</b></div><div class="health-row"><span>可比报价覆盖 <small>5/5 活跃卖方</small></span><b>100%</b></div><p class="hint">覆盖率表示可比卖方报价占比，不是模型置信度。</p></section></div>
+<section class="panel recent"><div class="section-head"><div><h2>Recent signals</h2><p>最近消息、状态变更与原文证据</p></div><span class="pill">12 条消息</span></div><div class="scroll"><table><thead><tr><th>时间</th><th>来源 / 发布者</th><th>信号</th><th>内容</th><th>处理状态</th><th></th></tr></thead><tbody><tr><td class="mono">13:30</td><td><b>diana</b><span class="cell-sub">tg_market</span></td><td><span class="tag">忽略</span></td><td class="signal-text">Thanks everyone, I will review the offers later.</td><td><span class="status good">已处理</span></td><td><a href="#msg-11" aria-label="查看 e12 的证据">证据 ↗</a></td></tr><tr><td class="mono">13:00</td><td><b>george</b><span class="cell-sub">tg_market</span></td><td><span class="tag">供给</span></td><td class="signal-text">Selling 160k OpenAI API credits at 3.75 CNY per USD face value. Prepaid.</td><td><span class="status good">已处理</span></td><td><a href="#msg-10" aria-label="查看 e11 的证据">证据 ↗</a></td></tr><tr><td class="mono">12:30</td><td><b>sam</b><span class="cell-sub">tg_market</span></td><td><span class="tag">忽略</span></td><td class="signal-text">Still available?</td><td><span class="status good">已处理</span></td><td><a href="#msg-9" aria-label="查看 e10 的证据">证据 ↗</a></td></tr><tr><td class="mono">12:00</td><td><b>bella</b><span class="cell-sub">tg_market</span></td><td><span class="tag">改价</span></td><td class="signal-text">Confirmed new asking price: 3.65 CNY per USD face value.</td><td><span class="status good">已处理</span></td><td><a href="#msg-8" aria-label="查看 e09 的证据">证据 ↗</a></td></tr><tr><td class="mono">11:30</td><td><b>alex</b><span class="cell-sub">tg_market</span></td><td><span class="tag">剩余量</span></td><td class="signal-text">90k left in this batch.</td><td><span class="status good">已处理</span></td><td><a href="#msg-7" aria-label="查看 e08 的证据">证据 ↗</a></td></tr><tr><td class="mono">11:00</td><td><b>relay</b><span class="cell-sub">tg_market</span></td><td><span class="tag">转发关联</span></td><td class="signal-text">Forwarded from Bella: 180k OpenAI API credits available, asking 3.7 CNY per USD face value. Prepaid.</td><td><span class="status good">已处理</span></td><td><a href="#msg-6" aria-label="查看 e07 的证据">证据 ↗</a></td></tr><tr><td class="mono">10:30</td><td><b>faye</b><span class="cell-sub">tg_market</span></td><td><span class="tag">求购</span></td><td class="signal-text">Need 300k OpenAI API credits, ideally below 3.7 CNY per USD face value.</td><td><span class="status good">已处理</span></td><td><a href="#msg-5" aria-label="查看 e06 的证据">证据 ↗</a></td></tr><tr><td class="mono">10:00</td><td><b>evan</b><span class="cell-sub">tg_market</span></td><td><span class="tag">供给</span></td><td class="signal-text">Selling 100k OpenAI API credits at 3.55 CNY per USD face value. Prepaid.</td><td><span class="status good">已处理</span></td><td><a href="#msg-4" aria-label="查看 e05 的证据">证据 ↗</a></td></tr><tr><td class="mono">09:30</td><td><b>diana</b><span class="cell-sub">tg_market</span></td><td><span class="tag">求购</span></td><td class="signal-text">Looking for 250k OpenAI API credits. Preferably below 3.65 CNY per USD face value.</td><td><span class="status good">已处理</span></td><td><a href="#msg-3" aria-label="查看 e04 的证据">证据 ↗</a></td></tr><tr><td class="mono">09:00</td><td><b>charlie</b><span class="cell-sub">tg_market</span></td><td><span class="tag">供给</span></td><td class="signal-text">Selling 200k OAI API credits at 3.8 CNY per USD face value. Prepaid.</td><td><span class="status good">已处理</span></td><td><a href="#msg-2" aria-label="查看 e03 的证据">证据 ↗</a></td></tr><tr><td class="mono">08:30</td><td><b>bella</b><span class="cell-sub">tg_market</span></td><td><span class="tag">供给</span></td><td class="signal-text">180k OpenAI API credits available, asking 3.7 CNY per USD face value. Prepaid.</td><td><span class="status good">已处理</span></td><td><a href="#msg-1" aria-label="查看 e02 的证据">证据 ↗</a></td></tr><tr><td class="mono">08:00</td><td><b>alex</b><span class="cell-sub">tg_market</span></td><td><span class="tag">供给</span></td><td class="signal-text">Selling 120k OpenAI API credits at 3.6 CNY per USD face value. Prepaid.</td><td><span class="status good">已处理</span></td><td><a href="#msg-0" aria-label="查看 e01 的证据">证据 ↗</a></td></tr></tbody></table></div></section>
+<div class="data-note"><span class="note-icon">i</span><div><b>统计口径</b>　固定条款 demo_prepaid_v1；未撤回不保证仍有货。排除项计数合计 0（可重叠），条款不可比 0。<br><span>供应单位缺失 0 · 需求单位缺失 0 · 流量 0 · 卖价不可比 0。窗口筛选时间线和最近消息，卡片保留最新时点仍活跃的供需存量。本次回放处理失败 0 条，待确认 0 条。</span></div></div></div><section class="panel"><div class="section-head"><div><h2>Events &amp; evidence</h2><p>最新时点的事件状态 · 包含已撤回事件</p></div></div><div class="scroll"><table><thead><tr><th>发布者 / 事件</th><th>供需</th><th>数量</th><th>价格</th><th>状态</th><th>证据</th></tr></thead><tbody><tr><td>alex<span class="cell-sub">ba1b8faa0ea1f6d7</span></td><td>supply</td><td>90,000 USD_FACE · stock</td><td>eq 3.6 CNY / CNY_PER_USD_FACE</td><td>active</td><td><a href="#msg-0">e01</a> <a href="#msg-7">e08</a></td></tr><tr><td>bella<span class="cell-sub">ba8b0a1fc8cda84c</span></td><td>supply</td><td>180,000 USD_FACE · stock</td><td>eq 3.65 CNY / CNY_PER_USD_FACE</td><td>active</td><td><a href="#msg-1">e02</a> <a href="#msg-6">e07</a> <a href="#msg-8">e09</a></td></tr><tr><td>charlie<span class="cell-sub">d5ab47cdb28ffef3</span></td><td>supply</td><td>200,000 USD_FACE · stock</td><td>eq 3.8 CNY / CNY_PER_USD_FACE</td><td>active</td><td><a href="#msg-2">e03</a></td></tr><tr><td>diana<span class="cell-sub">ccb44d7e6de2582f</span></td><td>demand</td><td>250,000 USD_FACE · stock</td><td>lt 3.65 CNY / CNY_PER_USD_FACE</td><td>active</td><td><a href="#msg-3">e04</a></td></tr><tr><td>evan<span class="cell-sub">fa3d191e3498b886</span></td><td>supply</td><td>100,000 USD_FACE · stock</td><td>eq 3.55 CNY / CNY_PER_USD_FACE</td><td>active</td><td><a href="#msg-4">e05</a></td></tr><tr><td>faye<span class="cell-sub">d50747795261b445</span></td><td>demand</td><td>300,000 USD_FACE · stock</td><td>lt 3.7 CNY / CNY_PER_USD_FACE</td><td>active</td><td><a href="#msg-5">e06</a></td></tr><tr><td>george<span class="cell-sub">85416eaebd626f3c</span></td><td>supply</td><td>160,000 USD_FACE · stock</td><td>eq 3.75 CNY / CNY_PER_USD_FACE</td><td>active</td><td><a href="#msg-10">e11</a></td></tr></tbody></table></div></section><section class="audit"><h2 id="messages">MESSAGE EVIDENCE · 输入消息与处理结果</h2><details class="message-detail" id="msg-0"><summary><span class="mono">e01</span> <b>alex</b> <span>Selling 120k OpenAI API credits at 3.6 CNY per USD face value. Prepaid.</span><em>ok</em></summary><p class="hint">2026-09-15T08:00:00Z · tg_market</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;supply&quot;,
+      &quot;resource&quot;: {
+        &quot;provider&quot;: &quot;openai&quot;,
+        &quot;kind&quot;: &quot;api_credits&quot;,
+        &quot;terms_id&quot;: &quot;demo_prepaid_v1&quot;
+      },
+      &quot;quantity&quot;: {
+        &quot;value&quot;: 120000.0,
+        &quot;unit&quot;: &quot;USD_FACE&quot;,
+        &quot;kind&quot;: &quot;stock&quot;,
+        &quot;period&quot;: null,
+        &quot;qualifier&quot;: &quot;exact&quot;
+      },
+      &quot;price&quot;: {
+        &quot;value&quot;: 3.6,
+        &quot;currency&quot;: &quot;CNY&quot;,
+        &quot;unit&quot;: &quot;CNY_PER_USD_FACE&quot;,
+        &quot;operator&quot;: &quot;eq&quot;,
+        &quot;is_soft&quot;: false
+      },
+      &quot;target_message&quot;: null,
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;tg_market&quot;,
+          &quot;message_id&quot;: &quot;e01&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;Selling 120k OpenAI API credits at 3.6 CNY per USD face value. Prepaid.&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: null,
+      &quot;convention_id&quot;: null
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;create&quot;,
+      &quot;event_id&quot;: &quot;ba1b8faa0ea1f6d7&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-1"><summary><span class="mono">e02</span> <b>bella</b> <span>180k OpenAI API credits available, asking 3.7 CNY per USD face value. Prepaid.</span><em>ok</em></summary><p class="hint">2026-09-15T08:30:00Z · tg_market</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;supply&quot;,
+      &quot;resource&quot;: {
+        &quot;provider&quot;: &quot;openai&quot;,
+        &quot;kind&quot;: &quot;api_credits&quot;,
+        &quot;terms_id&quot;: &quot;demo_prepaid_v1&quot;
+      },
+      &quot;quantity&quot;: {
+        &quot;value&quot;: 180000.0,
+        &quot;unit&quot;: &quot;USD_FACE&quot;,
+        &quot;kind&quot;: &quot;stock&quot;,
+        &quot;period&quot;: null,
+        &quot;qualifier&quot;: &quot;exact&quot;
+      },
+      &quot;price&quot;: {
+        &quot;value&quot;: 3.7,
+        &quot;currency&quot;: &quot;CNY&quot;,
+        &quot;unit&quot;: &quot;CNY_PER_USD_FACE&quot;,
+        &quot;operator&quot;: &quot;eq&quot;,
+        &quot;is_soft&quot;: false
+      },
+      &quot;target_message&quot;: null,
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;tg_market&quot;,
+          &quot;message_id&quot;: &quot;e02&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;180k OpenAI API credits available, asking 3.7 CNY per USD face value. Prepaid.&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: null,
+      &quot;convention_id&quot;: &quot;tg_market_v1&quot;
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;create&quot;,
+      &quot;event_id&quot;: &quot;ba8b0a1fc8cda84c&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-2"><summary><span class="mono">e03</span> <b>charlie</b> <span>Selling 200k OAI API credits at 3.8 CNY per USD face value. Prepaid.</span><em>ok</em></summary><p class="hint">2026-09-15T09:00:00Z · tg_market</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;supply&quot;,
+      &quot;resource&quot;: {
+        &quot;provider&quot;: &quot;openai&quot;,
+        &quot;kind&quot;: &quot;api_credits&quot;,
+        &quot;terms_id&quot;: &quot;demo_prepaid_v1&quot;
+      },
+      &quot;quantity&quot;: {
+        &quot;value&quot;: 200000.0,
+        &quot;unit&quot;: &quot;USD_FACE&quot;,
+        &quot;kind&quot;: &quot;stock&quot;,
+        &quot;period&quot;: null,
+        &quot;qualifier&quot;: &quot;exact&quot;
+      },
+      &quot;price&quot;: {
+        &quot;value&quot;: 3.8,
+        &quot;currency&quot;: &quot;CNY&quot;,
+        &quot;unit&quot;: &quot;CNY_PER_USD_FACE&quot;,
+        &quot;operator&quot;: &quot;eq&quot;,
+        &quot;is_soft&quot;: false
+      },
+      &quot;target_message&quot;: null,
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;tg_market&quot;,
+          &quot;message_id&quot;: &quot;e03&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;Selling 200k OAI API credits at 3.8 CNY per USD face value. Prepaid.&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: null,
+      &quot;convention_id&quot;: &quot;tg_market_v1&quot;
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;create&quot;,
+      &quot;event_id&quot;: &quot;d5ab47cdb28ffef3&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-3"><summary><span class="mono">e04</span> <b>diana</b> <span>Looking for 250k OpenAI API credits. Preferably below 3.65 CNY per USD face value.</span><em>ok</em></summary><p class="hint">2026-09-15T09:30:00Z · tg_market</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;demand&quot;,
+      &quot;resource&quot;: {
+        &quot;provider&quot;: &quot;openai&quot;,
+        &quot;kind&quot;: &quot;api_credits&quot;,
+        &quot;terms_id&quot;: &quot;demo_prepaid_v1&quot;
+      },
+      &quot;quantity&quot;: {
+        &quot;value&quot;: 250000.0,
+        &quot;unit&quot;: &quot;USD_FACE&quot;,
+        &quot;kind&quot;: &quot;stock&quot;,
+        &quot;period&quot;: null,
+        &quot;qualifier&quot;: &quot;exact&quot;
+      },
+      &quot;price&quot;: {
+        &quot;value&quot;: 3.65,
+        &quot;currency&quot;: &quot;CNY&quot;,
+        &quot;unit&quot;: &quot;CNY_PER_USD_FACE&quot;,
+        &quot;operator&quot;: &quot;lt&quot;,
+        &quot;is_soft&quot;: true
+      },
+      &quot;target_message&quot;: null,
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;tg_market&quot;,
+          &quot;message_id&quot;: &quot;e04&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;Looking for 250k OpenAI API credits. Preferably below 3.65 CNY per USD face value.&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: &quot;Buyer intent with a soft maximum price preference.&quot;,
+      &quot;convention_id&quot;: &quot;tg_market_v1&quot;
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;create&quot;,
+      &quot;event_id&quot;: &quot;ccb44d7e6de2582f&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-4"><summary><span class="mono">e05</span> <b>evan</b> <span>Selling 100k OpenAI API credits at 3.55 CNY per USD face value. Prepaid.</span><em>ok</em></summary><p class="hint">2026-09-15T10:00:00Z · tg_market</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;supply&quot;,
+      &quot;resource&quot;: {
+        &quot;provider&quot;: &quot;openai&quot;,
+        &quot;kind&quot;: &quot;api_credits&quot;,
+        &quot;terms_id&quot;: &quot;demo_prepaid_v1&quot;
+      },
+      &quot;quantity&quot;: {
+        &quot;value&quot;: 100000.0,
+        &quot;unit&quot;: &quot;USD_FACE&quot;,
+        &quot;kind&quot;: &quot;stock&quot;,
+        &quot;period&quot;: null,
+        &quot;qualifier&quot;: &quot;exact&quot;
+      },
+      &quot;price&quot;: {
+        &quot;value&quot;: 3.55,
+        &quot;currency&quot;: &quot;CNY&quot;,
+        &quot;unit&quot;: &quot;CNY_PER_USD_FACE&quot;,
+        &quot;operator&quot;: &quot;eq&quot;,
+        &quot;is_soft&quot;: false
+      },
+      &quot;target_message&quot;: null,
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;tg_market&quot;,
+          &quot;message_id&quot;: &quot;e05&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;Selling 100k OpenAI API credits at 3.55 CNY per USD face value. Prepaid.&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: null,
+      &quot;convention_id&quot;: &quot;tg_market_v1&quot;
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;create&quot;,
+      &quot;event_id&quot;: &quot;fa3d191e3498b886&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-5"><summary><span class="mono">e06</span> <b>faye</b> <span>Need 300k OpenAI API credits, ideally below 3.7 CNY per USD face value.</span><em>ok</em></summary><p class="hint">2026-09-15T10:30:00Z · tg_market</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;demand&quot;,
+      &quot;resource&quot;: {
+        &quot;provider&quot;: &quot;openai&quot;,
+        &quot;kind&quot;: &quot;api_credits&quot;,
+        &quot;terms_id&quot;: &quot;demo_prepaid_v1&quot;
+      },
+      &quot;quantity&quot;: {
+        &quot;value&quot;: 300000.0,
+        &quot;unit&quot;: &quot;USD_FACE&quot;,
+        &quot;kind&quot;: &quot;stock&quot;,
+        &quot;period&quot;: null,
+        &quot;qualifier&quot;: &quot;exact&quot;
+      },
+      &quot;price&quot;: {
+        &quot;value&quot;: 3.7,
+        &quot;currency&quot;: &quot;CNY&quot;,
+        &quot;unit&quot;: &quot;CNY_PER_USD_FACE&quot;,
+        &quot;operator&quot;: &quot;lt&quot;,
+        &quot;is_soft&quot;: true
+      },
+      &quot;target_message&quot;: null,
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;tg_market&quot;,
+          &quot;message_id&quot;: &quot;e06&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;Need 300k OpenAI API credits, ideally below 3.7 CNY per USD face value.&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: &quot;Buyer requests 300k OpenAI API credits and states a preferred maximum price below 3.7 CNY per USD face value.&quot;,
+      &quot;convention_id&quot;: &quot;tg_market_v1&quot;
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;create&quot;,
+      &quot;event_id&quot;: &quot;d50747795261b445&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-6"><summary><span class="mono">e07</span> <b>relay</b> <span>Forwarded from Bella: 180k OpenAI API credits available, asking 3.7 CNY per USD face value. Prepaid.</span><em>ok</em></summary><p class="hint">2026-09-15T11:00:00Z · tg_market</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;ignore&quot;,
+      &quot;resource&quot;: null,
+      &quot;quantity&quot;: null,
+      &quot;price&quot;: null,
+      &quot;target_message&quot;: {
+        &quot;channel_id&quot;: &quot;tg_market&quot;,
+        &quot;message_id&quot;: &quot;e02&quot;
+      },
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;tg_market&quot;,
+          &quot;message_id&quot;: &quot;e07&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;Forwarded from Bella: 180k OpenAI API credits available, asking 3.7 CNY per USD face value. Prepaid.&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: &quot;Explicit forward; do not re-emit the forwarded original offer.&quot;,
+      &quot;convention_id&quot;: null
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;link_evidence&quot;,
+      &quot;event_id&quot;: &quot;ba8b0a1fc8cda84c&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-7"><summary><span class="mono">e08</span> <b>alex</b> <span>90k left in this batch.</span><em>ok</em></summary><p class="hint">2026-09-15T11:30:00Z · tg_market</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;set_remaining&quot;,
+      &quot;resource&quot;: {
+        &quot;provider&quot;: &quot;openai&quot;,
+        &quot;kind&quot;: &quot;api_credits&quot;,
+        &quot;terms_id&quot;: &quot;demo_prepaid_v1&quot;
+      },
+      &quot;quantity&quot;: {
+        &quot;value&quot;: 90000.0,
+        &quot;unit&quot;: &quot;USD_FACE&quot;,
+        &quot;kind&quot;: &quot;stock&quot;,
+        &quot;period&quot;: null,
+        &quot;qualifier&quot;: &quot;exact&quot;
+      },
+      &quot;price&quot;: null,
+      &quot;target_message&quot;: {
+        &quot;channel_id&quot;: &quot;tg_market&quot;,
+        &quot;message_id&quot;: &quot;e01&quot;
+      },
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;tg_market&quot;,
+          &quot;message_id&quot;: &quot;e08&quot;
+        },
+        {
+          &quot;channel_id&quot;: &quot;tg_market&quot;,
+          &quot;message_id&quot;: &quot;e01&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;90k left in this batch.&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: &quot;Owner updates the remaining quantity of the referenced offer.&quot;,
+      &quot;convention_id&quot;: &quot;tg_market_v1&quot;
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;set_remaining&quot;,
+      &quot;event_id&quot;: &quot;ba1b8faa0ea1f6d7&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-8"><summary><span class="mono">e09</span> <b>bella</b> <span>Confirmed new asking price: 3.65 CNY per USD face value.</span><em>ok</em></summary><p class="hint">2026-09-15T12:00:00Z · tg_market</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;reprice&quot;,
+      &quot;resource&quot;: {
+        &quot;provider&quot;: &quot;openai&quot;,
+        &quot;kind&quot;: &quot;api_credits&quot;,
+        &quot;terms_id&quot;: &quot;demo_prepaid_v1&quot;
+      },
+      &quot;quantity&quot;: null,
+      &quot;price&quot;: {
+        &quot;value&quot;: 3.65,
+        &quot;currency&quot;: &quot;CNY&quot;,
+        &quot;unit&quot;: &quot;CNY_PER_USD_FACE&quot;,
+        &quot;operator&quot;: &quot;eq&quot;,
+        &quot;is_soft&quot;: false
+      },
+      &quot;target_message&quot;: {
+        &quot;channel_id&quot;: &quot;tg_market&quot;,
+        &quot;message_id&quot;: &quot;e02&quot;
+      },
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;tg_market&quot;,
+          &quot;message_id&quot;: &quot;e09&quot;
+        },
+        {
+          &quot;channel_id&quot;: &quot;tg_market&quot;,
+          &quot;message_id&quot;: &quot;e02&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;Confirmed new asking price: 3.65 CNY per USD face value.&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: null,
+      &quot;convention_id&quot;: &quot;tg_market_v1&quot;
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;reprice&quot;,
+      &quot;event_id&quot;: &quot;ba8b0a1fc8cda84c&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-9"><summary><span class="mono">e10</span> <b>sam</b> <span>Still available?</span><em>ok</em></summary><p class="hint">2026-09-15T12:30:00Z · tg_market</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;ignore&quot;,
+      &quot;resource&quot;: null,
+      &quot;quantity&quot;: null,
+      &quot;price&quot;: null,
+      &quot;target_message&quot;: null,
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;tg_market&quot;,
+          &quot;message_id&quot;: &quot;e10&quot;
+        },
+        {
+          &quot;channel_id&quot;: &quot;tg_market&quot;,
+          &quot;message_id&quot;: &quot;e03&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;Still available?&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: &quot;Inquiry about the referenced offer; not a new supply, demand, or transaction signal.&quot;,
+      &quot;convention_id&quot;: null
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;none&quot;,
+      &quot;reason&quot;: &quot;Inquiry about the referenced offer; not a new supply, demand, or transaction signal.&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-10"><summary><span class="mono">e11</span> <b>george</b> <span>Selling 160k OpenAI API credits at 3.75 CNY per USD face value. Prepaid.</span><em>ok</em></summary><p class="hint">2026-09-15T13:00:00Z · tg_market</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;supply&quot;,
+      &quot;resource&quot;: {
+        &quot;provider&quot;: &quot;openai&quot;,
+        &quot;kind&quot;: &quot;api_credits&quot;,
+        &quot;terms_id&quot;: &quot;demo_prepaid_v1&quot;
+      },
+      &quot;quantity&quot;: {
+        &quot;value&quot;: 160000.0,
+        &quot;unit&quot;: &quot;USD_FACE&quot;,
+        &quot;kind&quot;: &quot;stock&quot;,
+        &quot;period&quot;: null,
+        &quot;qualifier&quot;: &quot;exact&quot;
+      },
+      &quot;price&quot;: {
+        &quot;value&quot;: 3.75,
+        &quot;currency&quot;: &quot;CNY&quot;,
+        &quot;unit&quot;: &quot;CNY_PER_USD_FACE&quot;,
+        &quot;operator&quot;: &quot;eq&quot;,
+        &quot;is_soft&quot;: false
+      },
+      &quot;target_message&quot;: null,
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;tg_market&quot;,
+          &quot;message_id&quot;: &quot;e11&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;Selling 160k OpenAI API credits at 3.75 CNY per USD face value. Prepaid.&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: null,
+      &quot;convention_id&quot;: &quot;tg_market_v1&quot;
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;create&quot;,
+      &quot;event_id&quot;: &quot;85416eaebd626f3c&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="message-detail" id="msg-11"><summary><span class="mono">e12</span> <b>diana</b> <span>Thanks everyone, I will review the offers later.</span><em>ok</em></summary><p class="hint">2026-09-15T13:30:00Z · tg_market</p><pre>{
+  &quot;observations&quot;: [
+    {
+      &quot;action&quot;: &quot;ignore&quot;,
+      &quot;resource&quot;: null,
+      &quot;quantity&quot;: null,
+      &quot;price&quot;: null,
+      &quot;target_message&quot;: null,
+      &quot;assertion_mode&quot;: &quot;direct&quot;,
+      &quot;source_message_ids&quot;: [
+        {
+          &quot;channel_id&quot;: &quot;tg_market&quot;,
+          &quot;message_id&quot;: &quot;e12&quot;
+        }
+      ],
+      &quot;evidence_quote&quot;: &quot;Thanks everyone, I will review the offers later.&quot;,
+      &quot;unresolved_reason&quot;: null,
+      &quot;reason&quot;: &quot;Chatter with no current offer, demand, or update.&quot;,
+      &quot;convention_id&quot;: &quot;tg_market_v1&quot;
+    }
+  ],
+  &quot;effects&quot;: [
+    {
+      &quot;operation&quot;: &quot;none&quot;,
+      &quot;reason&quot;: &quot;Chatter with no current offer, demand, or update.&quot;
+    }
+  ],
+  &quot;reason&quot;: null
+}</pre></details><details class="raw"><summary>逐步快照 · 12 个独立状态</summary><div class="scroll"><table><thead><tr><th>步骤</th><th>模拟时间</th><th>供应</th><th>需求</th><th>中位价</th><th>报价数</th></tr></thead><tbody><tr><td>1</td><td>2026-09-15T08:00:00+00:00</td><td>120,000</td><td>0</td><td>3.6</td><td>1</td></tr><tr><td>2</td><td>2026-09-15T08:30:00+00:00</td><td>300,000</td><td>0</td><td>3.65</td><td>2</td></tr><tr><td>3</td><td>2026-09-15T09:00:00+00:00</td><td>500,000</td><td>0</td><td>3.7</td><td>3</td></tr><tr><td>4</td><td>2026-09-15T09:30:00+00:00</td><td>500,000</td><td>250,000</td><td>3.7</td><td>3</td></tr><tr><td>5</td><td>2026-09-15T10:00:00+00:00</td><td>600,000</td><td>250,000</td><td>3.65</td><td>4</td></tr><tr><td>6</td><td>2026-09-15T10:30:00+00:00</td><td>600,000</td><td>550,000</td><td>3.65</td><td>4</td></tr><tr><td>7</td><td>2026-09-15T11:00:00+00:00</td><td>600,000</td><td>550,000</td><td>3.65</td><td>4</td></tr><tr><td>8</td><td>2026-09-15T11:30:00+00:00</td><td>570,000</td><td>550,000</td><td>3.65</td><td>4</td></tr><tr><td>9</td><td>2026-09-15T12:00:00+00:00</td><td>570,000</td><td>550,000</td><td>3.625</td><td>4</td></tr><tr><td>10</td><td>2026-09-15T12:30:00+00:00</td><td>570,000</td><td>550,000</td><td>3.625</td><td>4</td></tr><tr><td>11</td><td>2026-09-15T13:00:00+00:00</td><td>730,000</td><td>550,000</td><td>3.65</td><td>5</td></tr><tr><td>12</td><td>2026-09-15T13:30:00+00:00</td><td>730,000</td><td>550,000</td><td>3.65</td><td>5</td></tr></tbody></table></div></details><details class="raw"><summary>运行信息与调用用量</summary><pre>{
+  &quot;scenario_id&quot;: &quot;D2&quot;,
+  &quot;mode&quot;: &quot;api&quot;,
+  &quot;status_counts&quot;: {
+    &quot;ok&quot;: 12
+  },
+  &quot;unique_messages&quot;: 12,
+  &quot;api_calls&quot;: 12,
+  &quot;calls_with_usage&quot;: 12,
+  &quot;input_tokens&quot;: 10590,
+  &quot;output_tokens&quot;: 3361,
+  &quot;elapsed_ms&quot;: 47866.63,
+  &quot;estimated_cost&quot;: null,
+  &quot;final_metrics&quot;: {
+    &quot;observed_supply_usd_face&quot;: 730000.0,
+    &quot;observed_demand_usd_face&quot;: 550000.0,
+    &quot;seller_ask_median_cny_per_usd_face&quot;: 3.65,
+    &quot;seller_ask_sample_count&quot;: 5,
+    &quot;active_event_count&quot;: 7,
+    &quot;excluded&quot;: {
+      &quot;supply_quantity_missing_or_unit_unknown&quot;: 0,
+      &quot;demand_quantity_missing_or_unit_unknown&quot;: 0,
+      &quot;flow_quantity&quot;: 0,
+      &quot;seller_price_missing_or_not_comparable&quot;: 0
+    },
+    &quot;noncomparable_terms_count&quot;: 0
+  },
+  &quot;config_sha256&quot;: &quot;277ccf8756b088cf2432dcb4897c19a49db473720e0584d6c156b8581db63b24&quot;
+}</pre></details></section>
+<footer class="footer"><span>模拟群聊 · 单资源原型 · 不包含模型置信度评分</span><span>gpt-5.6-luna · D2 · 12 model calls</span></footer><noscript><p class="hint">JavaScript 未启用：显示默认 24h 窗口；消息证据仍可展开。</p></noscript></main><script type="text/javascript">document.querySelectorAll('[data-window-button]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-window-button]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));document.querySelectorAll('[data-window]').forEach(panel=>{panel.hidden=panel.dataset.window!==button.dataset.windowButton;});}));function showEvidence(){const element=document.getElementById(location.hash.slice(1));if(element && element.matches('details.message-detail'))element.open=true;}window.addEventListener('hashchange',showEvidence);showEvidence();</script></body></html>

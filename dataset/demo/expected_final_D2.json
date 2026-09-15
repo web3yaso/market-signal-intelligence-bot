@@ -1,0 +1,15 @@
+{
+  "purpose": "Manual demonstration sanity check, not held-out benchmark accuracy",
+  "input_messages": 12,
+  "expected_metrics": {
+    "observed_supply_usd_face": 730000,
+    "observed_demand_usd_face": 550000,
+    "seller_ask_median_cny_per_usd_face": 3.65,
+    "seller_ask_sample_count": 5,
+    "active_event_count": 7
+  },
+  "expected_seller_range": [
+    3.55,
+    3.8
+  ]
+}

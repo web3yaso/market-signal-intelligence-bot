@@ -1,0 +1,46 @@
+{
+  "purpose": "Manually derived final-state sanity check, not a new held-out model benchmark",
+  "input_messages": 36,
+  "independent_initial_sellers": 10,
+  "expected_metrics": {
+    "observed_supply_usd_face": 1300000,
+    "observed_demand_usd_face": 2100000,
+    "seller_ask_median_cny_per_usd_face": 3.7,
+    "seller_ask_sample_count": 9,
+    "active_event_count": 15
+  },
+  "expected_seller_range": [
+    3.55,
+    3.85
+  ],
+  "seller_quantities": {
+    "alice": 80000,
+    "bob": 150000,
+    "cara": 150000,
+    "erin": 220000,
+    "finn": 80000,
+    "grace": 180000,
+    "henry": 190000,
+    "ivy": 160000,
+    "jack": 90000
+  },
+  "seller_prices": {
+    "alice": 3.7,
+    "bob": 3.8,
+    "cara": 3.6,
+    "erin": 3.65,
+    "finn": 3.85,
+    "grace": 3.7,
+    "henry": 3.6,
+    "ivy": 3.8,
+    "jack": 3.55
+  },
+  "buyer_quantities": {
+    "nina": 500000,
+    "omar": 300000,
+    "paul": 250000,
+    "quinn": 400000,
+    "rita": 200000,
+    "sara": 450000
+  }
+}

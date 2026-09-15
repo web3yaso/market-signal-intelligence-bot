@@ -1,0 +1,31 @@
+{
+  "scenario_id": "D1",
+  "mode": "api",
+  "status_counts": {
+    "ok": 33,
+    "failed": 1,
+    "unresolved": 2
+  },
+  "unique_messages": 36,
+  "api_calls": 36,
+  "calls_with_usage": 35,
+  "input_tokens": 31086,
+  "output_tokens": 9525,
+  "elapsed_ms": 151329.35,
+  "estimated_cost": null,
+  "final_metrics": {
+    "observed_supply_usd_face": 1110000.0,
+    "observed_demand_usd_face": 2100000.0,
+    "seller_ask_median_cny_per_usd_face": 3.7,
+    "seller_ask_sample_count": 8,
+    "active_event_count": 14,
+    "excluded": {
+      "supply_quantity_missing_or_unit_unknown": 0,
+      "demand_quantity_missing_or_unit_unknown": 0,
+      "flow_quantity": 0,
+      "seller_price_missing_or_not_comparable": 0
+    },
+    "noncomparable_terms_count": 0
+  },
+  "config_sha256": "277ccf8756b088cf2432dcb4897c19a49db473720e0584d6c156b8581db63b24"
+}

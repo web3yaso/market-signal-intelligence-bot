@@ -1,0 +1,223 @@
+{
+  "mode": "api",
+  "prompt_id": "d11d66e0def27315",
+  "extraction_metrics": {
+    "decisions_total": 7,
+    "decisions_correct": 7,
+    "fields_total": 62,
+    "fields_correct": 60,
+    "true_positive_signals": 4,
+    "false_positive_signals": 0,
+    "false_negative_signals": 0,
+    "extra_outputs": 0,
+    "processing_failures": 0,
+    "guard_rejections": 0,
+    "signal_precision": 1.0,
+    "signal_recall": 1.0,
+    "per_field_counts": {
+      "resource.provider:total": 5,
+      "resource.provider:correct": 5,
+      "resource.kind:total": 5,
+      "resource.kind:correct": 5,
+      "resource.terms_id:total": 5,
+      "resource.terms_id:correct": 5,
+      "quantity.value:total": 3,
+      "quantity.value:correct": 3,
+      "quantity.unit:total": 3,
+      "quantity.unit:correct": 3,
+      "quantity.kind:total": 3,
+      "quantity.kind:correct": 3,
+      "quantity.period:total": 3,
+      "quantity.period:correct": 3,
+      "quantity.qualifier:total": 3,
+      "quantity.qualifier:correct": 3,
+      "price.value:total": 3,
+      "price.value:correct": 3,
+      "price.currency:total": 3,
+      "price.currency:correct": 3,
+      "price.unit:total": 3,
+      "price.unit:correct": 3,
+      "price.operator:total": 3,
+      "price.operator:correct": 3,
+      "price.is_soft:total": 3,
+      "price.is_soft:correct": 3,
+      "target_message:total": 2,
+      "target_message:correct": 2,
+      "assertion_mode:total": 5,
+      "assertion_mode:correct": 5,
+      "quantity:total": 2,
+      "quantity:correct": 2,
+      "price:total": 2,
+      "price:correct": 2,
+      "target_message.channel_id:total": 3,
+      "target_message.channel_id:correct": 2,
+      "target_message.message_id:total": 3,
+      "target_message.message_id:correct": 2
+    }
+  },
+  "state_metrics": {
+    "snapshots_total": 7,
+    "states_correct": 7,
+    "aggregates_correct": 7
+  },
+  "scenarios_passed": 2,
+  "scenarios_total": 2,
+  "runs": [
+    {
+      "scenario_id": "S3",
+      "mode": "api",
+      "status_counts": {
+        "ok": 3
+      },
+      "unique_messages": 3,
+      "api_calls": 3,
+      "calls_with_usage": 3,
+      "input_tokens": 2777,
+      "output_tokens": 749,
+      "elapsed_ms": 10918.71,
+      "estimated_cost": null,
+      "final_metrics": {
+        "observed_supply_usd_face": 0.0,
+        "observed_demand_usd_face": 0.0,
+        "seller_ask_median_cny_per_usd_face": null,
+        "seller_ask_sample_count": 0,
+        "active_event_count": 0,
+        "excluded": {
+          "supply_quantity_missing_or_unit_unknown": 0,
+          "demand_quantity_missing_or_unit_unknown": 0,
+          "flow_quantity": 0,
+          "seller_price_missing_or_not_comparable": 0
+        },
+        "noncomparable_terms_count": 0
+      }
+    },
+    {
+      "scenario_id": "S4",
+      "mode": "api",
+      "status_counts": {
+        "ok": 3,
+        "unresolved": 1
+      },
+      "unique_messages": 4,
+      "api_calls": 4,
+      "calls_with_usage": 4,
+      "input_tokens": 3687,
+      "output_tokens": 1469,
+      "elapsed_ms": 19658.12,
+      "estimated_cost": null,
+      "final_metrics": {
+        "observed_supply_usd_face": 40000.0,
+        "observed_demand_usd_face": 5000.0,
+        "seller_ask_median_cny_per_usd_face": 3.4,
+        "seller_ask_sample_count": 1,
+        "active_event_count": 2,
+        "excluded": {
+          "supply_quantity_missing_or_unit_unknown": 0,
+          "demand_quantity_missing_or_unit_unknown": 0,
+          "flow_quantity": 0,
+          "seller_price_missing_or_not_comparable": 0
+        },
+        "noncomparable_terms_count": 0
+      }
+    }
+  ],
+  "failures": [
+    {
+      "scenario": "S4",
+      "message_id": "m02",
+      "kind": "extraction",
+      "reason": null,
+      "errors": [
+        {
+          "field": "target_message.channel_id",
+          "expected": "tg_quotes",
+          "actual": null
+        },
+        {
+          "field": "target_message.message_id",
+          "expected": "m01",
+          "actual": null
+        }
+      ]
+    }
+  ],
+  "extraction_cases": [
+    {
+      "message": {
+        "channel_id": "wx_reply",
+        "message_id": "m01"
+      },
+      "status": "ok",
+      "reason": null,
+      "errors": []
+    },
+    {
+      "message": {
+        "channel_id": "wx_reply",
+        "message_id": "m02"
+      },
+      "status": "ok",
+      "reason": null,
+      "errors": []
+    },
+    {
+      "message": {
+        "channel_id": "wx_reply",
+        "message_id": "m03"
+      },
+      "status": "ok",
+      "reason": null,
+      "errors": []
+    },
+    {
+      "message": {
+        "channel_id": "tg_quotes",
+        "message_id": "m01"
+      },
+      "status": "ok",
+      "reason": null,
+      "errors": []
+    },
+    {
+      "message": {
+        "channel_id": "tg_quotes",
+        "message_id": "m02"
+      },
+      "status": "ok",
+      "reason": null,
+      "errors": [
+        {
+          "field": "target_message.channel_id",
+          "expected": "tg_quotes",
+          "actual": null
+        },
+        {
+          "field": "target_message.message_id",
+          "expected": "m01",
+          "actual": null
+        }
+      ]
+    },
+    {
+      "message": {
+        "channel_id": "tg_quotes",
+        "message_id": "m03"
+      },
+      "status": "ok",
+      "reason": null,
+      "errors": []
+    },
+    {
+      "message": {
+        "channel_id": "tg_quotes",
+        "message_id": "m04"
+      },
+      "status": "unresolved",
+      "reason": "Conflicting unconfirmed new prices; seller has not decided which price to use.",
+      "errors": []
+    }
+  ],
+  "limitations": "20 mock messages; fixture mode validates downstream only; API metrics measure normalized outputs and report guard failures separately.",
+  "split": "holdout",
+  "dataset_sha256": "9a98cc603d12cbc2b8c0704f1f2824f53f7fd91dace1930aaa79a7bae1d5936d"
+}

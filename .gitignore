@@ -1,0 +1,21 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+outputs/
+.DS_Store
+
+# Local iteration notes and superseded artifacts; retain on disk.
+IMPLEMENTATION_NOTES.md
+*.docx
+demo/*
+!demo/index.html
+!demo/final/
+AGENT.md
+SUBMISSION.md
+dataset/README.md
+dataset/demo/README.md
+demo/final/dev/*/report.html
+demo/final/holdout/*/report.html

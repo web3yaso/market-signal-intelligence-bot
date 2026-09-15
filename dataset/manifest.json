@@ -1,0 +1,429 @@
+{
+  "dataset_version": "1.0.0",
+  "all_content_is_mock": true,
+  "message_count": 20,
+  "observation_count": 21,
+  "scenarios": [
+    {
+      "scenario_id": "S1",
+      "channel_id": "tg_demo",
+      "platform": "telegram",
+      "split": "dev",
+      "message_ids": [
+        "m01",
+        "m02",
+        "m03",
+        "m04",
+        "m05",
+        "m06",
+        "m07",
+        "m08"
+      ]
+    },
+    {
+      "scenario_id": "S2",
+      "channel_id": "wx_units",
+      "platform": "wechat",
+      "split": "dev",
+      "message_ids": [
+        "m01",
+        "m02",
+        "m03"
+      ]
+    },
+    {
+      "scenario_id": "S3",
+      "channel_id": "wx_reply",
+      "platform": "wechat",
+      "split": "holdout",
+      "message_ids": [
+        "m01",
+        "m02",
+        "m03"
+      ]
+    },
+    {
+      "scenario_id": "S4",
+      "channel_id": "tg_quotes",
+      "platform": "telegram",
+      "split": "holdout",
+      "message_ids": [
+        "m01",
+        "m02",
+        "m03",
+        "m04"
+      ]
+    },
+    {
+      "scenario_id": "S5",
+      "channel_id": "wx_mixed",
+      "platform": "wechat",
+      "split": "dev",
+      "message_ids": [
+        "m01",
+        "m02"
+      ]
+    }
+  ],
+  "messages": [
+    {
+      "message": {
+        "channel_id": "tg_demo",
+        "message_id": "m01"
+      },
+      "scenario_id": "S1",
+      "split": "dev",
+      "origin": "synthetic",
+      "source_forum_message_ids": [],
+      "adaptation_note": "",
+      "coverage_tags": [
+        "clean_supply"
+      ]
+    },
+    {
+      "message": {
+        "channel_id": "tg_demo",
+        "message_id": "m02"
+      },
+      "scenario_id": "S1",
+      "split": "dev",
+      "origin": "synthetic",
+      "source_forum_message_ids": [],
+      "adaptation_note": "模拟明确转发；保留证据，不能新建库存。",
+      "coverage_tags": [
+        "forwarded_information",
+        "repeated_offers"
+      ]
+    },
+    {
+      "message": {
+        "channel_id": "tg_demo",
+        "message_id": "m03"
+      },
+      "scenario_id": "S1",
+      "split": "dev",
+      "origin": "synthetic",
+      "source_forum_message_ids": [],
+      "adaptation_note": "相同文字由独立卖家发布，无来源关联；不能与 E1 合并。",
+      "coverage_tags": [
+        "repeated_offers",
+        "independent_identical_offer"
+      ]
+    },
+    {
+      "message": {
+        "channel_id": "tg_demo",
+        "message_id": "m04"
+      },
+      "scenario_id": "S1",
+      "split": "dev",
+      "origin": "synthetic",
+      "source_forum_message_ids": [],
+      "adaptation_note": "用户提供的业务例句；CNY/美元面值和数量单位均来自本群公开约定。不是卖方报价。",
+      "coverage_tags": [
+        "clean_demand",
+        "soft_bid",
+        "missing_units_resolved_by_convention"
+      ]
+    },
+    {
+      "message": {
+        "channel_id": "tg_demo",
+        "message_id": "m05"
+      },
+      "scenario_id": "S1",
+      "split": "dev",
+      "origin": "synthetic",
+      "source_forum_message_ids": [],
+      "adaptation_note": "60k 替换原有剩余量；不是再增加 60k。",
+      "coverage_tags": [
+        "follow_up_replies",
+        "prior_context",
+        "remaining_replacement"
+      ]
+    },
+    {
+      "message": {
+        "channel_id": "tg_demo",
+        "message_id": "m06"
+      },
+      "scenario_id": "S1",
+      "split": "dev",
+      "origin": "synthetic",
+      "source_forum_message_ids": [],
+      "adaptation_note": "",
+      "coverage_tags": [
+        "follow_up_replies",
+        "prior_context",
+        "seller_reprice"
+      ]
+    },
+    {
+      "message": {
+        "channel_id": "tg_demo",
+        "message_id": "m07"
+      },
+      "scenario_id": "S1",
+      "split": "dev",
+      "origin": "synthetic",
+      "source_forum_message_ids": [],
+      "adaptation_note": "没有权威来源关系的转述，不作为原卖家撤回。",
+      "coverage_tags": [
+        "forwarded_information",
+        "third_party_hearsay",
+        "contradictory_status"
+      ]
+    },
+    {
+      "message": {
+        "channel_id": "tg_demo",
+        "message_id": "m08"
+      },
+      "scenario_id": "S1",
+      "split": "dev",
+      "origin": "synthetic",
+      "source_forum_message_ids": [],
+      "adaptation_note": "",
+      "coverage_tags": [
+        "follow_up_replies",
+        "seller_retraction"
+      ]
+    },
+    {
+      "message": {
+        "channel_id": "wx_units",
+        "message_id": "m01"
+      },
+      "scenario_id": "S2",
+      "split": "dev",
+      "origin": "synthetic",
+      "source_forum_message_ids": [],
+      "adaptation_note": "OA 按公开别名表识别；本群没有币种或数量单位约定，不能从“额度”猜美元、token 或账号数。字段未知不否定明确供给意图。",
+      "coverage_tags": [
+        "aliases",
+        "missing_units_unresolved"
+      ]
+    },
+    {
+      "message": {
+        "channel_id": "wx_units",
+        "message_id": "m02"
+      },
+      "scenario_id": "S2",
+      "split": "dev",
+      "origin": "adapted",
+      "source_forum_message_ids": [
+        "ns_694485#7",
+        "ns_694485#8"
+      ],
+      "adaptation_note": "保留论坛日用量表达，将资源明确改写为 OpenAI；日用量不是一次性需求库存。两条论坛重复表达只改编为一个需求。",
+      "coverage_tags": [
+        "flow_not_stock",
+        "aliases",
+        "clean_demand"
+      ]
+    },
+    {
+      "message": {
+        "channel_id": "wx_units",
+        "message_id": "m03"
+      },
+      "scenario_id": "S2",
+      "split": "dev",
+      "origin": "synthetic",
+      "source_forum_message_ids": [],
+      "adaptation_note": "",
+      "coverage_tags": [
+        "irrelevant_chatter"
+      ]
+    },
+    {
+      "message": {
+        "channel_id": "wx_reply",
+        "message_id": "m01"
+      },
+      "scenario_id": "S3",
+      "split": "holdout",
+      "origin": "adapted",
+      "source_forum_message_ids": [
+        "ns_639898#0"
+      ],
+      "adaptation_note": "将论坛标题和正文改为一条群聊供给；Claude 改为 OpenAI，数量、报价和预付条款为新设定。",
+      "coverage_tags": [
+        "clean_supply",
+        "explicit_units"
+      ]
+    },
+    {
+      "message": {
+        "channel_id": "wx_reply",
+        "message_id": "m02"
+      },
+      "scenario_id": "S3",
+      "split": "holdout",
+      "origin": "adapted",
+      "source_forum_message_ids": [
+        "ns_639898#1"
+      ],
+      "adaptation_note": "简化为引用询问；询问是否有货不等于确定下单或成交。",
+      "coverage_tags": [
+        "follow_up_replies",
+        "prior_context",
+        "inquiry_not_order"
+      ]
+    },
+    {
+      "message": {
+        "channel_id": "wx_reply",
+        "message_id": "m03"
+      },
+      "scenario_id": "S3",
+      "split": "holdout",
+      "origin": "adapted",
+      "source_forum_message_ids": [
+        "ns_639898#2"
+      ],
+      "adaptation_note": "模拟 m03→m02→m01；target 是原供给 m01，不能把询问者 Owen 当卖家。",
+      "coverage_tags": [
+        "follow_up_replies",
+        "prior_context",
+        "two_hop_reply",
+        "seller_retraction"
+      ]
+    },
+    {
+      "message": {
+        "channel_id": "tg_quotes",
+        "message_id": "m01"
+      },
+      "scenario_id": "S4",
+      "split": "holdout",
+      "origin": "synthetic",
+      "source_forum_message_ids": [],
+      "adaptation_note": "",
+      "coverage_tags": [
+        "aliases",
+        "clean_supply"
+      ]
+    },
+    {
+      "message": {
+        "channel_id": "tg_quotes",
+        "message_id": "m02"
+      },
+      "scenario_id": "S4",
+      "split": "holdout",
+      "origin": "adapted",
+      "source_forum_message_ids": [
+        "bhw_1737905#8"
+      ],
+      "adaptation_note": "改编购买意向并加入买方还价和第三方转述；5k 与 3.1 均为新设定。卖方报价仍是 3.4，不能记录成交或减少供应。",
+      "coverage_tags": [
+        "contradictory_quotes",
+        "buyer_intent_not_transaction",
+        "prior_context",
+        "multiple_observations"
+      ]
+    },
+    {
+      "message": {
+        "channel_id": "tg_quotes",
+        "message_id": "m03"
+      },
+      "scenario_id": "S4",
+      "split": "holdout",
+      "origin": "synthetic",
+      "source_forum_message_ids": [],
+      "adaptation_note": "时间限定 last year 作用于整条旧交易；不能把 gone 当当前 offer 撤回，也不能生成精确历史日期。历史数量价格可提取但不作用于当前事件。",
+      "coverage_tags": [
+        "historical_references",
+        "past_sale_not_current_stock"
+      ]
+    },
+    {
+      "message": {
+        "channel_id": "tg_quotes",
+        "message_id": "m04"
+      },
+      "scenario_id": "S4",
+      "split": "holdout",
+      "origin": "synthetic",
+      "source_forum_message_ids": [],
+      "adaptation_note": "同一卖家明确表示新价未定；不能按最后出现的 3.9 覆盖既有 3.4，也不能取两个候选的平均数。",
+      "coverage_tags": [
+        "contradictory_quotes",
+        "follow_up_replies",
+        "unresolved_price"
+      ]
+    },
+    {
+      "message": {
+        "channel_id": "wx_mixed",
+        "message_id": "m01"
+      },
+      "scenario_id": "S5",
+      "split": "dev",
+      "origin": "synthetic",
+      "source_forum_message_ids": [],
+      "adaptation_note": "",
+      "coverage_tags": [
+        "out_of_scope",
+        "product_alias_not_credit"
+      ]
+    },
+    {
+      "message": {
+        "channel_id": "wx_mixed",
+        "message_id": "m02"
+      },
+      "scenario_id": "S5",
+      "split": "dev",
+      "origin": "synthetic",
+      "source_forum_message_ids": [],
+      "adaptation_note": "没有引用，也未说资源；不能凭相邻消息猜为 Claude 或 OpenAI，更不能更新 Rui 的事件。",
+      "coverage_tags": [
+        "missing_units_unresolved",
+        "missing_prior_context"
+      ]
+    }
+  ],
+  "replay_checks": [
+    {
+      "name": "duplicate_delivery",
+      "scenario_id": "S1",
+      "delivery_order": [
+        "m01",
+        "m01",
+        "m02",
+        "m03",
+        "m04",
+        "m05",
+        "m05",
+        "m06",
+        "m07",
+        "m08"
+      ],
+      "duplicate_deliveries": [
+        "m01",
+        "m05"
+      ],
+      "expected_unique_message_count": 8,
+      "expected_llm_calls_max": 8,
+      "expected_result": "与 S1 顺序处理 8 条唯一消息的最终状态及证据列表完全一致；重复投递不调用模型。"
+    },
+    {
+      "name": "historical_snapshot_immutability",
+      "scenario_id": "S1",
+      "read_step": 6,
+      "after_step": 8,
+      "expected_metrics": {
+        "observed_supply_usd_face": 160000,
+        "observed_demand_usd_face": 500000,
+        "seller_ask_median_cny_per_usd_face": 3.7,
+        "active_event_count": 3
+      },
+      "expected_result": "步骤 6 的 E1 保持 active、60000、3.6，不被步骤 8 的撤回改写。"
+    }
+  ],
+  "evaluation_status": "人工构造预期并校验数据一致性；没有运行模型或项目事件引擎。"
+}

@@ -1,0 +1,18 @@
+{
+  "scenarios": [
+    {
+      "scenario_id": "D1",
+      "channel_id": "wx_demo",
+      "platform": "wechat",
+      "language": "zh-CN",
+      "purpose": "expanded_demo_only"
+    },
+    {
+      "scenario_id": "D2",
+      "channel_id": "tg_market",
+      "platform": "telegram",
+      "language": "en",
+      "purpose": "expanded_demo_only"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "dataset_version": "demo-2.0.0",
+  "input_kind": "mock_chat",
+  "scope": {
+    "provider": "openai",
+    "kind": "api_credits",
+    "aggregation_terms_id": "demo_prepaid_v1"
+  },
+  "aliases": {
+    "OpenAI": "openai",
+    "openai": "openai",
+    "OA": "openai",
+    "OAI": "openai"
+  },
+  "alias_policy": "OA/OAI 仅为本数据集配置的 OpenAI 简称；MAX、GPT-4 等不能据此推断为同一种额度。",
+  "channels": {
+    "wx_demo": {
+      "platform": "wechat",
+      "convention_id": "wx_demo_v1",
+      "quantity_unit_default": "USD_FACE",
+      "price_unit_default": "CNY_PER_USD_FACE",
+      "price_currency_default": "CNY",
+      "terms_id_for_openai_api_credits": "demo_prepaid_v1",
+      "notes": "模拟的预付 API 额度，固定条款；未知的币种和单位保持 null。",
+      "language": "zh-CN"
+    },
+    "tg_market": {
+      "platform": "telegram",
+      "convention_id": "tg_market_v1",
+      "quantity_unit_default": "USD_FACE",
+      "price_unit_default": "CNY_PER_USD_FACE",
+      "price_currency_default": "CNY",
+      "terms_id_for_openai_api_credits": "demo_prepaid_v1",
+      "notes": "Mock prepaid OpenAI API credits. Quantity is USD face value; price is CNY per USD face value.",
+      "language": "en"
+    }
+  },
+  "context": {
+    "max_reply_ancestors": 3,
+    "previous_unlinked_messages": false,
+    "forward_policy": "明确 forwarded_origin 可用于来源绑定；普通复制文本不提供来源证明。"
+  },
+  "mock_language_convention": "Chinese chat in WeChat; English chat in Telegram. This is a sample-data convention, not a production language detector."
+}

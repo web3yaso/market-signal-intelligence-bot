@@ -1,0 +1,293 @@
+{
+  "mode": "api",
+  "prompt_id": "d11d66e0def27315",
+  "extraction_metrics": {
+    "decisions_total": 13,
+    "decisions_correct": 12,
+    "fields_total": 116,
+    "fields_correct": 116,
+    "true_positive_signals": 8,
+    "false_positive_signals": 1,
+    "false_negative_signals": 0,
+    "extra_outputs": 1,
+    "processing_failures": 0,
+    "guard_rejections": 0,
+    "signal_precision": 0.8888888888888888,
+    "signal_recall": 1.0,
+    "per_field_counts": {
+      "resource.provider:total": 8,
+      "resource.provider:correct": 8,
+      "resource.kind:total": 8,
+      "resource.kind:correct": 8,
+      "resource.terms_id:total": 8,
+      "resource.terms_id:correct": 8,
+      "quantity.value:total": 7,
+      "quantity.value:correct": 7,
+      "quantity.unit:total": 7,
+      "quantity.unit:correct": 7,
+      "quantity.kind:total": 7,
+      "quantity.kind:correct": 7,
+      "quantity.period:total": 7,
+      "quantity.period:correct": 7,
+      "quantity.qualifier:total": 7,
+      "quantity.qualifier:correct": 7,
+      "price.value:total": 6,
+      "price.value:correct": 6,
+      "price.currency:total": 6,
+      "price.currency:correct": 6,
+      "price.unit:total": 6,
+      "price.unit:correct": 6,
+      "price.operator:total": 6,
+      "price.operator:correct": 6,
+      "price.is_soft:total": 6,
+      "price.is_soft:correct": 6,
+      "target_message:total": 6,
+      "target_message:correct": 6,
+      "assertion_mode:total": 9,
+      "assertion_mode:correct": 9,
+      "price:total": 3,
+      "price:correct": 3,
+      "target_message.channel_id:total": 3,
+      "target_message.channel_id:correct": 3,
+      "target_message.message_id:total": 3,
+      "target_message.message_id:correct": 3,
+      "quantity:total": 2,
+      "quantity:correct": 2,
+      "resource:total": 1,
+      "resource:correct": 1
+    }
+  },
+  "state_metrics": {
+    "snapshots_total": 13,
+    "states_correct": 13,
+    "aggregates_correct": 13
+  },
+  "scenarios_passed": 3,
+  "scenarios_total": 3,
+  "runs": [
+    {
+      "scenario_id": "S1",
+      "mode": "api",
+      "status_counts": {
+        "ok": 8
+      },
+      "unique_messages": 8,
+      "api_calls": 8,
+      "calls_with_usage": 8,
+      "input_tokens": 7114,
+      "output_tokens": 2235,
+      "elapsed_ms": 29778.87,
+      "estimated_cost": null,
+      "final_metrics": {
+        "observed_supply_usd_face": 100000.0,
+        "observed_demand_usd_face": 500000.0,
+        "seller_ask_median_cny_per_usd_face": 3.8,
+        "seller_ask_sample_count": 1,
+        "active_event_count": 2,
+        "excluded": {
+          "supply_quantity_missing_or_unit_unknown": 0,
+          "demand_quantity_missing_or_unit_unknown": 0,
+          "flow_quantity": 0,
+          "seller_price_missing_or_not_comparable": 0
+        },
+        "noncomparable_terms_count": 0
+      }
+    },
+    {
+      "scenario_id": "S2",
+      "mode": "api",
+      "status_counts": {
+        "ok": 3
+      },
+      "unique_messages": 3,
+      "api_calls": 3,
+      "calls_with_usage": 3,
+      "input_tokens": 2538,
+      "output_tokens": 890,
+      "elapsed_ms": 11984.31,
+      "estimated_cost": null,
+      "final_metrics": {
+        "observed_supply_usd_face": 0.0,
+        "observed_demand_usd_face": 0.0,
+        "seller_ask_median_cny_per_usd_face": null,
+        "seller_ask_sample_count": 0,
+        "active_event_count": 2,
+        "excluded": {
+          "supply_quantity_missing_or_unit_unknown": 1,
+          "demand_quantity_missing_or_unit_unknown": 0,
+          "flow_quantity": 1,
+          "seller_price_missing_or_not_comparable": 1
+        },
+        "noncomparable_terms_count": 0
+      }
+    },
+    {
+      "scenario_id": "S5",
+      "mode": "api",
+      "status_counts": {
+        "ok": 1,
+        "unresolved": 1
+      },
+      "unique_messages": 2,
+      "api_calls": 2,
+      "calls_with_usage": 2,
+      "input_tokens": 1673,
+      "output_tokens": 1018,
+      "elapsed_ms": 14477.93,
+      "estimated_cost": null,
+      "final_metrics": {
+        "observed_supply_usd_face": 0.0,
+        "observed_demand_usd_face": 0.0,
+        "seller_ask_median_cny_per_usd_face": null,
+        "seller_ask_sample_count": 0,
+        "active_event_count": 0,
+        "excluded": {
+          "supply_quantity_missing_or_unit_unknown": 0,
+          "demand_quantity_missing_or_unit_unknown": 0,
+          "flow_quantity": 0,
+          "seller_price_missing_or_not_comparable": 0
+        },
+        "noncomparable_terms_count": 0
+      }
+    }
+  ],
+  "failures": [
+    {
+      "scenario": "S5",
+      "message_id": "m01",
+      "kind": "extraction",
+      "reason": null,
+      "errors": [
+        {
+          "extra_action": "supply"
+        }
+      ]
+    }
+  ],
+  "extraction_cases": [
+    {
+      "message": {
+        "channel_id": "tg_demo",
+        "message_id": "m01"
+      },
+      "status": "ok",
+      "reason": null,
+      "errors": []
+    },
+    {
+      "message": {
+        "channel_id": "tg_demo",
+        "message_id": "m02"
+      },
+      "status": "ok",
+      "reason": null,
+      "errors": []
+    },
+    {
+      "message": {
+        "channel_id": "tg_demo",
+        "message_id": "m03"
+      },
+      "status": "ok",
+      "reason": null,
+      "errors": []
+    },
+    {
+      "message": {
+        "channel_id": "tg_demo",
+        "message_id": "m04"
+      },
+      "status": "ok",
+      "reason": null,
+      "errors": []
+    },
+    {
+      "message": {
+        "channel_id": "tg_demo",
+        "message_id": "m05"
+      },
+      "status": "ok",
+      "reason": null,
+      "errors": []
+    },
+    {
+      "message": {
+        "channel_id": "tg_demo",
+        "message_id": "m06"
+      },
+      "status": "ok",
+      "reason": null,
+      "errors": []
+    },
+    {
+      "message": {
+        "channel_id": "tg_demo",
+        "message_id": "m07"
+      },
+      "status": "ok",
+      "reason": null,
+      "errors": []
+    },
+    {
+      "message": {
+        "channel_id": "tg_demo",
+        "message_id": "m08"
+      },
+      "status": "ok",
+      "reason": null,
+      "errors": []
+    },
+    {
+      "message": {
+        "channel_id": "wx_units",
+        "message_id": "m01"
+      },
+      "status": "ok",
+      "reason": null,
+      "errors": []
+    },
+    {
+      "message": {
+        "channel_id": "wx_units",
+        "message_id": "m02"
+      },
+      "status": "ok",
+      "reason": null,
+      "errors": []
+    },
+    {
+      "message": {
+        "channel_id": "wx_units",
+        "message_id": "m03"
+      },
+      "status": "ok",
+      "reason": null,
+      "errors": []
+    },
+    {
+      "message": {
+        "channel_id": "wx_mixed",
+        "message_id": "m01"
+      },
+      "status": "ok",
+      "reason": null,
+      "errors": [
+        {
+          "extra_action": "supply"
+        }
+      ]
+    },
+    {
+      "message": {
+        "channel_id": "wx_mixed",
+        "message_id": "m02"
+      },
+      "status": "unresolved",
+      "reason": "“那个”缺少可解析的资源指代，无法确定资源身份。",
+      "errors": []
+    }
+  ],
+  "limitations": "20 mock messages; fixture mode validates downstream only; API metrics measure normalized outputs and report guard failures separately.",
+  "split": "dev",
+  "dataset_sha256": "9a98cc603d12cbc2b8c0704f1f2824f53f7fd91dace1930aaa79a7bae1d5936d"
+}

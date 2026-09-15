@@ -1,0 +1,59 @@
+{
+  "purpose": "Final-state demonstration regression, not held-out accuracy",
+  "scenario_id": "D1",
+  "prompt_id": "d11d66e0def27315",
+  "checks": {
+    "observed_supply_usd_face": {
+      "expected": 1300000,
+      "actual": 1110000.0,
+      "matches": false
+    },
+    "observed_demand_usd_face": {
+      "expected": 2100000,
+      "actual": 2100000.0,
+      "matches": true
+    },
+    "seller_ask_median_cny_per_usd_face": {
+      "expected": 3.7,
+      "actual": 3.7,
+      "matches": true
+    },
+    "seller_ask_sample_count": {
+      "expected": 9,
+      "actual": 8,
+      "matches": false
+    },
+    "active_event_count": {
+      "expected": 15,
+      "actual": 14,
+      "matches": false
+    }
+  },
+  "seller_range": {
+    "expected": [
+      3.55,
+      3.85
+    ],
+    "actual": [
+      3.55,
+      3.85
+    ]
+  },
+  "non_ok_messages": [
+    {
+      "message_id": "d22",
+      "status": "failed",
+      "reason": "timeout_or_network_error"
+    },
+    {
+      "message_id": "d25",
+      "status": "unresolved",
+      "reason": "conflicting unconfirmed new price"
+    },
+    {
+      "message_id": "d31",
+      "status": "unresolved",
+      "reason": "target_not_unique_or_missing"
+    }
+  ]
+}
