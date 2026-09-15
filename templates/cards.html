@@ -1,0 +1,50 @@
+<div class="kpis">
+<section class="kpi featured">
+<div class="eyebrow">
+<span class="resource-icon">O</span> OpenAI API <span class="pill">美元面值额度</span>
+</div>
+<div class="value">
+<small>¥</small> ${price}</div>
+<div class="card-bottom">
+<span>卖方报价中位数</span>
+<span class="delta">${change_median_first_seller_ask_median_cny_per_usd_face}</span>
+</div>
+<div class="hint">CNY / USD 面值 · ${len_asks} 个独立报价</div>
+</section>
+<section class="kpi">
+<div class="eyebrow">
+<span class="dot green">
+</span> Observed supply</div>
+<div class="value">${compact_supply}<small> USD</small>
+</div>
+<div class="card-bottom">
+<span>已观察供应量</span>
+<span class="delta">${change_supply_first_observed_supply_usd_face}</span>
+</div>
+<div class="hint">单位明确的未撤回库存</div>
+</section>
+<section class="kpi">
+<div class="eyebrow">
+<span class="dot purple">
+</span> Observed demand</div>
+<div class="value">${compact_demand}<small> USD</small>
+</div>
+<div class="card-bottom">
+<span>已观察需求量</span>
+<span class="delta">${change_demand_first_observed_demand_usd_face}</span>
+</div>
+<div class="hint">买方意向 · 不代表成交</div>
+</section>
+<section class="kpi">
+<div class="eyebrow">
+<span class="dot slate">
+</span> Active signals</div>
+<div class="value">${m_active_event_count}<small> events</small>
+</div>
+<div class="card-bottom">
+<span>去重活跃事件</span>
+<span class="pill">${esc_pipeline_scenario_id}</span>
+</div>
+<div class="hint">已关联来源的转发不重复累计</div>
+</section>
+</div>

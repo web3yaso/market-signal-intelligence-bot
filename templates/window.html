@@ -1,0 +1,134 @@
+<div class="window-panel" data-window="${key}"${hidden_if_key_24h_else}>${cards}
+<section class="panel price-panel">
+<div class="section-head">
+<div>
+<h2>Median price <span class="light">+ range</span>
+</h2>
+<p>独立卖方报价中位数与最低—最高范围 · CNY / USD 面值</p>
+</div>
+<div class="legend">
+<span>
+<i class="line-key">
+</i> 中位数</span>
+<span>
+<i class="range-key">
+</i> 报价范围</span>
+</div>
+</div>${price_chart_selected_terms}<div class="chart-footer">
+<span>模拟消息时间（UTC）· 数字为步骤；无报价时留空</span>
+<span>当前范围 <b>${bounds}</b>
+</span>
+</div>
+</section>
+<section class="panel">
+<div class="section-head">
+<div>
+<h2>Window activity</h2>
+<p>窗口内新增发布量；后续剩余量和撤回不回改发布量。报价取每个事件在窗口内最后一次发布或确认改价。</p>
+</div>
+</div>
+<div class="card-bottom">
+<span>新增供应 <b>${compact_activity_new_supply} USD</b>
+</span>
+<span>新增需求 <b>${compact_activity_new_demand} USD</b>
+</span>
+<span>窗口报价中位数 <b>${fmt_activity_quote_median}</b> CNY / USD · ${activity_quote_events} 个事件</span>
+</div>
+</section>
+<div class="split">
+<section class="panel">
+<div class="section-head">
+<div>
+<h2>Supply vs demand</h2>
+<p>已观察供需 · USD 面值额度</p>
+</div>
+<span class="tiny-label">CURRENT SNAPSHOT</span>
+</div>
+<div class="bar-row">
+<span>
+<i class="dot green">
+</i> Supply</span>
+<b>${compact_supply}</b>
+</div>
+<div class="bar-track">
+<div class="bar-fill supply" style="width:${format_100_supply_max_amount_3f}%">
+</div>
+</div>
+<div class="bar-row">
+<span>
+<i class="dot purple">
+</i> Demand</span>
+<b>${compact_demand}</b>
+</div>
+<div class="bar-track">
+<div class="bar-fill demand" style="width:${format_100_demand_max_amount_3f}%">
+</div>
+</div>
+<div class="ratio">
+<span>Supply / Demand ratio</span>
+<strong>${ratio}</strong>
+</div>
+<p class="hint">需求为零时比值留空。未知单位与日用量不进入数量统计。</p>
+</section>
+<section class="panel">
+<div class="section-head">
+<div>
+<h2>Market health</h2>
+<p>变化相对窗口首条快照</p>
+</div>
+<span class="pill">描述性指标</span>
+</div>
+<div class="health-row">
+<span>供应量变化</span>
+<b>${change_supply_first_observed_supply_usd_face}</b>
+</div>
+<div class="health-row">
+<span>需求量变化</span>
+<b>${change_demand_first_observed_demand_usd_face}</b>
+</div>
+<div class="health-row">
+<span>卖价极差 <small>CNY / USD</small>
+</span>
+<b>${spread}</b>
+</div>
+<div class="health-row">
+<span>可比报价覆盖 <small>${len_asks}/${seller_count} 活跃卖方</small>
+</span>
+<b>${coverage}</b>
+</div>
+<p class="hint">覆盖率表示可比卖方报价占比，不是模型置信度。</p>
+</section>
+</div>
+<section class="panel recent">
+<div class="section-head">
+<div>
+<h2>Recent signals</h2>
+<p>最近消息、状态变更与原文证据</p>
+</div>
+<span class="pill">${len_signal_rows} 条消息</span>
+</div>
+<div class="scroll">
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>来源 / 发布者</th>
+<th>信号</th>
+<th>内容</th>
+<th>处理状态</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody>${join_signal_rows_or_tr_td_colspan_6_td_tr}</tbody>
+</table>
+</div>
+</section>
+<div class="data-note">
+<span class="note-icon">i</span>
+<div>
+<b>统计口径</b>　固定条款 ${esc_terms}；未撤回不保证仍有货。排除项计数合计 ${excluded_count}（可重叠），条款不可比 ${m_noncomparable_terms_count}。<br>
+<span>${esc_exclusion_text}。窗口筛选时间线和最近消息，卡片保留最新时点仍活跃的供需存量。本次回放处理失败 ${failed_count} 条，待确认 ${unresolved_count} 条。</span>
+</div>
+</div>
+</div>
